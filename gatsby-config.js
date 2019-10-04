@@ -36,6 +36,12 @@ module.exports = {
             },
         },
         `gatsby-transformer-remark`,
+        {
+            resolve: `gatsby-plugin-generate-typings`,
+            options: {
+                dest: `./src/graphql-types.d.ts`,
+            },
+        },
         // this (optional) plugin enables Progressive Web App + Offline functionality
         // To learn more, visit: https://gatsby.dev/offline
         // `gatsby-plugin-offline`,

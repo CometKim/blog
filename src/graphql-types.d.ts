@@ -2098,11 +2098,13 @@ export type SitePageConnectionGroupArgs = {
 export type SitePageContext = {
   html?: Maybe<Scalars['String']>,
   title?: Maybe<Scalars['String']>,
+  date?: Maybe<Scalars['Date']>,
 };
 
 export type SitePageContextFilterInput = {
   html?: Maybe<StringQueryOperatorInput>,
   title?: Maybe<StringQueryOperatorInput>,
+  date?: Maybe<DateQueryOperatorInput>,
 };
 
 export type SitePageEdge = {
@@ -2205,6 +2207,7 @@ export type SitePageFieldsEnum =
   'isCreatedByStatefulCreatePages' |
   'context___html' |
   'context___title' |
+  'context___date' |
   'pluginCreator___id' |
   'pluginCreator___parent___id' |
   'pluginCreator___parent___parent___id' |
@@ -2626,6 +2629,11 @@ export type StringQueryOperatorInput = {
   regex?: Maybe<Scalars['String']>,
   glob?: Maybe<Scalars['String']>,
 };
+
+export type LatestPostListQueryQueryVariables = {};
+
+
+export type LatestPostListQueryQuery = { allMarkdownRemark: { edges: Array<{ node: (Pick<MarkdownRemark, 'excerpt' | 'id'> & { frontmatter: Maybe<Pick<MarkdownRemarkFrontmatter, 'title' | 'path' | 'date'>> }) }> } };
 
 export type GatsbyImageSharpFixedFragment = Pick<ImageSharpFixed, 'base64' | 'width' | 'height' | 'src' | 'srcSet'>;
 

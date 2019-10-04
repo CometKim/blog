@@ -10,4 +10,5 @@ export interface IPostTemplateContext {
     html: string;
     title: string;
     date: string;
+    excerpt: string;
 }

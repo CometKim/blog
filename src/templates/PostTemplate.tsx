@@ -1,11 +1,8 @@
 import React from 'react';
 import Layout from '../components/layout';
-import { ITemplateProps } from '../interface';
+import { IPostTemplateContext, ITemplateProps } from '../interface';
 
-type IPostTemplateProps = ITemplateProps<{
-    html: string;
-    title: string;
-}>;
+type IPostTemplateProps = ITemplateProps<IPostTemplateContext>;
 
 const PostTemplate: React.FC<IPostTemplateProps> = React.memo(props => {
     return (

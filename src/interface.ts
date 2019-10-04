@@ -5,3 +5,9 @@ export type ITemplateProps<T> = ReplaceComponentRendererArgs['props'] & {
         isCreatedByStatefulCreatePages: boolean;
     } & T;
 };
+
+export interface IPostTemplateContext {
+    html: string;
+    title: string;
+    date: string;
+}

@@ -1,6 +1,7 @@
 import { CreatePagesArgs } from 'gatsby';
 import path from 'path';
 import { Query } from '../graphql-types';
+import { IPostTemplateContext } from '../interface';
 
 export async function createPages({ actions, graphql }: CreatePagesArgs) {
     const { createPage } = actions;
@@ -13,6 +14,8 @@ export async function createPages({ actions, graphql }: CreatePagesArgs) {
                         html
                         frontmatter {
                             title
+                            path
+                            date(formatString: "YYYY-MM-DD HH:mm:ss")
                         }
                     }
                 }
@@ -25,11 +28,12 @@ export async function createPages({ actions, graphql }: CreatePagesArgs) {
     }
 
     data.allMarkdownRemark.edges.forEach(({ node }) => {
-        createPage({
+        createPage<IPostTemplateContext>({
             path: node.frontmatter.path,
             context: {
                 html: node.html,
                 title: node.frontmatter.title,
+                date: node.frontmatter.date,
             },
             component: path.resolve(__dirname, '../templates/PostTemplate.tsx'),
         });

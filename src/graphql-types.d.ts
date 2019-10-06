@@ -2645,6 +2645,11 @@ export type StringQueryOperatorInput = {
   glob?: Maybe<Scalars['String']>,
 };
 
+export type ExperienceLogoQueryQueryVariables = {};
+
+
+export type ExperienceLogoQueryQuery = { profileImage: Maybe<{ childImageSharp: Maybe<{ fluid: Maybe<Pick<ImageSharpFluid, 'base64' | 'aspectRatio' | 'src' | 'srcSet' | 'sizes'>> }> }> };
+
 export type SiteTitleQueryQueryVariables = {};
 
 

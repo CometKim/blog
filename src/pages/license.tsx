@@ -10,7 +10,7 @@ const LicensePage: React.FC = React.memo(() => {
     return (
         <Layout>
             <SEO title="License" />
-            <h2>License 정보</h2>
+            <h1>License 정보</h1>
             <p>이 블로그는 아래 서비스를 이용해서 만들었습니다.</p>
             <ul>
                 <li>

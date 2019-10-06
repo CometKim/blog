@@ -6,14 +6,14 @@ import { File, Maybe, Query } from '../graphql-types';
 
 export const ProfileImageBlock = css`
     display: inline-block;
-    width: 2rem;
-    height: 2rem;
+    width: 6.25rem;
+    height: 6.25rem;
     border-radius: 100%;
 `;
 
 const ProfileImageQuery = graphql`
     query ProfileImageQuery {
-        profileImage: file {
+        profileImage: file(name: {eq: "profile"}) {
             childImageSharp {
                 fluid(maxWidth: 300) {
                     base64

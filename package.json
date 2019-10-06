@@ -1,9 +1,9 @@
 {
-  "name": "gatsby-starter-default",
+  "name": "imch.dev",
   "private": true,
-  "description": "A simple starter to get up and developing quickly with Gatsby",
+  "description": "imch.dev",
   "version": "0.1.0",
-  "author": "Kyle Mathews <mathews.kyle@gmail.com>",
+  "author": "iamchanii <iamchanii.0310@gmail.com>",
   "dependencies": {
     "@types/typography": "^0.16.3",
     "gatsby": "^2.15.28",
@@ -49,9 +49,6 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/gatsbyjs/gatsby-starter-default"
-  },
-  "bugs": {
-    "url": "https://github.com/gatsbyjs/gatsby/issues"
+    "url": "https://github.com/iamchanii/blog"
   }
 }

@@ -73,7 +73,7 @@ const PostListPage: React.FC = React.memo(() => {
 
     return (
         <Layout>
-            <SEO title="Recent" />
+            <SEO title="blog" />
             <ul className={PostListBlock}>
                 {data.allMarkdownRemark.edges.map(({ node }) => (
                     <li key={node.id} data-to={node.frontmatter.path} onClick={handleClickPost}>

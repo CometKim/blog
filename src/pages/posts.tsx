@@ -12,7 +12,7 @@ const PostListBlock = css`
     padding: 0;
 
     li {
-        padding: 4rem 2rem;
+        padding: 2rem 0;
         cursor: pointer;
         color: ${oc.gray[8]};
 

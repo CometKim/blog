@@ -22,6 +22,11 @@ const ResumeBlock = css`
                 border-radius: 100%;
                 border: 1px solid ${oc.gray[2]};
                 margin-right: 2em;
+                margin-bottom: 2em;
+            }
+
+            @media screen and (max-width: 420px) {
+                flex-direction: column;
             }
         }
     }
@@ -29,10 +34,15 @@ const ResumeBlock = css`
 
 const ProfileImageAndTextBlock = css`
     display: flex;
+
     .gatsby-image-wrapper {
         min-width: 6.25rem;
         margin-right: 2em;
         margin-bottom: 2em;
+    }
+
+    @media screen and (max-width: 420px) {
+        flex-direction: column;
     }
 `;
 

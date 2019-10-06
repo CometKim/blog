@@ -1,4 +1,13 @@
+import { css } from 'linaria';
 import React, { createRef, useLayoutEffect } from 'react';
+
+const UtterancesBlock = css`
+    margin-top: 4rem;
+
+    .utterances {
+        max-width: 100%;
+    }
+`;
 
 const src = 'https://utteranc.es/client.js';
 
@@ -29,7 +38,7 @@ const Utterances: React.FC<IUtterancesProps> = React.memo(({ repo }) => {
         containerRef.current.appendChild(utterances);
     }, [repo]);
 
-    return <div ref={containerRef} />;
+    return <div className={UtterancesBlock} ref={containerRef} />;
 });
 
 Utterances.displayName = 'Utterances';

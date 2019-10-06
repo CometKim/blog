@@ -30,7 +30,7 @@ export async function createPages({ actions, graphql }: CreatePagesArgs) {
 
     data.allMarkdownRemark.edges.forEach(({ node }) => {
         createPage<IPostTemplateContext>({
-            path: node.frontmatter.path,
+            path: '/posts' + node.frontmatter.path,
             context: {
                 html: node.html,
                 title: node.frontmatter.title,

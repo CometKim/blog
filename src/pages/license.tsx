@@ -23,13 +23,19 @@ const LicensePage: React.FC = React.memo(() => {
             <p>또한, 아래 오픈소스 라이브러리를 사용했습니다. 감사합니다.</p>
             <ul>
                 <li>
-                    <A href="https://kyleamathews.github.io/typography.js/">typography.js</A>
+                    <A href="https://github.com/KyleAMathews/typography.js">typography.js</A>
                 </li>
                 <li>
                     <A href="https://github.com/callstack/linaria">linaria</A>
                 </li>
                 <li>
                     <A href="https://github.com/yeun/open-color">open-color</A>
+                </li>
+                <li>
+                    <A href="https://github.com/react-icons/react-icons">react-icons</A>
+                </li>
+                <li>
+                    <A href="https://matthewlein.com/tools/ceaser">Ceaser</A>
                 </li>
             </ul>
         </Layout>

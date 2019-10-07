@@ -2286,6 +2286,14 @@ export type SitePageFieldsEnum =
   'pluginCreator___resolve' |
   'pluginCreator___name' |
   'pluginCreator___version' |
+  'pluginCreator___pluginOptions___plugins' |
+  'pluginCreator___pluginOptions___plugins___resolve' |
+  'pluginCreator___pluginOptions___plugins___id' |
+  'pluginCreator___pluginOptions___plugins___name' |
+  'pluginCreator___pluginOptions___plugins___version' |
+  'pluginCreator___pluginOptions___plugins___browserAPIs' |
+  'pluginCreator___pluginOptions___plugins___ssrAPIs' |
+  'pluginCreator___pluginOptions___plugins___pluginFilepath' |
   'pluginCreator___pluginOptions___name' |
   'pluginCreator___pluginOptions___path' |
   'pluginCreator___pluginOptions___short_name' |
@@ -2294,6 +2302,7 @@ export type SitePageFieldsEnum =
   'pluginCreator___pluginOptions___theme_color' |
   'pluginCreator___pluginOptions___display' |
   'pluginCreator___pluginOptions___icon' |
+  'pluginCreator___pluginOptions___maxWidth' |
   'pluginCreator___pluginOptions___dest' |
   'pluginCreator___pluginOptions___google___families' |
   'pluginCreator___pluginOptions___pathCheck' |
@@ -2483,6 +2492,15 @@ export type SitePluginFieldsEnum =
   'resolve' |
   'name' |
   'version' |
+  'pluginOptions___plugins' |
+  'pluginOptions___plugins___resolve' |
+  'pluginOptions___plugins___id' |
+  'pluginOptions___plugins___name' |
+  'pluginOptions___plugins___version' |
+  'pluginOptions___plugins___pluginOptions___maxWidth' |
+  'pluginOptions___plugins___browserAPIs' |
+  'pluginOptions___plugins___ssrAPIs' |
+  'pluginOptions___plugins___pluginFilepath' |
   'pluginOptions___name' |
   'pluginOptions___path' |
   'pluginOptions___short_name' |
@@ -2491,6 +2509,7 @@ export type SitePluginFieldsEnum =
   'pluginOptions___theme_color' |
   'pluginOptions___display' |
   'pluginOptions___icon' |
+  'pluginOptions___maxWidth' |
   'pluginOptions___dest' |
   'pluginOptions___google___families' |
   'pluginOptions___pathCheck' |
@@ -2609,6 +2628,7 @@ export type SitePluginPackageJsonPeerDependenciesFilterListInput = {
 };
 
 export type SitePluginPluginOptions = {
+  plugins?: Maybe<Array<Maybe<SitePluginPluginOptionsPlugins>>>,
   name?: Maybe<Scalars['String']>,
   path?: Maybe<Scalars['String']>,
   short_name?: Maybe<Scalars['String']>,
@@ -2617,12 +2637,14 @@ export type SitePluginPluginOptions = {
   theme_color?: Maybe<Scalars['String']>,
   display?: Maybe<Scalars['String']>,
   icon?: Maybe<Scalars['String']>,
+  maxWidth?: Maybe<Scalars['Int']>,
   dest?: Maybe<Scalars['String']>,
   google?: Maybe<SitePluginPluginOptionsGoogle>,
   pathCheck?: Maybe<Scalars['Boolean']>,
 };
 
 export type SitePluginPluginOptionsFilterInput = {
+  plugins?: Maybe<SitePluginPluginOptionsPluginsFilterListInput>,
   name?: Maybe<StringQueryOperatorInput>,
   path?: Maybe<StringQueryOperatorInput>,
   short_name?: Maybe<StringQueryOperatorInput>,
@@ -2631,6 +2653,7 @@ export type SitePluginPluginOptionsFilterInput = {
   theme_color?: Maybe<StringQueryOperatorInput>,
   display?: Maybe<StringQueryOperatorInput>,
   icon?: Maybe<StringQueryOperatorInput>,
+  maxWidth?: Maybe<IntQueryOperatorInput>,
   dest?: Maybe<StringQueryOperatorInput>,
   google?: Maybe<SitePluginPluginOptionsGoogleFilterInput>,
   pathCheck?: Maybe<BooleanQueryOperatorInput>,
@@ -2642,6 +2665,40 @@ export type SitePluginPluginOptionsGoogle = {
 
 export type SitePluginPluginOptionsGoogleFilterInput = {
   families?: Maybe<StringQueryOperatorInput>,
+};
+
+export type SitePluginPluginOptionsPlugins = {
+  resolve?: Maybe<Scalars['String']>,
+  id?: Maybe<Scalars['String']>,
+  name?: Maybe<Scalars['String']>,
+  version?: Maybe<Scalars['String']>,
+  pluginOptions?: Maybe<SitePluginPluginOptionsPluginsPluginOptions>,
+  browserAPIs?: Maybe<Array<Maybe<Scalars['String']>>>,
+  ssrAPIs?: Maybe<Array<Maybe<Scalars['String']>>>,
+  pluginFilepath?: Maybe<Scalars['String']>,
+};
+
+export type SitePluginPluginOptionsPluginsFilterInput = {
+  resolve?: Maybe<StringQueryOperatorInput>,
+  id?: Maybe<StringQueryOperatorInput>,
+  name?: Maybe<StringQueryOperatorInput>,
+  version?: Maybe<StringQueryOperatorInput>,
+  pluginOptions?: Maybe<SitePluginPluginOptionsPluginsPluginOptionsFilterInput>,
+  browserAPIs?: Maybe<StringQueryOperatorInput>,
+  ssrAPIs?: Maybe<StringQueryOperatorInput>,
+  pluginFilepath?: Maybe<StringQueryOperatorInput>,
+};
+
+export type SitePluginPluginOptionsPluginsFilterListInput = {
+  elemMatch?: Maybe<SitePluginPluginOptionsPluginsFilterInput>,
+};
+
+export type SitePluginPluginOptionsPluginsPluginOptions = {
+  maxWidth?: Maybe<Scalars['Int']>,
+};
+
+export type SitePluginPluginOptionsPluginsPluginOptionsFilterInput = {
+  maxWidth?: Maybe<IntQueryOperatorInput>,
 };
 
 export type SitePluginSortInput = {

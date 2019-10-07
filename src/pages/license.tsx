@@ -37,6 +37,9 @@ const LicensePage: React.FC = React.memo(() => {
                 <li>
                     <A href="https://matthewlein.com/tools/ceaser">Ceaser</A>
                 </li>
+                <li>
+                    <A href="https://github.com/GalenWong/nord-prism-js">nord-prism-js</A>
+                </li>
             </ul>
         </Layout>
     );

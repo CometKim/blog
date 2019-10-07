@@ -1,4 +1,5 @@
 import Typography from 'typography';
+import CodePlugin from 'typography-plugin-code';
 import oc from 'open-color';
 
 const typography = new Typography({
@@ -11,6 +12,7 @@ const typography = new Typography({
     bodyWeight: 300,
     headerColor: oc.gray[9],
     headerWeight: 700,
+    plugins: [new CodePlugin()],
 });
 
 export default typography;

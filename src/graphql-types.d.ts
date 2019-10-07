@@ -2645,20 +2645,20 @@ export type StringQueryOperatorInput = {
   glob?: Maybe<Scalars['String']>,
 };
 
-export type ExperienceLogoQueryQueryVariables = {};
+export type ExperienceLogoQueryVariables = {};
 
 
-export type ExperienceLogoQueryQuery = { profileImage: Maybe<{ childImageSharp: Maybe<{ fluid: Maybe<Pick<ImageSharpFluid, 'base64' | 'aspectRatio' | 'src' | 'srcSet' | 'sizes'>> }> }> };
+export type ExperienceLogoQuery = { profileImages: { edges: Array<{ node: (Pick<File, 'name'> & { childImageSharp: Maybe<{ fluid: Maybe<Pick<ImageSharpFluid, 'base64' | 'aspectRatio' | 'src' | 'srcSet' | 'sizes'>> }> }) }> } };
 
 export type SiteTitleQueryQueryVariables = {};
 
 
 export type SiteTitleQueryQuery = { site: Maybe<{ siteMetadata: Maybe<Pick<SiteSiteMetadata, 'title'>> }> };
 
-export type ProfileImageQueryQueryVariables = {};
+export type ProfileImageQueryVariables = {};
 
 
-export type ProfileImageQueryQuery = { profileImage: Maybe<{ childImageSharp: Maybe<{ fluid: Maybe<Pick<ImageSharpFluid, 'base64' | 'aspectRatio' | 'src' | 'srcSet' | 'sizes'>> }> }> };
+export type ProfileImageQuery = { profileImage: Maybe<{ childImageSharp: Maybe<{ fluid: Maybe<Pick<ImageSharpFluid, 'base64' | 'aspectRatio' | 'src' | 'srcSet' | 'sizes'>> }> }> };
 
 export type LatestPostListQueryQueryVariables = {};
 

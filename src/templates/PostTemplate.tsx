@@ -2,6 +2,7 @@ import { css } from 'linaria';
 import oc from 'open-color';
 import React from 'react';
 import { FiArrowLeft } from 'react-icons/all';
+import { navigate } from '../../.cache/gatsby-browser-entry';
 import Layout from '../components/Layout';
 import PreviousOrNextPostCard from '../components/PreviousOrNextPostCard';
 import SEO from '../components/seo';
@@ -77,9 +78,7 @@ const PreviousAndNextBlock = css`
 type IPostTemplateProps = ITemplateProps<IPostTemplateContext>;
 
 const handleClickBack = () => {
-    if (window && window.history) {
-        window.history.back();
-    }
+    navigate('/posts');
 };
 
 const PostTemplate: React.FC<IPostTemplateProps> = React.memo(props => {

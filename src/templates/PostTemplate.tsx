@@ -47,7 +47,7 @@ const PostTitleAndDateBlock = css`
     h2 {
         font-size: 2.25rem;
         color: inherit;
-        margin: 0 0 0.25em 0;
+        margin: 0;
     }
 
     p {

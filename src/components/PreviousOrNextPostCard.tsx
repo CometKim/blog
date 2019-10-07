@@ -21,14 +21,25 @@ const PreviousOrNextPostCardBlock = styled.div`
 
     &:hover {
         background-color: ${oc.gray[0]};
+
+        p {
+            &.title {
+                color: ${oc.gray[8]};
+            }
+
+            &.date {
+                color: ${oc.gray[7]};
+            }
+        }
     }
-    
+
     p {
         margin: 0;
 
         &.title {
             font-size: 1.25rem;
-            color: ${oc.gray[8]};
+            font-weight: 700;
+            color: ${oc.gray[7]};
         }
 
         &.date {

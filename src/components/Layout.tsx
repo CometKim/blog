@@ -4,7 +4,6 @@ import React, { useLayoutEffect } from 'react';
 import { Query } from '../graphql-types';
 import Footer from './Footer';
 import Header from './Header';
-import './Layout.less';
 import typography from './typography';
 
 const LayoutBlock = css`

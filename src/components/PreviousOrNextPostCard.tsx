@@ -13,11 +13,15 @@ const PreviousOrNextPostCardBlock = styled.div`
     justify-content: center;
     cursor: pointer;
     border-radius: 2px;
-    border: 1px solid ${oc.gray[1]};
     position: relative;
     ${easeInQuad};
-    padding: 2rem;
+    padding: 1.5rem 3rem;
     text-decoration: none !important;
+    height: 100%;
+
+    @media screen and (max-width: 420px) {
+        padding: 1rem 3rem;
+    }
 
     &:hover {
         background-color: ${oc.gray[0]};
@@ -40,11 +44,26 @@ const PreviousOrNextPostCardBlock = styled.div`
             font-size: 1.25rem;
             font-weight: 700;
             color: ${oc.gray[7]};
+            text-align: center;
+
+            text-overflow: ellipsis;
+            white-space: pre-wrap;
+            word-break: break-all;
+            width: 100%;
+            overflow: hidden;
+
+            @media screen and (max-width: 420px) {
+                font-size: 1rem;
+            }
         }
 
         &.date {
             font-size: 0.75rem;
             color: ${oc.gray[6]};
+
+            @media screen and (max-width: 420px) {
+                font-size: 0.5rem;
+            }
         }
     }
 

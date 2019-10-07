@@ -63,15 +63,19 @@ const PostTitleAndDateBlock = css`
 const PreviousAndNextBlock = css`
     display: grid;
     grid-template-columns: repeat(2, 1fr);
+    grid-auto-rows: 1fr;
     grid-gap: 1rem;
     margin-top: 8rem;
 
     @media screen and (max-width: 420px) {
         margin-top: 4rem;
+        grid-template-columns: 1fr;
     }
 
     a {
         text-decoration: none;
+        border: 1px solid ${oc.gray[1]};
+        display: block;
     }
 `;
 

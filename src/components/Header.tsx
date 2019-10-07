@@ -2,6 +2,7 @@ import { Link } from 'gatsby';
 import { css } from 'linaria';
 import React from 'react';
 import oc from 'open-color';
+import FaviconImage from './FaviconImage';
 
 const HeaderBlock = css`
     height: 3.5rem;
@@ -21,6 +22,13 @@ const HeaderBlock = css`
             > a {
                 text-decoration: none;
                 color: ${oc.gray[8]};
+                display: flex;
+                align-items: center;
+
+                .favicon-image {
+                    width: 2rem;
+                    margin-right: 0.5em;
+                }
             }
         }
     }
@@ -68,7 +76,10 @@ const Header: React.FC<IHeaderProps> = React.memo(() => {
         <div className={HeaderBlock}>
             <div className="profile-and-title">
                 <h1>
-                    <Link to="/posts">imch.dev</Link>
+                    <Link to="/posts">
+                        <FaviconImage />
+                        imch.dev
+                    </Link>
                 </h1>
             </div>
             <div className="links">

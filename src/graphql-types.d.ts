@@ -2684,6 +2684,11 @@ export type ExperienceLogoQueryVariables = {};
 
 export type ExperienceLogoQuery = { profileImages: { edges: Array<{ node: (Pick<File, 'name'> & { childImageSharp: Maybe<{ fluid: Maybe<Pick<ImageSharpFluid, 'base64' | 'aspectRatio' | 'src' | 'srcSet' | 'sizes'>> }> }) }> } };
 
+export type FaviconImageQueryVariables = {};
+
+
+export type FaviconImageQuery = { faviconImage: Maybe<(Pick<File, 'name'> & { childImageSharp: Maybe<{ fluid: Maybe<Pick<ImageSharpFluid, 'base64' | 'aspectRatio' | 'src' | 'srcSet' | 'sizes'>> }> })> };
+
 export type SiteTitleQueryQueryVariables = {};
 
 

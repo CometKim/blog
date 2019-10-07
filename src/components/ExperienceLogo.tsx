@@ -14,7 +14,7 @@ const ExperienceLogo: React.FC<IExperienceLogoProps> = React.memo(({ name }) => 
                 edges {
                     node {
                         childImageSharp {
-                            fluid {
+                            fluid(maxWidth: 100) {
                                 base64
                                 aspectRatio
                                 src

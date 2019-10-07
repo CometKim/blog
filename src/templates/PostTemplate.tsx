@@ -3,6 +3,7 @@ import oc from 'open-color';
 import React from 'react';
 import { FiArrowLeft } from 'react-icons/all';
 import Layout from '../components/Layout';
+import PreviousOrNextPostCard from '../components/PreviousOrNextPostCard';
 import SEO from '../components/seo';
 import Utterances from '../components/Utterances';
 import { IPostTemplateContext, ITemplateProps } from '../interface';
@@ -58,6 +59,21 @@ const PostTitleAndDateBlock = css`
     }
 `;
 
+const PreviousAndNextBlock = css`
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 1rem;
+    margin-top: 8rem;
+
+    @media screen and (max-width: 420px) {
+        margin-top: 4rem;
+    }
+
+    a {
+        text-decoration: none;
+    }
+`;
+
 type IPostTemplateProps = ITemplateProps<IPostTemplateContext>;
 
 const handleClickBack = () => {
@@ -67,7 +83,7 @@ const handleClickBack = () => {
 };
 
 const PostTemplate: React.FC<IPostTemplateProps> = React.memo(props => {
-    const { title, date, html, excerpt } = props.pageContext;
+    const { title, date, html, excerpt, next, previous } = props.pageContext;
     return (
         <Layout>
             <SEO title={title} description={excerpt} />
@@ -81,6 +97,10 @@ const PostTemplate: React.FC<IPostTemplateProps> = React.memo(props => {
                 </div>
             </div>
             <div dangerouslySetInnerHTML={{ __html: html }} />
+            <div className={PreviousAndNextBlock}>
+                <PreviousOrNextPostCard previous={previous} />
+                <PreviousOrNextPostCard next={next} />
+            </div>
             <Utterances repo="iamchanii/blog" />
         </Layout>
     );

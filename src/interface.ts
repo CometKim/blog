@@ -6,9 +6,15 @@ export type ITemplateProps<T> = ReplaceComponentRendererArgs['props'] & {
     } & T;
 };
 
-export interface IPostTemplateContext {
-    html: string;
+export interface IPostFrontmatter {
     title: string;
+    path: string;
     date: string;
+}
+
+export interface IPostTemplateContext extends Omit<IPostFrontmatter, 'path'> {
+    html: string;
     excerpt: string;
+    previous: IPostFrontmatter | null;
+    next: IPostFrontmatter | null;
 }

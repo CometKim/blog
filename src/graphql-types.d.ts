@@ -2100,6 +2100,8 @@ export type SitePageContext = {
   title?: Maybe<Scalars['String']>,
   date?: Maybe<Scalars['Date']>,
   excerpt?: Maybe<Scalars['String']>,
+  next?: Maybe<SitePageContextNext>,
+  previous?: Maybe<SitePageContextPrevious>,
 };
 
 export type SitePageContextFilterInput = {
@@ -2107,6 +2109,32 @@ export type SitePageContextFilterInput = {
   title?: Maybe<StringQueryOperatorInput>,
   date?: Maybe<DateQueryOperatorInput>,
   excerpt?: Maybe<StringQueryOperatorInput>,
+  next?: Maybe<SitePageContextNextFilterInput>,
+  previous?: Maybe<SitePageContextPreviousFilterInput>,
+};
+
+export type SitePageContextNext = {
+  title?: Maybe<Scalars['String']>,
+  path?: Maybe<Scalars['String']>,
+  date?: Maybe<Scalars['Date']>,
+};
+
+export type SitePageContextNextFilterInput = {
+  title?: Maybe<StringQueryOperatorInput>,
+  path?: Maybe<StringQueryOperatorInput>,
+  date?: Maybe<DateQueryOperatorInput>,
+};
+
+export type SitePageContextPrevious = {
+  title?: Maybe<Scalars['String']>,
+  path?: Maybe<Scalars['String']>,
+  date?: Maybe<Scalars['Date']>,
+};
+
+export type SitePageContextPreviousFilterInput = {
+  title?: Maybe<StringQueryOperatorInput>,
+  path?: Maybe<StringQueryOperatorInput>,
+  date?: Maybe<DateQueryOperatorInput>,
 };
 
 export type SitePageEdge = {
@@ -2211,6 +2239,12 @@ export type SitePageFieldsEnum =
   'context___title' |
   'context___date' |
   'context___excerpt' |
+  'context___next___title' |
+  'context___next___path' |
+  'context___next___date' |
+  'context___previous___title' |
+  'context___previous___path' |
+  'context___previous___date' |
   'pluginCreator___id' |
   'pluginCreator___parent___id' |
   'pluginCreator___parent___parent___id' |

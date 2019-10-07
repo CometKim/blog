@@ -1,7 +1,10 @@
 import { CreatePagesArgs } from 'gatsby';
 import path from 'path';
-import { Query } from '../graphql-types';
-import { IPostTemplateContext } from '../interface';
+import { Query, MarkdownRemark } from '../graphql-types';
+import { IPostFrontmatter, IPostTemplateContext } from '../interface';
+
+const getNextOrPreviousData = (data: MarkdownRemark | null): IPostFrontmatter | null =>
+    data ? { title: data.frontmatter.title, path: data.frontmatter.path, date: data.frontmatter.date } : null;
 
 export async function createPages({ actions, graphql }: CreatePagesArgs) {
     const { createPage } = actions;
@@ -19,6 +22,20 @@ export async function createPages({ actions, graphql }: CreatePagesArgs) {
                             date(formatString: "YYYY-MM-DD HH:mm:ss")
                         }
                     }
+                    next {
+                        frontmatter {
+                            title
+                            path
+                            date(formatString: "YYYY-MM-DD HH:mm:ss")
+                        }
+                    }
+                    previous {
+                        frontmatter {
+                            title
+                            path
+                            date(formatString: "YYYY-MM-DD HH:mm:ss")
+                        }
+                    }
                 }
             }
         }
@@ -28,7 +45,7 @@ export async function createPages({ actions, graphql }: CreatePagesArgs) {
         throw errors;
     }
 
-    data.allMarkdownRemark.edges.forEach(({ node }) => {
+    data.allMarkdownRemark.edges.forEach(({ node, next, previous }) => {
         createPage<IPostTemplateContext>({
             path: '/posts' + node.frontmatter.path,
             context: {
@@ -36,6 +53,8 @@ export async function createPages({ actions, graphql }: CreatePagesArgs) {
                 title: node.frontmatter.title,
                 date: node.frontmatter.date,
                 excerpt: node.excerpt,
+                next: getNextOrPreviousData(next),
+                previous: getNextOrPreviousData(previous),
             },
             component: path.resolve(__dirname, '../templates/PostTemplate.tsx'),
         });

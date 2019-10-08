@@ -1,88 +1,69 @@
 import { Link } from 'gatsby';
-import { styled } from 'linaria/react';
-import oc from 'open-color';
+import { css, cx } from 'linaria';
+import { ellipsis } from 'polished';
 import React, { useMemo } from 'react';
 import { FiArrowLeft, FiArrowRight } from 'react-icons/fi';
 import { IPostFrontmatter } from '../interface';
+import oc from 'open-color';
 import { easeInQuad } from '../lib/constants';
 
-const PreviousOrNextPostCardBlock = styled.div`
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    border-radius: 2px;
-    position: relative;
-    ${easeInQuad};
-    padding: 1.5rem 3rem;
-    text-decoration: none !important;
-    height: 100%;
+const PreviousOrNextPostCardBlock = css`
+    flex: calc(50% - 1rem);
+    max-width: calc(50% - 1rem);
 
-    @media screen and (max-width: 420px) {
-        padding: 1rem 3rem;
-    }
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    color: ${oc.gray[8]};
+
+    padding: 1rem;
+    border-radius: 2px;
+    ${easeInQuad};
 
     &:hover {
         background-color: ${oc.gray[0]};
+        color: ${oc.gray[9]};
+    }
 
-        p {
-            &.title {
-                color: ${oc.gray[8]};
-            }
+    &:hover {
+        text-decoration: underline;
+    }
 
-            &.date {
-                color: ${oc.gray[7]};
-            }
+    &.previous {
+        justify-content: flex-start;
+
+        &:only-child {
+            margin-right: calc(50% + 1rem);
         }
     }
 
-    p {
+    &:not(.previous) {
+        justify-content: flex-end;
+
+        &:only-child {
+            margin-left: calc(50% + 1rem);
+        }
+    }
+
+    p.title {
         margin: 0;
-
-        &.title {
-            font-size: 1.25rem;
-            font-weight: 700;
-            color: ${oc.gray[7]};
-            text-align: center;
-
-            text-overflow: ellipsis;
-            white-space: pre-wrap;
-            word-break: break-all;
-            width: 100%;
-            overflow: hidden;
-
-            @media screen and (max-width: 420px) {
-                font-size: 1rem;
-            }
-        }
-
-        &.date {
-            font-size: 0.75rem;
-            color: ${oc.gray[6]};
-
-            @media screen and (max-width: 420px) {
-                font-size: 0.5rem;
-            }
-        }
+        line-height: 1;
+        ${ellipsis()};
     }
 
     .arrow {
-        position: absolute;
-        top: 50%;
-        transform: translateY(-50%);
+        display: flex;
+        align-items: center;
+        justify-content: center;
 
-        > svg {
-            font-size: 1.5rem;
-            color: ${oc.gray[7]};
+        &-left {
+            order: -1;
+            margin-right: 0.5rem;
         }
 
         &-right {
-            right: 1em;
-        }
-
-        &-left {
-            left: 1em;
+            order: 100;
+            margin-left: 0.5rem;
         }
     }
 `;
@@ -97,25 +78,15 @@ const PreviousOrNextPostCard: React.FC<IPreviousOrNextPostCardProps> = React.mem
     const isPrevious = useMemo(() => !!(data && previous), [data, previous]);
 
     if (!data) {
-        return <div />;
+        return null;
     }
 
     return (
-        <Link to={'/posts' + data.path}>
-            <PreviousOrNextPostCardBlock>
-                {isPrevious && (
-                    <div className="arrow arrow-left">
-                        <FiArrowLeft />
-                    </div>
-                )}
-                <p className="title">{data.title}</p>
-                <p className="date">{data.date}</p>
-                {!isPrevious && (
-                    <div className="arrow arrow-right">
-                        <FiArrowRight />
-                    </div>
-                )}
-            </PreviousOrNextPostCardBlock>
+        <Link to={'/posts' + data.path} className={cx(PreviousOrNextPostCardBlock, isPrevious && 'previous')}>
+            <div className={cx('arrow', isPrevious && 'arrow-left', !isPrevious && 'arrow-right')}>
+                {isPrevious ? <FiArrowLeft /> : <FiArrowRight />}
+            </div>
+            <p className="title">{data.title}</p>
         </Link>
     );
 });

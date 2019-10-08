@@ -1,4 +1,4 @@
-import { graphql, Link, navigate, useStaticQuery } from 'gatsby';
+import { graphql, navigate, useStaticQuery } from 'gatsby';
 import { css } from 'linaria';
 import oc from 'open-color';
 import React from 'react';
@@ -21,7 +21,7 @@ const PostListBlock = css`
         }
 
         h2 {
-            font-size: 2.25rem;
+            font-size: 1.5rem;
             color: inherit;
             margin: 0 0 0.25em 0;
         }
@@ -30,12 +30,12 @@ const PostListBlock = css`
             margin: 0;
 
             &.excerpt {
-                font-size: 1rem;
+                font-size: 0.875rem;
                 margin-bottom: 1em;
             }
 
             &.date {
-                font-size: 1rem;
+                font-size: 0.875rem;
                 color: ${oc.gray[6]};
             }
         }

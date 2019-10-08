@@ -11,7 +11,7 @@ export async function createPages({ actions, graphql }: CreatePagesArgs) {
 
     const { data, errors } = await graphql<Query>(`
         {
-            allMarkdownRemark {
+            allMarkdownRemark(sort: { order: DESC, fields: frontmatter___date }) {
                 edges {
                     node {
                         html

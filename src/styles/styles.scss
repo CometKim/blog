@@ -1,0 +1,47 @@
+html {
+    overflow-y: auto;
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+}
+
+*,
+*:before,
+*:after {
+    box-sizing: inherit;
+    -webkit-font-smoothing: inherit;
+}
+
+html,
+body,
+#___gatsby,
+#gatsby-focus-wrapper {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
+// Reference
+// #1 https://spoqa.github.io/2016/06/03/localize-type-setting.html
+// #2 https://codepen.io/young-hwa/pen/wGJzpy/
+
+// MIXIN FOR RESPONSIBLE TYPOGRAPHY MEDIA QUERY
+@mixin responsive-type($screen-size, $font-size-percent, $operator: 'min-width', $query: 'screen') {
+    @media #{$query} and (#{$operator}: #{$screen-size}) {
+        font-size: $font-size-percent;
+    }
+}
+
+// MIXIN FOR GENERATING PX TO REM
+@mixin font-size($sizeValue) {
+    //  FALLBACK FOR OLD BROWSER
+    font-size: $sizeValue + px;
+    // GENERATE REM FROM PX
+    font-size: (0.125 / 2 * $sizeValue) + rem;
+}
+
+// DEMO
+html {
+    @include responsive-type(0, 90%);
+    @include responsive-type(768px, 95%);
+    @include responsive-type(1024px, 100%);
+}

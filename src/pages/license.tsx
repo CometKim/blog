@@ -20,7 +20,7 @@ const LicensePage: React.FC = React.memo(() => {
                     Hosted by <A href="https://www.netlify.com">Netlify</A>
                 </li>
             </ul>
-            <p>또한, 아래 오픈소스 라이브러리를 사용했습니다. 감사합니다.</p>
+            <p>아래 오픈소스 라이브러리를 사용했습니다. 감사합니다.</p>
             <ul>
                 <li>
                     <A href="https://github.com/KyleAMathews/typography.js">typography.js</A>
@@ -39,6 +39,14 @@ const LicensePage: React.FC = React.memo(() => {
                 </li>
                 <li>
                     <A href="https://github.com/GalenWong/nord-prism-js">nord-prism-js</A>
+                </li>
+            </ul>
+            <p>아래 게시글을 참고하였습니다. 감사합니다.</p>
+            <ul>
+                <li>
+                    <A href="https://spoqa.github.io/2016/06/03/localize-type-setting.html">
+                        다국어 환경에 맞게 타이포그래피 세팅하기 - 다국어 반응형 타이포그래피
+                    </A>
                 </li>
             </ul>
         </Layout>

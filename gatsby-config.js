@@ -46,7 +46,12 @@ module.exports = {
                             maxWidth: 960,
                         },
                     },
-                    `gatsby-remark-static-images`,
+                    {
+                        resolve: `gatsby-remark-copy-linked-files`,
+                        options: {
+                            destinationDir: f => `${f.hash}`,
+                        },
+                    },
                     `gatsby-remark-embed-snippet`,
                     `gatsby-remark-prismjs`,
                 ],

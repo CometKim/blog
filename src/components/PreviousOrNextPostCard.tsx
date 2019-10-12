@@ -8,9 +8,6 @@ import oc from 'open-color';
 import { easeInQuad } from '../lib/constants';
 
 const PreviousOrNextPostCardBlock = css`
-    flex: calc(50% - 1rem);
-    max-width: calc(50% - 1rem);
-
     text-decoration: none;
     display: flex;
     align-items: center;

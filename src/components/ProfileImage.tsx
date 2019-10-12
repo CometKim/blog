@@ -16,7 +16,7 @@ const ProfileImage: React.FC = React.memo(() => {
         query ProfileImage {
             profileImage: file(name: { eq: "profile" }) {
                 childImageSharp {
-                    fluid(maxWidth: 300) {
+                    fluid(quality: 100, maxWidth: 300) {
                         base64
                         aspectRatio
                         src

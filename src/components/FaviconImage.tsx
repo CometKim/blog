@@ -10,7 +10,7 @@ const FaviconImage: React.FC<IFaviconImageProps> = React.memo(() => {
         query FaviconImage {
             faviconImage: file(name: { eq: "favicon" }) {
                 childImageSharp {
-                    fluid(maxWidth: 32) {
+                    fluid(quality: 100, maxWidth: 32) {
                         base64
                         aspectRatio
                         src

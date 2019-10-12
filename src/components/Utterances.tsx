@@ -1,5 +1,5 @@
 import { css } from 'linaria';
-import React, { createRef, useLayoutEffect } from 'react';
+import React, { createRef, useLayoutEffect, useRef } from 'react';
 
 const UtterancesBlock = css`
     margin-top: 4rem;
@@ -17,8 +17,13 @@ export interface IUtterancesProps {
 
 const Utterances: React.FC<IUtterancesProps> = React.memo(({ repo }) => {
     const containerRef = createRef<HTMLDivElement>();
+    const initialized  = useRef(false);
 
     useLayoutEffect(() => {
+        if (initialized.current) {
+            return;
+        }
+
         const utterances = document.createElement('script');
 
         const attributes = {
@@ -36,6 +41,8 @@ const Utterances: React.FC<IUtterancesProps> = React.memo(({ repo }) => {
         });
 
         containerRef.current.appendChild(utterances);
+
+        initialized.current = true;
     }, [repo]);
 
     return <div className={UtterancesBlock} ref={containerRef} />;

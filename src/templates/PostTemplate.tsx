@@ -1,3 +1,4 @@
+import clsx from 'clsx';
 import { navigate } from 'gatsby';
 import { css } from 'linaria';
 import oc from 'open-color';
@@ -106,6 +107,16 @@ const PreviousAndNextBlock = css`
     justify-content: space-between;
     margin-top: 8rem;
 
+    &.only-child {
+        &.previous {
+            justify-content: flex-start;
+        }
+
+        &.next {
+            justify-content: flex-end;
+        }
+    }
+
     @media screen and (max-width: 420px) {
         margin-top: 4rem;
     }
@@ -134,7 +145,14 @@ const PostTemplate: React.FC<IPostTemplateProps> = React.memo(props => {
             </div>
             <div className={PostContentBlock} dangerouslySetInnerHTML={{ __html: html }} />
             <PostTableOfContents raw={tableOfContents} slug={slug} />
-            <div className={PreviousAndNextBlock}>
+            <div
+                className={clsx(
+                    PreviousAndNextBlock,
+                    !!previous !== !!next && 'only-child',
+                    previous && 'previous',
+                    next && 'next',
+                )}
+            >
                 <PreviousOrNextPostCard previous={previous} />
                 <PreviousOrNextPostCard next={next} />
             </div>

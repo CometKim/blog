@@ -28,18 +28,10 @@ const PreviousOrNextPostCardBlock = css`
 
     &.previous {
         justify-content: flex-start;
-
-        &:only-child {
-            margin-right: calc(50% + 1rem);
-        }
     }
 
     &:not(.previous) {
         justify-content: flex-end;
-
-        &:only-child {
-            margin-left: calc(50% + 1rem);
-        }
     }
 
     p.title {

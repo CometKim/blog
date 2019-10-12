@@ -58,6 +58,9 @@ const LicensePage: React.FC = React.memo(() => {
                 <li>
                     <A href="https://github.com/ReactiveX/rxjs">RxJS</A>
                 </li>
+                <li>
+                    <A href="https://github.com/lukeed/clsx">clsx</A>
+                </li>
             </ul>
             <p>아래 게시글을 참고하였습니다. 감사합니다.</p>
             <ul>

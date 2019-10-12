@@ -5882,6 +5882,13 @@ gatsby-plugin-generate-typings@^0.9.8-r1:
     graphql-toolkit "^0.4.0"
     ts-node "^8.3.0"
 
+gatsby-plugin-google-analytics@^2.1.21:
+  version "2.1.21"
+  resolved "https://registry.yarnpkg.com/gatsby-plugin-google-analytics/-/gatsby-plugin-google-analytics-2.1.21.tgz#1023b5355e3d991027f879f16fcf032853505d82"
+  integrity sha512-lCH8ApYtw7U3gViUlzU2NZ7j62a3JvEmBDWrI/96Dx2+KsxGc3dlbiojY/aIZF7+rpB9AgnDICw3WZC55ersDA==
+  dependencies:
+    "@babel/runtime" "^7.6.3"
+
 gatsby-plugin-linaria@^1.2.2:
   version "1.2.2"
   resolved "https://registry.yarnpkg.com/gatsby-plugin-linaria/-/gatsby-plugin-linaria-1.2.2.tgz#68b872ba805e5ceba6a9989056416db1f2877ea9"

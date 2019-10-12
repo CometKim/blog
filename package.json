@@ -11,6 +11,7 @@
     "gatsby": "^2.15.28",
     "gatsby-image": "^2.2.23",
     "gatsby-plugin-generate-typings": "^0.9.8-r1",
+    "gatsby-plugin-google-analytics": "^2.1.21",
     "gatsby-plugin-linaria": "^1.2.2",
     "gatsby-plugin-manifest": "^2.2.20",
     "gatsby-plugin-offline": "^3.0.11",

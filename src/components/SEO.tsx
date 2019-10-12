@@ -86,7 +86,7 @@ const SEO: React.FC<ISEOProps> = React.memo(({ description, lang = 'ko', meta = 
                     content: profileImage.childImageSharp.fixed.src,
                 },
                 {
-                    name: 'og:image',
+                    property: 'og:image',
                     content: profileImage.childImageSharp.fixed.src,
                 },
                 {

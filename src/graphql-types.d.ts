@@ -2303,6 +2303,7 @@ export type SitePageFieldsEnum =
   'pluginCreator___pluginOptions___display' |
   'pluginCreator___pluginOptions___icon' |
   'pluginCreator___pluginOptions___maxWidth' |
+  'pluginCreator___pluginOptions___quality' |
   'pluginCreator___pluginOptions___dest' |
   'pluginCreator___pluginOptions___google___families' |
   'pluginCreator___pluginOptions___pathCheck' |
@@ -2498,6 +2499,7 @@ export type SitePluginFieldsEnum =
   'pluginOptions___plugins___name' |
   'pluginOptions___plugins___version' |
   'pluginOptions___plugins___pluginOptions___maxWidth' |
+  'pluginOptions___plugins___pluginOptions___quality' |
   'pluginOptions___plugins___browserAPIs' |
   'pluginOptions___plugins___ssrAPIs' |
   'pluginOptions___plugins___pluginFilepath' |
@@ -2510,6 +2512,7 @@ export type SitePluginFieldsEnum =
   'pluginOptions___display' |
   'pluginOptions___icon' |
   'pluginOptions___maxWidth' |
+  'pluginOptions___quality' |
   'pluginOptions___dest' |
   'pluginOptions___google___families' |
   'pluginOptions___pathCheck' |
@@ -2638,6 +2641,7 @@ export type SitePluginPluginOptions = {
   display?: Maybe<Scalars['String']>,
   icon?: Maybe<Scalars['String']>,
   maxWidth?: Maybe<Scalars['Int']>,
+  quality?: Maybe<Scalars['Int']>,
   dest?: Maybe<Scalars['String']>,
   google?: Maybe<SitePluginPluginOptionsGoogle>,
   pathCheck?: Maybe<Scalars['Boolean']>,
@@ -2654,6 +2658,7 @@ export type SitePluginPluginOptionsFilterInput = {
   display?: Maybe<StringQueryOperatorInput>,
   icon?: Maybe<StringQueryOperatorInput>,
   maxWidth?: Maybe<IntQueryOperatorInput>,
+  quality?: Maybe<IntQueryOperatorInput>,
   dest?: Maybe<StringQueryOperatorInput>,
   google?: Maybe<SitePluginPluginOptionsGoogleFilterInput>,
   pathCheck?: Maybe<BooleanQueryOperatorInput>,
@@ -2695,10 +2700,12 @@ export type SitePluginPluginOptionsPluginsFilterListInput = {
 
 export type SitePluginPluginOptionsPluginsPluginOptions = {
   maxWidth?: Maybe<Scalars['Int']>,
+  quality?: Maybe<Scalars['Int']>,
 };
 
 export type SitePluginPluginOptionsPluginsPluginOptionsFilterInput = {
   maxWidth?: Maybe<IntQueryOperatorInput>,
+  quality?: Maybe<IntQueryOperatorInput>,
 };
 
 export type SitePluginSortInput = {

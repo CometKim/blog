@@ -3,7 +3,7 @@ import React from 'react';
 import ExperienceLogo from '../components/ExperienceLogo';
 import Layout from '../components/Layout';
 import ProfileImage from '../components/ProfileImage';
-import SEO from '../components/seo';
+import SEO from '../components/SEO';
 import oc from 'open-color';
 
 const ResumeBlock = css`

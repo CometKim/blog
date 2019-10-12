@@ -2,7 +2,7 @@ import { navigate } from 'gatsby';
 import { css } from 'linaria';
 import oc from 'open-color';
 import React from 'react';
-import SEO from '../components/seo';
+import SEO from '../components/SEO';
 
 const NotFoundBlock = css`
     height: 100%;

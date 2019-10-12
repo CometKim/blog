@@ -3,7 +3,7 @@ import { css } from 'linaria';
 import oc from 'open-color';
 import React from 'react';
 import Layout from '../components/Layout';
-import SEO from '../components/seo';
+import SEO from '../components/SEO';
 import { Query } from '../graphql-types';
 import formatDatetime from '../lib/formatDatetime';
 

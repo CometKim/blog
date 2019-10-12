@@ -6,7 +6,7 @@ import { FiArrowLeft } from 'react-icons/fi';
 import Layout from '../components/Layout';
 import PostTableOfContents from '../components/PostTableOfContents';
 import PreviousOrNextPostCard from '../components/PreviousOrNextPostCard';
-import SEO from '../components/seo';
+import SEO from '../components/SEO';
 import Utterances from '../components/Utterances';
 import { IPostTemplateContext, ITemplateProps } from '../interface';
 import { easeInQuad } from '../lib/constants';

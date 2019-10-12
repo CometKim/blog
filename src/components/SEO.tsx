@@ -5,20 +5,34 @@
  * See: https://www.gatsbyjs.org/docs/use-static-query/
  */
 
+import { graphql, useStaticQuery } from 'gatsby';
 import React from 'react';
-import PropTypes from 'prop-types';
 import Helmet from 'react-helmet';
-import { useStaticQuery, graphql } from 'gatsby';
+import { SeoQuery } from '../graphql-types';
 
-function SEO({ description, lang, meta, title }) {
-    const { site } = useStaticQuery(
+export interface ISEOProps {
+    description?: string;
+    lang?: string;
+    meta?: any[];
+    title: string;
+}
+
+const SEO: React.FC<ISEOProps> = React.memo(({ description, lang = 'ko', meta = [], title }) => {
+    const { site, profileImage } = useStaticQuery<SeoQuery>(
         graphql`
-            query {
+            query SEO {
                 site {
                     siteMetadata {
                         title
                         description
                         author
+                    }
+                }
+                profileImage: file(name: { eq: "profile" }) {
+                    childImageSharp {
+                        fixed {
+                            src
+                        }
                     }
                 }
             }
@@ -67,22 +81,21 @@ function SEO({ description, lang, meta, title }) {
                     name: `twitter:description`,
                     content: metaDescription,
                 },
+                {
+                    name: 'image',
+                    content: profileImage.childImageSharp.fixed.src,
+                },
+                {
+                    name: 'og:image',
+                    content: profileImage.childImageSharp.fixed.src,
+                },
+                {
+                    name: 'twitter:image',
+                    content: profileImage.childImageSharp.fixed.src,
+                }
             ].concat(meta)}
         />
     );
-}
-
-SEO.defaultProps = {
-    lang: `en`,
-    meta: [],
-    description: ``,
-};
-
-SEO.propTypes = {
-    description: PropTypes.string,
-    lang: PropTypes.string,
-    meta: PropTypes.arrayOf(PropTypes.object),
-    title: PropTypes.string.isRequired,
-};
+});
 
 export default SEO;

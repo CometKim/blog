@@ -1,6 +1,6 @@
 import React, { AnchorHTMLAttributes } from 'react';
 import Layout from '../components/Layout';
-import SEO from '../components/seo';
+import SEO from '../components/SEO';
 
 const A: React.FC<Pick<AnchorHTMLAttributes<HTMLAnchorElement>, 'href'>> = React.memo(({ href, children }) => {
     return <a href={href} target="_blank" rel="noopener noreferer" children={children} />;

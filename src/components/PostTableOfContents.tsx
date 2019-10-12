@@ -69,7 +69,6 @@ const PostTableOfContents: React.FC<IPostTableOfContentsProps> = React.memo(({ s
         const subscription = fromEvent(window, 'scroll')
             .pipe(
                 map(() => window.scrollY),
-                tap(() => console.log(window.scrollY, top)),
                 scan((acc, scrollY) => scrollY > top, false),
                 tap(_fixed => setFixed(_fixed)),
             )

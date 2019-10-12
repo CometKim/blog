@@ -73,7 +73,7 @@ module.exports = {
             resolve: `gatsby-plugin-web-font-loader`,
             options: {
                 google: {
-                    families: ['Noto Sans KR:300,700'],
+                    families: ['Noto Sans KR:400,700'],
                 },
             },
         },

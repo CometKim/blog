@@ -44,13 +44,13 @@ const LicensePage: React.FC = React.memo(() => {
                     <A href="https://github.com/styled-components/polished">polished</A>
                 </li>
                 <li>
-                    <A href="https://github.com/moment/luxon">luxon</A>
-                </li>
-                <li>
                     <A href="https://github.com/SBoudrias/Inquirer.js/">inquirer</A>
                 </li>
                 <li>
                     <A href="https://github.com/normalize/mz">mz</A>
+                </li>
+                <li>
+                    <A href="https://github.com/date-fns/date-fns">date-fns</A>
                 </li>
             </ul>
             <p>아래 게시글을 참고하였습니다. 감사합니다.</p>

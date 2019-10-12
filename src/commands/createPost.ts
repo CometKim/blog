@@ -1,7 +1,7 @@
 import inquirer from 'inquirer';
 import fs from 'mz/fs';
 import path from 'path';
-import { DateTime } from 'luxon';
+import { format } from 'date-fns';
 
 const template = `
 ---
@@ -24,14 +24,17 @@ path: $PATH$
         },
     ]);
 
-    const folderPath = path.join(__dirname, '../../posts', title);
-    const filePath = path.join(folderPath, `${title}.md`);
+    const now = new Date();
+    const formattedNow = format(now, 'yyyy-MM-dd');
+    const folderName = formattedNow + '-' + title.replace(/\s/g, '-');
+    const folderPath = path.join(__dirname, '../../posts', folderName);
+    const filePath = path.join(folderPath, 'index.md');
 
     await fs.mkdir(folderPath);
 
     const data = template
         .replace('$TITLE$', title)
-        .replace('$DATE$', DateTime.local().toISO())
+        .replace('$DATE$', now.toISOString())
         .replace('$PATH$', _path)
         .trim();
 

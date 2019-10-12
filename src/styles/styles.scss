@@ -45,3 +45,13 @@ html {
     @include responsive-type(768px, 95%);
     @include responsive-type(1024px, 100%);
 }
+
+a {
+    text-decoration: none;
+    color: var(--oc-blue-6);
+    font-weight: bold;
+
+    &:hover {
+        text-decoration: underline;
+    }
+}

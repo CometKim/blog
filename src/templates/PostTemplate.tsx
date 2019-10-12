@@ -96,16 +96,6 @@ const PostContentBlock = css`
         border-left: 4px solid ${oc.gray[4]};
         background-color: ${oc.gray[1]};
     }
-
-    a {
-        text-decoration: none;
-        color: ${oc.blue[6]};
-        font-weight: bold;
-
-        &:hover {
-            text-decoration: underline;
-        }
-    }
 `;
 
 const PreviousAndNextBlock = css`

@@ -30,6 +30,7 @@ const PostTableOfContentsBlock = css`
         a {
             color: ${oc.gray[6]};
             text-decoration: none;
+            font-weight: normal;
 
             &:hover {
                 color: ${oc.gray[9]};

@@ -16,6 +16,7 @@ const LayoutBlock = css`
         max-width: 960px;
         padding: 1rem;
         width: 100%;
+        position: relative;
     }
 `;
 

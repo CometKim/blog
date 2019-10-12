@@ -487,7 +487,7 @@ type MarkdownRemarkFrontmatter {
         #Configures the locale Moment.js will use to format the date.
         locale: String
     ): Date
-    path: String
+    slug: String
     title: String
 }
 
@@ -604,7 +604,20 @@ type SitePageConnection {
 }
 
 type SitePageContext {
+    date: Date
+    excerpt: String
     html: String
+    next: SitePageContextNext
+    previous: SitePageContextPrevious
+    tableOfContents: String
+    title: String
+}
+
+type SitePageContextNext {
+    title: String
+}
+
+type SitePageContextPrevious {
     title: String
 }
 
@@ -692,16 +705,65 @@ type SitePluginPackageJsonPeerDependencies {
 }
 
 type SitePluginPluginOptions {
+    backgroundColor: String
     background_color: String
     dest: String
+    disableBgImageOnAlpha: Boolean
     display: String
+    google: SitePluginPluginOptionsGoogle
     icon: String
+    linkImagesToOriginal: Boolean
+    loading: String
+    markdownCaptions: Boolean
+    maxWidth: Int
     name: String
     path: String
     pathCheck: Boolean
+    pathPrefix: String
+    plugins: [SitePluginPluginOptionsPlugins]
+    quality: Int
     short_name: String
+    showCaptions: Boolean
     start_url: String
+    tableOfContents: SitePluginPluginOptionsTableOfContents
     theme_color: String
+    tracedSVG: Boolean
+    withWebp: Boolean
+    wrapperStyle: String
+}
+
+type SitePluginPluginOptionsGoogle {
+    families: [String]
+}
+
+type SitePluginPluginOptionsPlugins {
+    browserAPIs: [String]
+    id: String
+    name: String
+    pluginFilepath: String
+    pluginOptions: SitePluginPluginOptionsPluginsPluginOptions
+    resolve: String
+    ssrAPIs: [String]
+    version: String
+}
+
+type SitePluginPluginOptionsPluginsPluginOptions {
+    backgroundColor: String
+    disableBgImageOnAlpha: Boolean
+    linkImagesToOriginal: Boolean
+    loading: String
+    markdownCaptions: Boolean
+    maxWidth: Int
+    pathPrefix: String
+    quality: Int
+    showCaptions: Boolean
+    tracedSVG: Boolean
+    withWebp: Boolean
+    wrapperStyle: String
+}
+
+type SitePluginPluginOptionsTableOfContents {
+    maxDepth: Int
 }
 
 type SiteSiteMetadata {
@@ -954,7 +1016,7 @@ enum FileFieldsEnum {
     childMarkdownRemark___excerptAst @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
     childMarkdownRemark___fileAbsolutePath @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
     childMarkdownRemark___frontmatter___date
-    childMarkdownRemark___frontmatter___path
+    childMarkdownRemark___frontmatter___slug
     childMarkdownRemark___frontmatter___title
     childMarkdownRemark___headings @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
     childMarkdownRemark___headings___depth @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
@@ -1329,7 +1391,7 @@ enum MarkdownRemarkFieldsEnum {
     excerptAst @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
     fileAbsolutePath @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
     frontmatter___date
-    frontmatter___path
+    frontmatter___slug
     frontmatter___title
     headings @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
     headings___depth @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
@@ -1540,7 +1602,12 @@ enum SitePageFieldsEnum {
     component
     componentChunkName
     componentPath
+    context___date
+    context___excerpt
     context___html
+    context___next___title
+    context___previous___title
+    context___tableOfContents
     context___title
     id
     internalComponentName
@@ -1651,16 +1718,38 @@ enum SitePageFieldsEnum {
     pluginCreator___parent___parent___children
     pluginCreator___parent___parent___id
     pluginCreator___pluginFilepath
+    pluginCreator___pluginOptions___backgroundColor
     pluginCreator___pluginOptions___background_color
     pluginCreator___pluginOptions___dest
+    pluginCreator___pluginOptions___disableBgImageOnAlpha
     pluginCreator___pluginOptions___display
+    pluginCreator___pluginOptions___google___families
     pluginCreator___pluginOptions___icon
+    pluginCreator___pluginOptions___linkImagesToOriginal
+    pluginCreator___pluginOptions___loading
+    pluginCreator___pluginOptions___markdownCaptions
+    pluginCreator___pluginOptions___maxWidth
     pluginCreator___pluginOptions___name
     pluginCreator___pluginOptions___path
     pluginCreator___pluginOptions___pathCheck
+    pluginCreator___pluginOptions___pathPrefix
+    pluginCreator___pluginOptions___plugins
+    pluginCreator___pluginOptions___plugins___browserAPIs
+    pluginCreator___pluginOptions___plugins___id
+    pluginCreator___pluginOptions___plugins___name
+    pluginCreator___pluginOptions___plugins___pluginFilepath
+    pluginCreator___pluginOptions___plugins___resolve
+    pluginCreator___pluginOptions___plugins___ssrAPIs
+    pluginCreator___pluginOptions___plugins___version
+    pluginCreator___pluginOptions___quality
     pluginCreator___pluginOptions___short_name
+    pluginCreator___pluginOptions___showCaptions
     pluginCreator___pluginOptions___start_url
+    pluginCreator___pluginOptions___tableOfContents___maxDepth
     pluginCreator___pluginOptions___theme_color
+    pluginCreator___pluginOptions___tracedSVG
+    pluginCreator___pluginOptions___withWebp
+    pluginCreator___pluginOptions___wrapperStyle
     pluginCreator___resolve
     pluginCreator___ssrAPIs
     pluginCreator___version
@@ -1773,16 +1862,50 @@ enum SitePluginFieldsEnum {
     parent___parent___parent___children
     parent___parent___parent___id
     pluginFilepath
+    pluginOptions___backgroundColor
     pluginOptions___background_color
     pluginOptions___dest
+    pluginOptions___disableBgImageOnAlpha
     pluginOptions___display
+    pluginOptions___google___families
     pluginOptions___icon
+    pluginOptions___linkImagesToOriginal
+    pluginOptions___loading
+    pluginOptions___markdownCaptions
+    pluginOptions___maxWidth
     pluginOptions___name
     pluginOptions___path
     pluginOptions___pathCheck
+    pluginOptions___pathPrefix
+    pluginOptions___plugins
+    pluginOptions___plugins___browserAPIs
+    pluginOptions___plugins___id
+    pluginOptions___plugins___name
+    pluginOptions___plugins___pluginFilepath
+    pluginOptions___plugins___pluginOptions___backgroundColor
+    pluginOptions___plugins___pluginOptions___disableBgImageOnAlpha
+    pluginOptions___plugins___pluginOptions___linkImagesToOriginal
+    pluginOptions___plugins___pluginOptions___loading
+    pluginOptions___plugins___pluginOptions___markdownCaptions
+    pluginOptions___plugins___pluginOptions___maxWidth
+    pluginOptions___plugins___pluginOptions___pathPrefix
+    pluginOptions___plugins___pluginOptions___quality
+    pluginOptions___plugins___pluginOptions___showCaptions
+    pluginOptions___plugins___pluginOptions___tracedSVG
+    pluginOptions___plugins___pluginOptions___withWebp
+    pluginOptions___plugins___pluginOptions___wrapperStyle
+    pluginOptions___plugins___resolve
+    pluginOptions___plugins___ssrAPIs
+    pluginOptions___plugins___version
+    pluginOptions___quality
     pluginOptions___short_name
+    pluginOptions___showCaptions
     pluginOptions___start_url
+    pluginOptions___tableOfContents___maxDepth
     pluginOptions___theme_color
+    pluginOptions___tracedSVG
+    pluginOptions___withWebp
+    pluginOptions___wrapperStyle
     resolve
     ssrAPIs
     version
@@ -2070,7 +2193,7 @@ input MarkdownRemarkFilterInput {
 
 input MarkdownRemarkFrontmatterFilterInput {
     date: DateQueryOperatorInput
-    path: StringQueryOperatorInput
+    slug: StringQueryOperatorInput
     title: StringQueryOperatorInput
 }
 
@@ -2122,7 +2245,20 @@ input SiteFilterInput {
 }
 
 input SitePageContextFilterInput {
+    date: DateQueryOperatorInput
+    excerpt: StringQueryOperatorInput
     html: StringQueryOperatorInput
+    next: SitePageContextNextFilterInput
+    previous: SitePageContextPreviousFilterInput
+    tableOfContents: StringQueryOperatorInput
+    title: StringQueryOperatorInput
+}
+
+input SitePageContextNextFilterInput {
+    title: StringQueryOperatorInput
+}
+
+input SitePageContextPreviousFilterInput {
     title: StringQueryOperatorInput
 }
 
@@ -2204,16 +2340,69 @@ input SitePluginPackageJsonPeerDependenciesFilterListInput {
 }
 
 input SitePluginPluginOptionsFilterInput {
+    backgroundColor: StringQueryOperatorInput
     background_color: StringQueryOperatorInput
     dest: StringQueryOperatorInput
+    disableBgImageOnAlpha: BooleanQueryOperatorInput
     display: StringQueryOperatorInput
+    google: SitePluginPluginOptionsGoogleFilterInput
     icon: StringQueryOperatorInput
+    linkImagesToOriginal: BooleanQueryOperatorInput
+    loading: StringQueryOperatorInput
+    markdownCaptions: BooleanQueryOperatorInput
+    maxWidth: IntQueryOperatorInput
     name: StringQueryOperatorInput
     path: StringQueryOperatorInput
     pathCheck: BooleanQueryOperatorInput
+    pathPrefix: StringQueryOperatorInput
+    plugins: SitePluginPluginOptionsPluginsFilterListInput
+    quality: IntQueryOperatorInput
     short_name: StringQueryOperatorInput
+    showCaptions: BooleanQueryOperatorInput
     start_url: StringQueryOperatorInput
+    tableOfContents: SitePluginPluginOptionsTableOfContentsFilterInput
     theme_color: StringQueryOperatorInput
+    tracedSVG: BooleanQueryOperatorInput
+    withWebp: BooleanQueryOperatorInput
+    wrapperStyle: StringQueryOperatorInput
+}
+
+input SitePluginPluginOptionsGoogleFilterInput {
+    families: StringQueryOperatorInput
+}
+
+input SitePluginPluginOptionsPluginsFilterInput {
+    browserAPIs: StringQueryOperatorInput
+    id: StringQueryOperatorInput
+    name: StringQueryOperatorInput
+    pluginFilepath: StringQueryOperatorInput
+    pluginOptions: SitePluginPluginOptionsPluginsPluginOptionsFilterInput
+    resolve: StringQueryOperatorInput
+    ssrAPIs: StringQueryOperatorInput
+    version: StringQueryOperatorInput
+}
+
+input SitePluginPluginOptionsPluginsFilterListInput {
+    elemMatch: SitePluginPluginOptionsPluginsFilterInput
+}
+
+input SitePluginPluginOptionsPluginsPluginOptionsFilterInput {
+    backgroundColor: StringQueryOperatorInput
+    disableBgImageOnAlpha: BooleanQueryOperatorInput
+    linkImagesToOriginal: BooleanQueryOperatorInput
+    loading: StringQueryOperatorInput
+    markdownCaptions: BooleanQueryOperatorInput
+    maxWidth: IntQueryOperatorInput
+    pathPrefix: StringQueryOperatorInput
+    quality: IntQueryOperatorInput
+    showCaptions: BooleanQueryOperatorInput
+    tracedSVG: BooleanQueryOperatorInput
+    withWebp: BooleanQueryOperatorInput
+    wrapperStyle: StringQueryOperatorInput
+}
+
+input SitePluginPluginOptionsTableOfContentsFilterInput {
+    maxDepth: IntQueryOperatorInput
 }
 
 input SitePluginSortInput {

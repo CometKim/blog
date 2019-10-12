@@ -4,7 +4,7 @@ import { Query, MarkdownRemark } from '../graphql-types';
 import { IPostFrontmatter, IPostTemplateContext } from '../interface';
 
 const getNextOrPreviousData = (data: MarkdownRemark | null): IPostFrontmatter | null =>
-    data ? { title: data.frontmatter.title, path: data.frontmatter.path, date: data.frontmatter.date } : null;
+    data ? { title: data.frontmatter.title, slug: data.frontmatter.slug } : null;
 
 export async function createPages({ actions, graphql }: CreatePagesArgs) {
     const { createPage } = actions;
@@ -18,22 +18,21 @@ export async function createPages({ actions, graphql }: CreatePagesArgs) {
                         excerpt(truncate: true, pruneLength: 200)
                         frontmatter {
                             title
-                            path
+                            slug
                             date
                         }
+                        tableOfContents(pathToSlugField: "frontmatter.slug", heading: null)
                     }
                     next {
                         frontmatter {
                             title
-                            path
-                            date
+                            slug
                         }
                     }
                     previous {
                         frontmatter {
                             title
-                            path
-                            date
+                            slug
                         }
                     }
                 }
@@ -47,14 +46,16 @@ export async function createPages({ actions, graphql }: CreatePagesArgs) {
 
     data.allMarkdownRemark.edges.forEach(({ node, next, previous }) => {
         createPage<IPostTemplateContext>({
-            path: '/posts' + node.frontmatter.path,
+            path: node.frontmatter.slug,
             context: {
                 html: node.html,
+                slug: node.frontmatter.slug,
                 title: node.frontmatter.title,
                 date: node.frontmatter.date,
                 excerpt: node.excerpt,
                 next: getNextOrPreviousData(next),
                 previous: getNextOrPreviousData(previous),
+                tableOfContents: node.tableOfContents,
             },
             component: path.resolve(__dirname, '../templates/PostTemplate.tsx'),
         });

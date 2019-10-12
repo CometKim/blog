@@ -82,7 +82,7 @@ const PreviousOrNextPostCard: React.FC<IPreviousOrNextPostCardProps> = React.mem
     }
 
     return (
-        <Link to={'/posts' + data.path} className={cx(PreviousOrNextPostCardBlock, isPrevious && 'previous')}>
+        <Link to={data.slug} className={cx(PreviousOrNextPostCardBlock, isPrevious && 'previous')}>
             <div className={cx('arrow', isPrevious && 'arrow-left', !isPrevious && 'arrow-right')}>
                 {isPrevious ? <FiArrowLeft /> : <FiArrowRight />}
             </div>

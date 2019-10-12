@@ -4,6 +4,7 @@ import oc from 'open-color';
 import React from 'react';
 import { FiArrowLeft } from 'react-icons/fi';
 import Layout from '../components/Layout';
+import PostTableOfContents from '../components/PostTableOfContents';
 import PreviousOrNextPostCard from '../components/PreviousOrNextPostCard';
 import SEO from '../components/seo';
 import Utterances from '../components/Utterances';
@@ -66,6 +67,8 @@ const PostTitleAndDateBlock = css`
 `;
 
 const PostContentBlock = css`
+    position: relative;
+
     .gatsby-highlight[data-language] {
         margin-bottom: 1rem;
     }
@@ -93,6 +96,16 @@ const PostContentBlock = css`
         border-left: 4px solid ${oc.gray[4]};
         background-color: ${oc.gray[1]};
     }
+
+    a {
+        text-decoration: none;
+        color: ${oc.blue[6]};
+        font-weight: bold;
+
+        &:hover {
+            text-decoration: underline;
+        }
+    }
 `;
 
 const PreviousAndNextBlock = css`
@@ -115,7 +128,7 @@ const handleClickBack = () => {
 };
 
 const PostTemplate: React.FC<IPostTemplateProps> = React.memo(props => {
-    const { title, date, html, excerpt, next, previous } = props.pageContext;
+    const { title, date, html, excerpt, next, previous, tableOfContents, slug } = props.pageContext;
 
     return (
         <Layout>
@@ -130,6 +143,7 @@ const PostTemplate: React.FC<IPostTemplateProps> = React.memo(props => {
                 </div>
             </div>
             <div className={PostContentBlock} dangerouslySetInnerHTML={{ __html: html }} />
+            <PostTableOfContents raw={tableOfContents} slug={slug} />
             <div className={PreviousAndNextBlock}>
                 <PreviousOrNextPostCard previous={previous} />
                 <PreviousOrNextPostCard next={next} />

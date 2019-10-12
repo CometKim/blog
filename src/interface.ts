@@ -6,15 +6,15 @@ export type ITemplateProps<T> = ReplaceComponentRendererArgs['props'] & {
     } & T;
 };
 
-export interface IPostFrontmatter {
+export interface IPostTemplateContext {
     title: string;
-    path: string;
+    slug: string;
     date: string;
-}
-
-export interface IPostTemplateContext extends Omit<IPostFrontmatter, 'path'> {
     html: string;
     excerpt: string;
     previous: IPostFrontmatter | null;
     next: IPostFrontmatter | null;
+    tableOfContents: string;
 }
+
+export type IPostFrontmatter = Pick<IPostTemplateContext, 'title' | 'slug'>;

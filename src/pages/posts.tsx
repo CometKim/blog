@@ -55,7 +55,7 @@ const LatestPostListQuery = graphql`
                     excerpt(truncate: true, pruneLength: 100)
                     frontmatter {
                         title
-                        path
+                        slug
                         date
                     }
                     id
@@ -66,7 +66,7 @@ const LatestPostListQuery = graphql`
 `;
 
 const handleClickPost = (e: React.MouseEvent<HTMLLIElement>) => {
-    navigate('/posts' + e.currentTarget.dataset.to);
+    navigate(e.currentTarget.dataset.to);
 };
 
 const PostListPage: React.FC = React.memo(() => {
@@ -77,7 +77,7 @@ const PostListPage: React.FC = React.memo(() => {
             <SEO title="blog" />
             <ul className={PostListBlock}>
                 {data.allMarkdownRemark.edges.map(({ node }) => (
-                    <li key={node.id} data-to={node.frontmatter.path} onClick={handleClickPost}>
+                    <li key={node.id} data-to={node.frontmatter.slug} onClick={handleClickPost}>
                         <h2>{node.frontmatter.title}</h2>
                         <p className="excerpt">{node.excerpt}</p>
                         <p className="date">{formatDatetime(node.frontmatter.date)}</p>

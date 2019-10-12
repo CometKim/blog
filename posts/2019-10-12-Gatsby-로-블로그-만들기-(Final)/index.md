@@ -1,7 +1,7 @@
 ---
 title: Gatsby 로 블로그 만들기 (Final)
 date: 2019-10-12T06:20:39.367Z
-path: /build-a-blog-with-gatsby-and-typescript-part-4
+slug: /posts/build-a-blog-with-gatsby-and-typescript-part-4
 ---
 
 > 본 게시글은 벨로그에서 제가 작성한 게시글을 옮겨왔습니다.

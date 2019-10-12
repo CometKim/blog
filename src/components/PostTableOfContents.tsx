@@ -15,6 +15,7 @@ const PostTableOfContentsBlock = css`
     ul {
         font-size: 0.875rem;
         list-style: none;
+        margin: 0 0 0 1rem;
     }
 
     > ul {
@@ -23,6 +24,7 @@ const PostTableOfContentsBlock = css`
     }
 
     li {
+        margin: 0.5rem 0;
         font-size: 1em;
 
         a {
@@ -41,6 +43,10 @@ const PostTableOfContentsBlock = css`
             position: fixed;
             top: 1rem;
         }
+    }
+
+    p {
+        margin: 0;
     }
 `;
 

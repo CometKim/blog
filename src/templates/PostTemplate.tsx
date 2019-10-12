@@ -1,14 +1,15 @@
+import { navigate } from 'gatsby';
 import { css } from 'linaria';
 import oc from 'open-color';
 import React from 'react';
-import { FiArrowLeft } from 'react-icons/all';
-import { navigate } from '../../.cache/gatsby-browser-entry';
+import { FiArrowLeft } from 'react-icons/fi';
 import Layout from '../components/Layout';
 import PreviousOrNextPostCard from '../components/PreviousOrNextPostCard';
 import SEO from '../components/seo';
 import Utterances from '../components/Utterances';
 import { IPostTemplateContext, ITemplateProps } from '../interface';
 import { easeInQuad } from '../lib/constants';
+import formatDatetime from '../lib/formatDatetime';
 
 const PostTitleAndDateBlock = css`
     border-bottom: 1px solid ${oc.gray[2]};
@@ -64,6 +65,36 @@ const PostTitleAndDateBlock = css`
     }
 `;
 
+const PostContentBlock = css`
+    .gatsby-highlight[data-language] {
+        margin-bottom: 1rem;
+    }
+
+    h1:not(:first-child) {
+        margin-top: 4rem;
+    }
+
+    h2:not(:first-child) {
+        margin-top: 3rem;
+    }
+
+    h3,
+    h4,
+    h5,
+    h6 {
+        &:not(:first-child) {
+            margin-top: 1.5rem;
+        }
+    }
+
+    blockquote {
+        font-style: italic;
+        padding: 1rem 0 1rem 1.5rem;
+        border-left: 4px solid ${oc.gray[4]};
+        background-color: ${oc.gray[1]};
+    }
+`;
+
 const PreviousAndNextBlock = css`
     border-top: 1px solid ${oc.gray[2]};
     padding-top: 2rem;
@@ -85,19 +116,20 @@ const handleClickBack = () => {
 
 const PostTemplate: React.FC<IPostTemplateProps> = React.memo(props => {
     const { title, date, html, excerpt, next, previous } = props.pageContext;
+
     return (
         <Layout>
             <SEO title={title} description={excerpt} />
             <div className={PostTitleAndDateBlock}>
                 <h2>{title}</h2>
-                <p className="date">{date}</p>
+                <p className="date">{formatDatetime(date)}</p>
                 <div className="back-arrow">
                     <button onClick={handleClickBack}>
                         <FiArrowLeft />
                     </button>
                 </div>
             </div>
-            <div dangerouslySetInnerHTML={{ __html: html }} />
+            <div className={PostContentBlock} dangerouslySetInnerHTML={{ __html: html }} />
             <div className={PreviousAndNextBlock}>
                 <PreviousOrNextPostCard previous={previous} />
                 <PreviousOrNextPostCard next={next} />

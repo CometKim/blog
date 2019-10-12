@@ -12086,6 +12086,11 @@ remark@^10.0.1:
     remark-stringify "^6.0.0"
     unified "^7.0.0"
 
+remeda@^0.0.12:
+  version "0.0.12"
+  resolved "https://registry.yarnpkg.com/remeda/-/remeda-0.0.12.tgz#ee8532987bb57149dde44f871c2bc9150326f267"
+  integrity sha512-CwzjZXmsmorOQHYLX7L9ZGDfbJvcU4M9zPmn4nZzKM/cMz1WHw10DHLGEsIgcC/SrrjrFoW/JZB7/FFkAdwWzw==
+
 remove-trailing-separator@^1.0.1:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/remove-trailing-separator/-/remove-trailing-separator-1.1.0.tgz#c24bce2a283adad5bc3f58e0d48249b92379d8ef"

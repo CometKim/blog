@@ -5,6 +5,7 @@ import React from 'react';
 import Layout from '../components/Layout';
 import SEO from '../components/seo';
 import { Query } from '../graphql-types';
+import formatDatetime from '../lib/formatDatetime';
 
 const PostListBlock = css`
     list-style: none;
@@ -55,7 +56,7 @@ const LatestPostListQuery = graphql`
                     frontmatter {
                         title
                         path
-                        date(formatString: "YYYY-MM-DD HH:mm:ss")
+                        date
                     }
                     id
                 }
@@ -79,7 +80,7 @@ const PostListPage: React.FC = React.memo(() => {
                     <li key={node.id} data-to={node.frontmatter.path} onClick={handleClickPost}>
                         <h2>{node.frontmatter.title}</h2>
                         <p className="excerpt">{node.excerpt}</p>
-                        <p className="date">{node.frontmatter.date}</p>
+                        <p className="date">{formatDatetime(node.frontmatter.date)}</p>
                     </li>
                 ))}
             </ul>

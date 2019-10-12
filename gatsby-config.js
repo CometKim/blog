@@ -40,21 +40,15 @@ module.exports = {
             resolve: `gatsby-transformer-remark`,
             options: {
                 plugins: [
-                    `gatsby-remark-typescript`,
                     {
                         resolve: `gatsby-remark-images`,
                         options: {
                             maxWidth: 960,
                         },
                     },
-                    {
-                        resolve: `gatsby-remark-embed-snippet`,
-                        options: {},
-                    },
-                    {
-                        resolve: `gatsby-remark-prismjs`,
-                        options: {},
-                    },
+                    `gatsby-remark-static-images`,
+                    `gatsby-remark-embed-snippet`,
+                    `gatsby-remark-prismjs`,
                 ],
             },
         },

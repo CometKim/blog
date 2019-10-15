@@ -3,6 +3,7 @@ module.exports = {
         title: `imch.dev`,
         description: `imch.dev`,
         author: `iamchanii`,
+        siteUrl: 'https://imch.dev'
     },
     plugins: [
         `gatsby-plugin-typescript`,
@@ -82,6 +83,63 @@ module.exports = {
             resolve: `gatsby-plugin-google-analytics`,
             options: {
                 trackingId: 'UA-149856137-1',
+            },
+        },
+        {
+            resolve: `gatsby-plugin-feed`,
+            options: {
+                query: `
+                {
+                    site {
+                        siteMetadata {
+                            title
+                            description
+                            siteUrl
+                            site_url: siteUrl
+                        }
+                    }
+                }`,
+                feeds: [
+                    {
+                        serialize: ({ query: { site, allMarkdownRemark } }) => {
+                            return allMarkdownRemark.edges.map(edge => {
+                                return Object.assign({}, edge.node.frontmatter, {
+                                    description: edge.node.excerpt,
+                                    date: edge.node.frontmatter.date,
+                                    url: site.siteMetadata.siteUrl + edge.node.frontmatter.slug,
+                                    guid: site.siteMetadata.siteUrl + edge.node.frontmatter.slug,
+                                    custom_elements: [{ 'content:encoded': edge.node.html }],
+                                });
+                            });
+                        },
+                        query: `
+                        {
+                            allMarkdownRemark(
+                                sort: { order: DESC, fields: [frontmatter___date] },
+                            ) {
+                                edges {
+                                    node {
+                                        excerpt
+                                        html
+                                        frontmatter {
+                                            title
+                                            date
+                                            slug
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                        `,
+                        output: '/rss.xml',
+                        title: "imch.dev's RSS Feed",
+                        // optional configuration to insert feed reference in pages:
+                        // if `string` is used, it will be used to create RegExp and then test if pathname of
+                        // current page satisfied this regular expression;
+                        // if not provided or `undefined`, all pages will have feed reference inserted
+                        match: '^/post/',
+                    },
+                ],
             },
         },
         // this (optional) plugin enables Progressive Web App + Offline functionality

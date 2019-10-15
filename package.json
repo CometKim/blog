@@ -10,6 +10,7 @@
     "date-fns": "^2.4.1",
     "gatsby": "^2.15.28",
     "gatsby-image": "^2.2.23",
+    "gatsby-plugin-feed": "^2.3.18",
     "gatsby-plugin-generate-typings": "^0.9.8-r1",
     "gatsby-plugin-google-analytics": "^2.1.21",
     "gatsby-plugin-linaria": "^1.2.2",

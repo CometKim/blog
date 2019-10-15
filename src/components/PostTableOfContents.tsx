@@ -12,6 +12,12 @@ const PostTableOfContentsBlock = css`
     top: 8rem;
     right: -2rem;
 
+    @media screen and (max-width: 1024px) {
+        & {
+            display: none;
+        }
+    }
+
     ul {
         font-size: 0.875rem;
         list-style: none;

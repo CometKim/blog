@@ -3,7 +3,7 @@ module.exports = {
         title: `imch.dev`,
         description: `imch.dev`,
         author: `iamchanii`,
-        siteUrl: 'https://imch.dev'
+        siteUrl: 'https://imch.dev',
     },
     plugins: [
         `gatsby-plugin-typescript`,
@@ -140,6 +140,36 @@ module.exports = {
                         match: '^/post/',
                     },
                 ],
+            },
+        },
+        {
+            resolve: `gatsby-plugin-sitemap`,
+            options: {
+                output: `/sitemap.xml`,
+                exclude: ['/resume/', '/license/'],
+                query: `
+                {
+                    site {
+                        siteMetadata {
+                            siteUrl
+                        }
+                    }
+                    allSitePage {
+                        edges {
+                            node {
+                                path
+                            }
+                        }
+                    }
+                }`,
+                serialize: ({ site, allSitePage }) =>
+                    allSitePage.edges.map(edge => {
+                        return {
+                            url: site.siteMetadata.siteUrl + edge.node.path,
+                            changefreq: `daily`,
+                            priority: 0.7,
+                        }
+                    })
             },
         },
         // this (optional) plugin enables Progressive Web App + Offline functionality

@@ -4,7 +4,7 @@ import oc from 'open-color';
 
 const typography = new Typography({
     baseFontSize: '16px',
-    baseLineHeight: 1.5,
+    baseLineHeight: 1.66,
     headerFontFamily: ['-apple-system', 'Noto Sans KR', 'sans-serif'],
     bodyFontFamily: ['-apple-system', 'Noto Sans KR', 'sans-serif'],
     headerLineHeight: 1.5,

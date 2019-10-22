@@ -2306,6 +2306,9 @@ export type SitePageFieldsEnum =
   'pluginCreator___pluginOptions___tableOfContents___maxDepth' |
   'pluginCreator___pluginOptions___maxWidth' |
   'pluginCreator___pluginOptions___quality' |
+  'pluginCreator___pluginOptions___languageExtensions' |
+  'pluginCreator___pluginOptions___languageExtensions___language' |
+  'pluginCreator___pluginOptions___languageExtensions___extend' |
   'pluginCreator___pluginOptions___dest' |
   'pluginCreator___pluginOptions___google___families' |
   'pluginCreator___pluginOptions___trackingId' |
@@ -2511,6 +2514,7 @@ export type SitePluginFieldsEnum =
   'pluginOptions___plugins___version' |
   'pluginOptions___plugins___pluginOptions___maxWidth' |
   'pluginOptions___plugins___pluginOptions___quality' |
+  'pluginOptions___plugins___pluginOptions___languageExtensions' |
   'pluginOptions___plugins___browserAPIs' |
   'pluginOptions___plugins___ssrAPIs' |
   'pluginOptions___plugins___pluginFilepath' |
@@ -2525,6 +2529,9 @@ export type SitePluginFieldsEnum =
   'pluginOptions___tableOfContents___maxDepth' |
   'pluginOptions___maxWidth' |
   'pluginOptions___quality' |
+  'pluginOptions___languageExtensions' |
+  'pluginOptions___languageExtensions___language' |
+  'pluginOptions___languageExtensions___extend' |
   'pluginOptions___dest' |
   'pluginOptions___google___families' |
   'pluginOptions___trackingId' |
@@ -2664,6 +2671,7 @@ export type SitePluginPluginOptions = {
   tableOfContents?: Maybe<SitePluginPluginOptionsTableOfContents>,
   maxWidth?: Maybe<Scalars['Int']>,
   quality?: Maybe<Scalars['Int']>,
+  languageExtensions?: Maybe<Array<Maybe<SitePluginPluginOptionsLanguageExtensions>>>,
   dest?: Maybe<Scalars['String']>,
   google?: Maybe<SitePluginPluginOptionsGoogle>,
   trackingId?: Maybe<Scalars['String']>,
@@ -2705,6 +2713,7 @@ export type SitePluginPluginOptionsFilterInput = {
   tableOfContents?: Maybe<SitePluginPluginOptionsTableOfContentsFilterInput>,
   maxWidth?: Maybe<IntQueryOperatorInput>,
   quality?: Maybe<IntQueryOperatorInput>,
+  languageExtensions?: Maybe<SitePluginPluginOptionsLanguageExtensionsFilterListInput>,
   dest?: Maybe<StringQueryOperatorInput>,
   google?: Maybe<SitePluginPluginOptionsGoogleFilterInput>,
   trackingId?: Maybe<StringQueryOperatorInput>,
@@ -2721,6 +2730,20 @@ export type SitePluginPluginOptionsGoogle = {
 
 export type SitePluginPluginOptionsGoogleFilterInput = {
   families?: Maybe<StringQueryOperatorInput>,
+};
+
+export type SitePluginPluginOptionsLanguageExtensions = {
+  language?: Maybe<Scalars['String']>,
+  extend?: Maybe<Scalars['String']>,
+};
+
+export type SitePluginPluginOptionsLanguageExtensionsFilterInput = {
+  language?: Maybe<StringQueryOperatorInput>,
+  extend?: Maybe<StringQueryOperatorInput>,
+};
+
+export type SitePluginPluginOptionsLanguageExtensionsFilterListInput = {
+  elemMatch?: Maybe<SitePluginPluginOptionsLanguageExtensionsFilterInput>,
 };
 
 export type SitePluginPluginOptionsPlugins = {
@@ -2752,11 +2775,27 @@ export type SitePluginPluginOptionsPluginsFilterListInput = {
 export type SitePluginPluginOptionsPluginsPluginOptions = {
   maxWidth?: Maybe<Scalars['Int']>,
   quality?: Maybe<Scalars['Int']>,
+  languageExtensions?: Maybe<Array<Maybe<SitePluginPluginOptionsPluginsPluginOptionsLanguageExtensions>>>,
 };
 
 export type SitePluginPluginOptionsPluginsPluginOptionsFilterInput = {
   maxWidth?: Maybe<IntQueryOperatorInput>,
   quality?: Maybe<IntQueryOperatorInput>,
+  languageExtensions?: Maybe<SitePluginPluginOptionsPluginsPluginOptionsLanguageExtensionsFilterListInput>,
+};
+
+export type SitePluginPluginOptionsPluginsPluginOptionsLanguageExtensions = {
+  language?: Maybe<Scalars['String']>,
+  extend?: Maybe<Scalars['String']>,
+};
+
+export type SitePluginPluginOptionsPluginsPluginOptionsLanguageExtensionsFilterInput = {
+  language?: Maybe<StringQueryOperatorInput>,
+  extend?: Maybe<StringQueryOperatorInput>,
+};
+
+export type SitePluginPluginOptionsPluginsPluginOptionsLanguageExtensionsFilterListInput = {
+  elemMatch?: Maybe<SitePluginPluginOptionsPluginsPluginOptionsLanguageExtensionsFilterInput>,
 };
 
 export type SitePluginPluginOptionsTableOfContents = {

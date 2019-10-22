@@ -168,8 +168,8 @@ module.exports = {
                             url: site.siteMetadata.siteUrl + edge.node.path,
                             changefreq: `daily`,
                             priority: 0.7,
-                        }
-                    })
+                        };
+                    }),
             },
         },
         // this (optional) plugin enables Progressive Web App + Offline functionality

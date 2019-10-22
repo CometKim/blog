@@ -7,7 +7,7 @@ const template = `
 ---
 title: $TITLE$
 date: $DATE$
-path: $PATH$
+slug: $SLUG$
 ---
 
 내용을 입력하세요.
@@ -35,7 +35,7 @@ path: $PATH$
     const data = template
         .replace('$TITLE$', title)
         .replace('$DATE$', now.toISOString())
-        .replace('$PATH$', _path)
+        .replace('$SLUG$', _path)
         .trim();
 
     await fs.writeFile(filePath, data, {

@@ -74,20 +74,14 @@ const PostContentBlock = css`
         margin-bottom: 1rem;
     }
 
-    h1:not(:first-child) {
-        margin-top: 4rem;
-    }
-
-    h2:not(:first-child) {
-        margin-top: 3rem;
-    }
-
+    h1,
+    h2,
     h3,
     h4,
     h5,
     h6 {
         &:not(:first-child) {
-            margin-top: 1.5rem;
+            margin-top: 2em;
         }
     }
 

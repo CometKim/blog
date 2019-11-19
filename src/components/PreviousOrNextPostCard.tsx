@@ -1,26 +1,21 @@
+import clsx from 'clsx';
 import { Link } from 'gatsby';
-import { css, cx } from 'linaria';
 import { ellipsis } from 'polished';
 import React, { useMemo } from 'react';
 import { FiArrowLeft, FiArrowRight } from 'react-icons/fi';
+import styled from 'styled-components';
 import { IPostFrontmatter } from '../interface';
-import oc from 'open-color';
-import { easeInQuad } from '../lib/constants';
+import colors from '../lib/colors';
+import shadow from '../lib/shadow';
+import spacing from '../lib/spacing';
 
-const PreviousOrNextPostCardBlock = css`
-    text-decoration: none;
+const PreviousOrNextPostCardLink = styled(Link)`
     display: flex;
     align-items: center;
-    color: ${oc.gray[8]};
-
-    padding: 1rem;
+    background-color: ${colors.white};
     border-radius: 2px;
-    ${easeInQuad};
-
-    &:hover {
-        background-color: ${oc.gray[0]};
-        color: ${oc.gray[9]};
-    }
+    padding: ${spacing[2]};
+    ${shadow};
 
     &:hover {
         text-decoration: underline;
@@ -28,16 +23,19 @@ const PreviousOrNextPostCardBlock = css`
 
     &.previous {
         justify-content: flex-start;
+        margin-right: auto;
     }
 
     &:not(.previous) {
         justify-content: flex-end;
+        margin-left: auto;
     }
 
     p.title {
         margin: 0;
-        line-height: 1;
+        line-height: 1rem;
         ${ellipsis()};
+        font-size: 0.875rem;
     }
 
     .arrow {
@@ -47,12 +45,12 @@ const PreviousOrNextPostCardBlock = css`
 
         &-left {
             order: -1;
-            margin-right: 0.5rem;
+            margin-right: ${spacing[1]};
         }
 
         &-right {
             order: 100;
-            margin-left: 0.5rem;
+            margin-left: ${spacing[1]};
         }
     }
 `;
@@ -71,12 +69,12 @@ const PreviousOrNextPostCard: React.FC<IPreviousOrNextPostCardProps> = React.mem
     }
 
     return (
-        <Link to={data.slug} className={cx(PreviousOrNextPostCardBlock, isPrevious && 'previous')}>
-            <div className={cx('arrow', isPrevious && 'arrow-left', !isPrevious && 'arrow-right')}>
+        <PreviousOrNextPostCardLink to={data.slug} className={clsx('link', isPrevious && 'previous')}>
+            <div className={clsx('arrow', isPrevious && 'arrow-left', !isPrevious && 'arrow-right')}>
                 {isPrevious ? <FiArrowLeft /> : <FiArrowRight />}
             </div>
             <p className="title">{data.title}</p>
-        </Link>
+        </PreviousOrNextPostCardLink>
     );
 });
 

@@ -1,10 +1,10 @@
 import { navigate } from 'gatsby';
-import { css } from 'linaria';
+import styled from 'styled-components';
 import oc from 'open-color';
 import React from 'react';
 import SEO from '../components/SEO';
 
-const NotFoundBlock = css`
+const NotFoundBlock = styled.div`
     height: 100%;
 
     display: flex;
@@ -48,11 +48,11 @@ const NotFound: React.FC = React.memo(() => {
     return (
         <>
             <SEO title="404: Not found" />
-            <div className={NotFoundBlock}>
+            <NotFoundBlock>
                 <h2>404</h2>
                 <p>음, 잘못 입력 하신거 같은데요?</p>
                 <button onClick={handleClickBack}>돌아가기</button>
-            </div>
+            </NotFoundBlock>
         </>
     );
 });

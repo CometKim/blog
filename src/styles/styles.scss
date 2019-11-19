@@ -41,17 +41,41 @@ body,
 
 // DEMO
 html {
-    @include responsive-type(0, 90%);
-    @include responsive-type(768px, 95%);
-    @include responsive-type(1024px, 100%);
+    @include responsive-type(0, 87.5%);
+    @include responsive-type(768px, 100%);
+    @include responsive-type(1024px, 112.5%);
 }
 
 a {
     text-decoration: none;
-    color: var(--oc-blue-6);
-    font-weight: bold;
+    color: var(--oc-cyan-8);
+    transition: color 100ms cubic-bezier(0.55, 0.085, 0.68, 0.53);
 
     &:hover {
-        text-decoration: underline;
+        color: var(--oc-gray-8);
     }
+}
+
+p,
+li {
+    line-height: 1.5;
+}
+
+h1 {
+    font-size: 1.5rem;
+}
+
+h2 {
+    font-size: 1.25rem;
+}
+
+h3 {
+    font-size: 1.125rem;
+}
+
+p,
+h1,
+h2,
+h3 {
+    margin: 1.15em 0 0.75em;
 }

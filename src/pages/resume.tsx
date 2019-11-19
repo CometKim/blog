@@ -1,15 +1,23 @@
-import { css } from 'linaria';
+import oc from 'open-color';
 import React from 'react';
+import { down } from 'styled-breakpoints';
+import styled from 'styled-components';
 import ExperienceLogo from '../components/ExperienceLogo';
 import Layout from '../components/Layout';
 import ProfileImage from '../components/ProfileImage';
 import SEO from '../components/SEO';
-import oc from 'open-color';
+import colors from '../lib/colors';
+import shadow from '../lib/shadow';
+import spacing from '../lib/spacing';
 
-const ResumeBlock = css`
+const ResumeBlock = styled.div`
+    background-color: ${colors.white};
+    ${shadow};
+    padding: ${spacing[4]};
+
     section {
         &:not(:last-child) {
-            margin-bottom: 2rem;
+            margin-bottom: 4rem;
         }
 
         &.experience {
@@ -25,14 +33,25 @@ const ResumeBlock = css`
                 margin-bottom: 2em;
             }
 
-            @media screen and (max-width: 420px) {
+            ${down('sm')} {
                 flex-direction: column;
             }
+        }
+
+        p,
+        h2,
+        h3 {
+            margin-top: 0;
+        }
+
+        ul {
+            margin: 0;
+            padding: 0 0 0 ${spacing[2]};
         }
     }
 `;
 
-const ProfileImageAndTextBlock = css`
+const ProfileImageAndTextBlock = styled.div`
     display: flex;
 
     .gatsby-image-wrapper {
@@ -41,7 +60,7 @@ const ProfileImageAndTextBlock = css`
         margin-bottom: 2em;
     }
 
-    @media screen and (max-width: 420px) {
+    ${down('sm')} {
         flex-direction: column;
     }
 `;
@@ -50,11 +69,10 @@ const ResumePage: React.FC = React.memo(() => {
     return (
         <Layout>
             <SEO title="resume" />
-            <h1>resume</h1>
-            <div className={ResumeBlock}>
+            <ResumeBlock>
                 <section>
                     <h2>소개</h2>
-                    <div className={ProfileImageAndTextBlock}>
+                    <ProfileImageAndTextBlock>
                         <ProfileImage />
                         <p>
                             웹 프론트엔드 엔지니어 이찬희 입니다. 자바스크립트를 주로 사용하고, 프론트엔드 개발을
@@ -70,24 +88,7 @@ const ResumePage: React.FC = React.memo(() => {
                             <br />
                             2016년 12월에 육군 현역으로 만기 제대했습니다.
                         </p>
-                    </div>
-                </section>
-                <section>
-                    <h2>사용 기술</h2>
-                    <p>최근에 가장 많이 사용하여 익숙한 기술입니다:</p>
-                    <ul>
-                        <li>React</li>
-                        <li>Typescript</li>
-                        <li>Jest</li>
-                        <li>react-testing-library</li>
-                    </ul>
-                    <p>예전에 사용해 본 경험이 있는 기술입니다:</p>
-                    <ul>
-                        <li>Angular</li>
-                        <li>RxJS</li>
-                        <li>Golang</li>
-                        <li>Python</li>
-                    </ul>
+                    </ProfileImageAndTextBlock>
                 </section>
                 <section>
                     <h2>이력</h2>
@@ -154,7 +155,7 @@ const ResumePage: React.FC = React.memo(() => {
                         </div>
                     </section>
                 </section>
-            </div>
+            </ResumeBlock>
         </Layout>
     );
 });

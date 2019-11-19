@@ -1,59 +1,60 @@
 /* Inspired from Velog */
 
-import clsx from 'clsx';
-import { css } from 'linaria';
 import React, { useEffect, useMemo, useRef, useState } from 'react';
 import { fromEvent } from 'rxjs';
 import { map, scan, tap } from 'rxjs/operators';
-import oc from 'open-color';
+import { down } from 'styled-breakpoints';
+import styled from 'styled-components';
+import spacing from '../lib/spacing';
 
-const PostTableOfContentsBlock = css`
+const PostTableOfContentsBlock = styled.div`
     position: absolute;
-    top: 8rem;
-    right: -2rem;
+    top: 0;
+    right: -${spacing[4]};
+    z-index: 50;
+
+    ${down('lg')} {
+        display: none;
+    }
 
     @media screen and (max-width: 1024px) {
         & {
-            display: none;
         }
     }
 
     ul {
-        font-size: 0.875rem;
         list-style: none;
-        margin: 0 0 0 1rem;
+        margin: 0;
+        padding: 0;
     }
 
     > ul {
         position: absolute;
-        width: 18.75rem;
+        width: 18rem;
+        padding: ${spacing[2]};
     }
 
     li {
-        margin: 0.5rem 0;
-        font-size: 1em;
+        font-size: 0.875rem;
+    }
 
-        a {
-            color: ${oc.gray[6]};
-            text-decoration: none;
-            font-weight: normal;
-
-            &:hover {
-                color: ${oc.gray[9]};
-                text-decoration: underline;
-            }
-        }
+    li ul li {
+        margin-left: ${spacing[2]};
     }
 
     &.fixed {
         > ul {
             position: fixed;
-            top: 1rem;
+            top: 4rem;
         }
     }
 
     p {
         margin: 0;
+    }
+
+    a {
+        line-height: 2;
     }
 `;
 
@@ -87,9 +88,9 @@ const PostTableOfContents: React.FC<IPostTableOfContentsProps> = React.memo(({ s
     }, []);
 
     return (
-        <div
+        <PostTableOfContentsBlock
             ref={containerRef}
-            className={clsx(PostTableOfContentsBlock, fixed && 'fixed')}
+            className={ fixed && 'fixed'}
             dangerouslySetInnerHTML={{ __html: tableOfContents }}
         />
     );

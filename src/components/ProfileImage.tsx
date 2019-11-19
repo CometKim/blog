@@ -1,10 +1,10 @@
 import { graphql, useStaticQuery } from 'gatsby';
 import Img, { FluidObject } from 'gatsby-image';
-import { css } from 'linaria';
 import React from 'react';
+import styled from 'styled-components';
 import { ProfileImageQuery } from '../graphql-types';
 
-export const ProfileImageBlock = css`
+export const ProfileImg = styled(Img)`
     display: inline-block;
     width: 6.25rem;
     height: 6.25rem;
@@ -28,7 +28,7 @@ const ProfileImage: React.FC = React.memo(() => {
         }
     `);
 
-    return <Img className={ProfileImageBlock} fluid={profileImage.childImageSharp.fluid as FluidObject} />;
+    return <ProfileImg fluid={profileImage.childImageSharp.fluid as FluidObject} />;
 });
 
 ProfileImage.displayName = 'ProfileImage';

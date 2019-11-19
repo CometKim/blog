@@ -48,7 +48,7 @@ pre[class*='language-'] {
     padding: 0.1em;
     font-size: 0.75em;
     border-radius: 0.3em;
-    color: var(--oc-red-9);
+    color: var(--oc-cyan-9);
     background: var(--oc-gray-1);
     border: 1px solid var(--oc-gray-3);
 }

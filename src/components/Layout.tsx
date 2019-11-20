@@ -1,6 +1,5 @@
 import { Link } from 'gatsby';
 import React from 'react';
-import { down } from 'styled-breakpoints';
 import styled from 'styled-components';
 import colors from '../lib/colors';
 import spacing from '../lib/spacing';
@@ -63,7 +62,7 @@ const LayoutBlock = styled.div`
     }
 
     > main {
-        padding: ${spacing[2]} 0;
+        padding: ${spacing[2]} 0 4rem;
     }
 `;
 

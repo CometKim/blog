@@ -14,6 +14,7 @@ const ResumeBlock = styled.div`
     background-color: ${colors.white};
     ${shadow};
     padding: ${spacing[4]};
+    border-radius: 2px;
 
     section {
         &:not(:last-child) {

@@ -7,6 +7,7 @@ const PostHeaderBlock = styled.div`
     h2 {
         font-size: 1.75rem;
         margin: 0 0 ${spacing[0.5]} 0;
+        line-height: 1em;
     }
 
     p {

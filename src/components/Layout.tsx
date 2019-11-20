@@ -1,10 +1,10 @@
 import { Link } from 'gatsby';
 import React from 'react';
+import { down } from 'styled-breakpoints';
 import styled from 'styled-components';
 import colors from '../lib/colors';
 import spacing from '../lib/spacing';
 import Container from './Container';
-import FaviconImage from './FaviconImage';
 
 const LayoutBlock = styled.div`
     min-height: 100%;
@@ -12,12 +12,8 @@ const LayoutBlock = styled.div`
 
     > header {
         background-color: ${colors.headerBackground};
-        padding: ${spacing[1]};
-        position: fixed;
-        top: 0;
-        left: 0;
-        right: 0;
-        z-index: 100;
+        padding: ${spacing[3]} 0;
+        height: 4rem;
     }
 
     .header-container {
@@ -30,7 +26,8 @@ const LayoutBlock = styled.div`
             align-items: center;
 
             a {
-                color: ${colors.content};
+                color: ${colors.primary};
+                font-weight: bold;
             }
 
             .favicon-image {
@@ -66,7 +63,7 @@ const LayoutBlock = styled.div`
     }
 
     > main {
-        padding: 5rem 0;
+        padding: ${spacing[2]} 0;
     }
 `;
 
@@ -76,7 +73,6 @@ const Layout: React.FC = React.memo(({ children }) => {
             <header>
                 <Container className="header-container">
                     <div className="title">
-                        <FaviconImage />
                         <Link to="/">imch.dev</Link>
                     </div>
                     <div className="nav-links">

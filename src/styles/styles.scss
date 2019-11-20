@@ -58,7 +58,7 @@ a {
 
 p,
 li {
-    line-height: 1.5;
+    line-height: 1.66;
 }
 
 h1 {
@@ -78,4 +78,8 @@ h1,
 h2,
 h3 {
     margin: 1.15em 0 0.75em;
+}
+
+em {
+    opacity: 0.85;
 }

@@ -45,7 +45,8 @@
     "styled-breakpoints": "^6.11.0",
     "styled-components": "^5.0.0-rc.2",
     "typography": "^0.16.19",
-    "typography-plugin-code": "^0.16.19"
+    "typography-plugin-code": "^0.16.19",
+    "typescript": "^3.6.3"
   },
   "devDependencies": {
     "@types/inquirer": "^6.5.0",
@@ -53,8 +54,7 @@
     "inquirer": "^7.0.0",
     "mz": "^2.7.0",
     "prettier": "^1.18.2",
-    "ts-node": "^8.4.1",
-    "typescript": "^3.6.3"
+    "ts-node": "^8.4.1"
   },
   "keywords": [
     "gatsby"

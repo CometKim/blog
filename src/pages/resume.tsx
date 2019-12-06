@@ -2,25 +2,29 @@ import oc from 'open-color';
 import React from 'react';
 import { down } from 'styled-breakpoints';
 import styled from 'styled-components';
-import ExperienceLogo from '../components/ExperienceLogo';
+import Card from '../components/Card';
 import Layout from '../components/Layout';
-import ProfileImage from '../components/ProfileImage';
+import ResumeCard from '../components/ResumeCard';
 import SEO from '../components/SEO';
-import colors from '../lib/colors';
-import shadow from '../lib/shadow';
 import spacing from '../lib/spacing';
 
 const ResumeBlock = styled.div`
-    background-color: ${colors.white};
-    ${shadow};
-    padding: ${spacing[4]};
-    border-radius: 2px;
-
-    section {
+    ${Card} {
         &:not(:last-child) {
-            margin-bottom: 4rem;
+            margin-bottom: 1rem;
         }
 
+        h2 {
+            margin: 0 0 1em;
+        }
+
+        ul {
+            margin: 0;
+            padding: 0 0 0 1em;
+        }
+    }
+
+    section {
         &.experience {
             display: flex;
 
@@ -52,110 +56,54 @@ const ResumeBlock = styled.div`
     }
 `;
 
-const ProfileImageAndTextBlock = styled.div`
-    display: flex;
-
-    .gatsby-image-wrapper {
-        min-width: 6.25rem;
-        margin-right: 2em;
-        margin-bottom: 2em;
-    }
-
-    ${down('sm')} {
-        flex-direction: column;
-    }
-`;
-
 const ResumePage: React.FC = React.memo(() => {
     return (
         <Layout>
             <SEO title="resume" />
             <ResumeBlock>
-                <section>
+                <Card as="section">
                     <h2>소개</h2>
-                    <ProfileImageAndTextBlock>
-                        <ProfileImage />
-                        <p>
-                            웹 프론트엔드 엔지니어 이찬희 입니다. 자바스크립트를 주로 사용하고, 프론트엔드 개발을
-                            좋아합니다. 최근에는 리액트와 타입스크립트를 사용하여 즐겁게 개발하고 있습니다. 테스트 코드
-                            작성을 통해 품질을 유지하고자 노력합니다. 현재 플러스티브이에서 웹 프론트엔드 엔지니어로
-                            재직중입니다.
-                            <br />
-                            <br />
-                            동료에게 도움이 되는 개발자가 되는 것이 제가 추구하는 개발자로서의 목표입니다. 제가 만든
-                            코드가 다른 개발자들에게, 나아가 비즈니스에 도움이 될 때 가장 큰 보람을 느낍니다. 디자이너,
-                            기획자와 제품에 대해서 생산성 있는 이야기를 나누는 것을 좋아합니다.
-                            <br />
-                            <br />
-                            2016년 12월에 육군 현역으로 만기 제대했습니다.
-                        </p>
-                    </ProfileImageAndTextBlock>
-                </section>
-                <section>
-                    <h2>이력</h2>
-                    <section className="experience">
-                        <ExperienceLogo name="plustv" />
-                        <div>
-                            <h3>플러스티브이</h3>
-                            <p className="date">2018. 12 ~ NOW / 프론트엔드 개발</p>
-                            <p>
-                                자사 디지털 사이니지 관리 솔루션의 신규 CMS 프로젝트 개발 및 유지보수를 담당하였습니다.
-                                리액트와 타입스크립트를 사용하여 프로젝트를 진행했습니다.
-                            </p>
-                            <ul>
-                                <li>자사 디지털 사이니지 솔루션의 신규 CMS 프로젝트 개발</li>
-                                <li>모바일에서도 원할하게 사용할 수 있도록 반응형으로 작업</li>
-                                <li>linguiJS 를 사용하여 국제화 작업 진행</li>
-                            </ul>
-                        </div>
-                    </section>
-                    <section className="experience">
-                        <ExperienceLogo name="towncompany" />
-                        <div>
-                            <h3>타운컴퍼니</h3>
-                            <p className="date">2018. 03 ~ 2018. 11 / 프론트엔드 개발</p>
-                            <p>
-                                단체 공동구매를 위한 e-커머스 플랫폼 ‘타운어스’ 신규 기능 개발 및 유지보수 담당을
-                                맡았습니다. Angular 6 와 RxJS 를 경험해 볼 수 있었고, 테스트 주도 개발을 처음으로
-                                접했습니다. 제품 개발 시 기획자, 디자이너, 개발자 간의 협업을 통해 업무를 진행, 역할
-                                조직에 대해 알게되었습니다.
-                            </p>
-                            <ul>
-                                <li>신규 플랫폼 오픈 후 발생한 이슈 및 크로스브라우징 대응</li>
-                                <li>E2E 테스트 스크립트 작성</li>
-                                <li>
-                                    Sentry 로 보고되는 오류를 추적할 수 있도록 배포 시 sourcemap 을 생성하여 Sentry 에
-                                    업로드 하도록 개선.
-                                </li>
-                                <li>역경매 신규 플랫폼 타운초이스 프로토타입 개발</li>
-                                <li>공동구매방 프로세스 개선 (2.0.0 버전)</li>
-                                <li>배포 자동화 스크립트 개선</li>
-                                <li>업체 상세 정보 및 정보 공유 기능 개발</li>
-                            </ul>
-                        </div>
-                    </section>
-                    <section className="experience">
-                        <ExperienceLogo name="tablemanager" />
-                        <div>
-                            <h3>테이블매니저</h3>
-                            <p className="date">2017. 01 ~ 2018. 02 / 프론트엔드 및 백엔드 개발</p>
-                            <p>
-                                레스토랑 예약 관리 솔루션의 신규 기능 개발 및 유지보수를 담당했습니다. 기존에 개발 된
-                                코드를 분석하며 업무를 진행했고, static 한 파일을 업로드 했던 기존 방식에 웹팩을
-                                도입하여 브라우저 캐시 관련 문제를 해결했던 경험이 있습니다.
-                            </p>
-                            <ul>
-                                <li>아임포트 모듈을 연동하여 솔루션 내 예약금 결제 기능 도입</li>
-                                <li>
-                                    매장에서 태블릿 PC를 활용, 전화번호를 입력하면 고객 포인트를 적립/사용 처리할 수
-                                    있는 기능 개발
-                                </li>
-                                <li>매일 9시, 전체 고객사의 솔루션 사용 정보를 확인하여 리포트를 생성하는 기능 개발</li>
-                                <li>SMS/LMS 기반의 문자 발송 시스템에서 카카오톡 알림톡을 발송하도록 개발</li>
-                            </ul>
-                        </div>
-                    </section>
-                </section>
+                    <p>
+                        프론트엔드 엔지니어 이찬희 입니다. 최근에는 리액트와 타입스크립트를 사용하여 즐겁게 개발하고
+                        있습니다. UX/UI에 관심이 있으며 현재 플러스티브이에서 웹 프론트엔드 엔지니어로 재직중입니다.
+                    </p>
+                </Card>
+                <Card>
+                    <h2>요약</h2>
+                    <ul>
+                        <li>리액트, 타입스크립트로 개발하는 것을 좋아합니다.</li>
+                        <li>디자인 시스템에 관심이 있습니다.</li>
+                        <li>UX/UI는 단순히 예쁘게 만드는게 전부가 아니라는 것을 알고 있습니다.</li>
+                        <li>테스트 코드 작성을 통해 품질을 유지하고자 노력합니다.</li>
+                    </ul>
+                </Card>
+                <ResumeCard title="플러스티브이" time="2018. 12 ~">
+                    <ul>
+                        <li>
+                            디지털 사이니지 관리 도구(CMS)를 개발. 리액트와 타입스크립트를 사용하였습니다.
+                        </li>
+                        <li>
+                            LinguiJS를 사용한 국제화(i18n) 작업 진행.{' '}
+                            <a
+                                target="_blank"
+                                href="https://medium.com/plustv/linguijs-%EB%A5%BC-%EC%82%AC%EC%9A%A9%ED%95%98%EC%97%AC-%EB%A6%AC%EC%95%A1%ED%8A%B8-%EC%95%B1-%EB%8B%A4%EA%B5%AD%EC%96%B4-%EC%A7%80%EC%9B%90%ED%95%98%EA%B8%B0-ef7ea234c6a8"
+                            >
+                                (관련글)
+                            </a>
+                        </li>
+                    </ul>
+                </ResumeCard>
+                <ResumeCard title="타운컴퍼니" time="2018. 03 ~ 2018. 11">
+                    <ul>
+                        <li>Angular 기반의 타운어스 개발.</li>
+                        <li>신규 사업 관련 프로토타입 개발.</li>
+                    </ul>
+                </ResumeCard>
+                <ResumeCard title="타운컴퍼니" time="2017. 01 ~ 2018. 02">
+                    <ul>
+                        <li>AngularJS와 Express 기반의 테이블매니저 개발.</li>
+                    </ul>
+                </ResumeCard>
             </ResumeBlock>
         </Layout>
     );

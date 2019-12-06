@@ -18,7 +18,7 @@ export interface ISEOProps {
 }
 
 const SEO: React.FC<ISEOProps> = React.memo(({ description, lang = 'ko', meta = [], title }) => {
-    const { site, profileImage } = useStaticQuery<SeoQuery>(
+    const { site } = useStaticQuery<SeoQuery>(
         graphql`
             query SEO {
                 site {
@@ -26,13 +26,6 @@ const SEO: React.FC<ISEOProps> = React.memo(({ description, lang = 'ko', meta = 
                         title
                         description
                         author
-                    }
-                }
-                profileImage: file(name: { eq: "profile" }) {
-                    childImageSharp {
-                        fixed {
-                            src
-                        }
                     }
                 }
             }
@@ -81,18 +74,18 @@ const SEO: React.FC<ISEOProps> = React.memo(({ description, lang = 'ko', meta = 
                     name: `twitter:description`,
                     content: metaDescription,
                 },
-                {
-                    name: 'image',
-                    content: profileImage.childImageSharp.fixed.src,
-                },
-                {
-                    property: 'og:image',
-                    content: profileImage.childImageSharp.fixed.src,
-                },
-                {
-                    name: 'twitter:image',
-                    content: profileImage.childImageSharp.fixed.src,
-                }
+                // {
+                //     name: 'image',
+                //     content: profileImage.childImageSharp.fixed.src,
+                // },
+                // {
+                //     property: 'og:image',
+                //     content: profileImage.childImageSharp.fixed.src,
+                // },
+                // {
+                //     name: 'twitter:image',
+                //     content: profileImage.childImageSharp.fixed.src,
+                // }
             ].concat(meta)}
         />
     );

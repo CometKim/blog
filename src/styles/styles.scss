@@ -81,11 +81,30 @@ h3 {
 }
 
 em {
-    opacity: 0.85;
+    color: var(--oc-gray-6);
+    font-style: normal;
 }
 
 blockquote {
     font-size: 1.25em;
     opacity: 0.85;
     font-style: italic;
+}
+
+hr {
+    margin: 2rem 25%;
+    border: none;
+    border-top: 1px solid var(--oc-gray-2);
+    height: 0;
+}
+
+strong {
+    color: var(--oc-gray-10);
+}
+
+.gatsby-resp-image-figcaption {
+    text-align: center;
+    color: var(--oc-gray-6);
+    font-size: 0.875rem;
+    margin-top: 0.5em;
 }

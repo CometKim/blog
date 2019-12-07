@@ -30,7 +30,7 @@ const PostTemplateBlock = styled.section`
     img {
         display: block;
         width: 100%;
-        max-width: 960px;
+        max-width: 400px;
         margin: auto;
     }
 `;

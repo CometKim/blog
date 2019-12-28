@@ -44,9 +44,9 @@
     "rxjs": "^6.5.3",
     "styled-breakpoints": "^6.11.0",
     "styled-components": "^5.0.0-rc.2",
+    "typescript": "^3.6.3",
     "typography": "^0.16.19",
-    "typography-plugin-code": "^0.16.19",
-    "typescript": "^3.6.3"
+    "typography-plugin-code": "^0.16.19"
   },
   "devDependencies": {
     "@types/inquirer": "^6.5.0",

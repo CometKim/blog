@@ -3,11 +3,11 @@ import { navigate } from 'gatsby';
 import Layout from '../components/Layout';
 
 const IndexPage: React.FC = () => {
-    useEffect(() => {
-        navigate('/posts');
-    }, []);
+  useEffect(() => {
+    navigate('/posts');
+  }, []);
 
-    return <Layout />;
+  return <Layout />;
 };
 
 export default IndexPage;

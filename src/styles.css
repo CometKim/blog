@@ -35,6 +35,11 @@ a:hover {
   content: attr(data-prompt);
 }
 
+:not(picture) > img {
+  max-width: 633px;
+  @apply block w-full mx-auto;
+}
+
 @screen lg {
   .container {
     @apply max-w-3xl;

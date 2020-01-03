@@ -10,10 +10,6 @@ a:hover {
   @apply text-purple-500;
 }
 
-:not(pre) > code[class*='language-'] {
-  @apply text-purple-800 bg-gray-200 rounded px-1 text-sm;
-}
-
 .gatsby-highlight > pre {
   @apply rounded;
 }

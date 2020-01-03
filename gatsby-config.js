@@ -182,6 +182,8 @@ module.exports = {
       options: {
         printRejected: true,
         tailwind: true,
+        ignore: ['prism-node.css', 'ignore.css'],
+        whitelist: [':not(pre) > code[class*=\'language-\']'],
       },
     },
   ],

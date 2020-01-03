@@ -2,6 +2,10 @@
 title: 디자인 토큰 삽질기
 date: 2019-12-06T11:56:12.817Z
 slug: /posts/some-waste-of-times-for-design-token
+description: TBD
+category: development
+tags: ["TBD"]
+type: post
 ---
 
 요즘 디자인 토큰 작업을 하고 있다. 개발자가 웬 디자인 관련 작업인가 싶지만

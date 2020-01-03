@@ -477,6 +477,7 @@ type MarkdownRemarkEdge {
 }
 
 type MarkdownRemarkFrontmatter {
+    category: String
     date(
         #Returns the difference between this date and the current time. Defaults to \"milliseconds\" but you can also pass in as the measurement \"years\", \"months\", \"weeks\", \"days\", \"hours\", \"minutes\", and \"seconds\".
         difference: String,
@@ -487,6 +488,8 @@ type MarkdownRemarkFrontmatter {
         #Configures the locale Moment.js will use to format the date.
         locale: String
     ): Date
+    description: String
+    keywords: String
     slug: String
     title: String
 }
@@ -609,15 +612,18 @@ type SitePageContext {
     html: String
     next: SitePageContextNext
     previous: SitePageContextPrevious
+    slug: String
     tableOfContents: String
     title: String
 }
 
 type SitePageContextNext {
+    slug: String
     title: String
 }
 
 type SitePageContextPrevious {
+    slug: String
     title: String
 }
 
@@ -707,9 +713,13 @@ type SitePluginPackageJsonPeerDependencies {
 type SitePluginPluginOptions {
     backgroundColor: String
     background_color: String
+    component: String
     dest: String
+    disableBgImage: Boolean
     disableBgImageOnAlpha: Boolean
     display: String
+    exclude: [String]
+    feeds: [SitePluginPluginOptionsFeeds]
     google: SitePluginPluginOptionsGoogle
     icon: String
     linkImagesToOriginal: Boolean
@@ -717,19 +727,28 @@ type SitePluginPluginOptions {
     markdownCaptions: Boolean
     maxWidth: Int
     name: String
+    output: String
     path: String
     pathCheck: Boolean
     pathPrefix: String
     plugins: [SitePluginPluginOptionsPlugins]
     quality: Int
+    query: String
     short_name: String
     showCaptions: Boolean
     start_url: String
-    tableOfContents: SitePluginPluginOptionsTableOfContents
     theme_color: String
     tracedSVG: Boolean
+    trackingId: String
     withWebp: Boolean
     wrapperStyle: String
+}
+
+type SitePluginPluginOptionsFeeds {
+    match: String
+    output: String
+    query: String
+    title: String
 }
 
 type SitePluginPluginOptionsGoogle {
@@ -749,6 +768,7 @@ type SitePluginPluginOptionsPlugins {
 
 type SitePluginPluginOptionsPluginsPluginOptions {
     backgroundColor: String
+    disableBgImage: Boolean
     disableBgImageOnAlpha: Boolean
     linkImagesToOriginal: Boolean
     loading: String
@@ -762,13 +782,10 @@ type SitePluginPluginOptionsPluginsPluginOptions {
     wrapperStyle: String
 }
 
-type SitePluginPluginOptionsTableOfContents {
-    maxDepth: Int
-}
-
 type SiteSiteMetadata {
     author: String
     description: String
+    siteUrl: String
     title: String
 }
 
@@ -943,7 +960,7 @@ enum FileFieldsEnum {
     childImageSharp___fluid___srcSetWebp @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
     childImageSharp___fluid___srcWebp @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
     childImageSharp___fluid___tracedSVG @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
-    childImageSharp___id
+    childImageSharp___id @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
     childImageSharp___internal___content @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
     childImageSharp___internal___contentDigest @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
     childImageSharp___internal___description @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
@@ -1015,7 +1032,10 @@ enum FileFieldsEnum {
     childMarkdownRemark___excerpt @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
     childMarkdownRemark___excerptAst @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
     childMarkdownRemark___fileAbsolutePath @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
+    childMarkdownRemark___frontmatter___category
     childMarkdownRemark___frontmatter___date
+    childMarkdownRemark___frontmatter___description
+    childMarkdownRemark___frontmatter___keywords
     childMarkdownRemark___frontmatter___slug
     childMarkdownRemark___frontmatter___title
     childMarkdownRemark___headings @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
@@ -1252,7 +1272,7 @@ enum ImageSharpFieldsEnum {
     fluid___srcSetWebp @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
     fluid___srcWebp @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
     fluid___tracedSVG @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
-    id
+    id @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
     internal___content @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
     internal___contentDigest @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
     internal___description @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
@@ -1390,7 +1410,10 @@ enum MarkdownRemarkFieldsEnum {
     excerpt @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
     excerptAst @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
     fileAbsolutePath @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
+    frontmatter___category
     frontmatter___date
+    frontmatter___description
+    frontmatter___keywords
     frontmatter___slug
     frontmatter___title
     headings @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
@@ -1556,6 +1579,7 @@ enum SiteFieldsEnum {
     port
     siteMetadata___author
     siteMetadata___description
+    siteMetadata___siteUrl
     siteMetadata___title
 }
 
@@ -1605,8 +1629,11 @@ enum SitePageFieldsEnum {
     context___date
     context___excerpt
     context___html
+    context___next___slug
     context___next___title
+    context___previous___slug
     context___previous___title
+    context___slug
     context___tableOfContents
     context___title
     id
@@ -1720,9 +1747,17 @@ enum SitePageFieldsEnum {
     pluginCreator___pluginFilepath
     pluginCreator___pluginOptions___backgroundColor
     pluginCreator___pluginOptions___background_color
+    pluginCreator___pluginOptions___component
     pluginCreator___pluginOptions___dest
+    pluginCreator___pluginOptions___disableBgImage
     pluginCreator___pluginOptions___disableBgImageOnAlpha
     pluginCreator___pluginOptions___display
+    pluginCreator___pluginOptions___exclude
+    pluginCreator___pluginOptions___feeds
+    pluginCreator___pluginOptions___feeds___match
+    pluginCreator___pluginOptions___feeds___output
+    pluginCreator___pluginOptions___feeds___query
+    pluginCreator___pluginOptions___feeds___title
     pluginCreator___pluginOptions___google___families
     pluginCreator___pluginOptions___icon
     pluginCreator___pluginOptions___linkImagesToOriginal
@@ -1730,6 +1765,7 @@ enum SitePageFieldsEnum {
     pluginCreator___pluginOptions___markdownCaptions
     pluginCreator___pluginOptions___maxWidth
     pluginCreator___pluginOptions___name
+    pluginCreator___pluginOptions___output
     pluginCreator___pluginOptions___path
     pluginCreator___pluginOptions___pathCheck
     pluginCreator___pluginOptions___pathPrefix
@@ -1742,12 +1778,13 @@ enum SitePageFieldsEnum {
     pluginCreator___pluginOptions___plugins___ssrAPIs
     pluginCreator___pluginOptions___plugins___version
     pluginCreator___pluginOptions___quality
+    pluginCreator___pluginOptions___query
     pluginCreator___pluginOptions___short_name
     pluginCreator___pluginOptions___showCaptions
     pluginCreator___pluginOptions___start_url
-    pluginCreator___pluginOptions___tableOfContents___maxDepth
     pluginCreator___pluginOptions___theme_color
     pluginCreator___pluginOptions___tracedSVG
+    pluginCreator___pluginOptions___trackingId
     pluginCreator___pluginOptions___withWebp
     pluginCreator___pluginOptions___wrapperStyle
     pluginCreator___resolve
@@ -1864,9 +1901,17 @@ enum SitePluginFieldsEnum {
     pluginFilepath
     pluginOptions___backgroundColor
     pluginOptions___background_color
+    pluginOptions___component
     pluginOptions___dest
+    pluginOptions___disableBgImage
     pluginOptions___disableBgImageOnAlpha
     pluginOptions___display
+    pluginOptions___exclude
+    pluginOptions___feeds
+    pluginOptions___feeds___match
+    pluginOptions___feeds___output
+    pluginOptions___feeds___query
+    pluginOptions___feeds___title
     pluginOptions___google___families
     pluginOptions___icon
     pluginOptions___linkImagesToOriginal
@@ -1874,6 +1919,7 @@ enum SitePluginFieldsEnum {
     pluginOptions___markdownCaptions
     pluginOptions___maxWidth
     pluginOptions___name
+    pluginOptions___output
     pluginOptions___path
     pluginOptions___pathCheck
     pluginOptions___pathPrefix
@@ -1883,6 +1929,7 @@ enum SitePluginFieldsEnum {
     pluginOptions___plugins___name
     pluginOptions___plugins___pluginFilepath
     pluginOptions___plugins___pluginOptions___backgroundColor
+    pluginOptions___plugins___pluginOptions___disableBgImage
     pluginOptions___plugins___pluginOptions___disableBgImageOnAlpha
     pluginOptions___plugins___pluginOptions___linkImagesToOriginal
     pluginOptions___plugins___pluginOptions___loading
@@ -1898,12 +1945,13 @@ enum SitePluginFieldsEnum {
     pluginOptions___plugins___ssrAPIs
     pluginOptions___plugins___version
     pluginOptions___quality
+    pluginOptions___query
     pluginOptions___short_name
     pluginOptions___showCaptions
     pluginOptions___start_url
-    pluginOptions___tableOfContents___maxDepth
     pluginOptions___theme_color
     pluginOptions___tracedSVG
+    pluginOptions___trackingId
     pluginOptions___withWebp
     pluginOptions___wrapperStyle
     resolve
@@ -2192,7 +2240,10 @@ input MarkdownRemarkFilterInput {
 }
 
 input MarkdownRemarkFrontmatterFilterInput {
+    category: StringQueryOperatorInput
     date: DateQueryOperatorInput
+    description: StringQueryOperatorInput
+    keywords: StringQueryOperatorInput
     slug: StringQueryOperatorInput
     title: StringQueryOperatorInput
 }
@@ -2250,15 +2301,18 @@ input SitePageContextFilterInput {
     html: StringQueryOperatorInput
     next: SitePageContextNextFilterInput
     previous: SitePageContextPreviousFilterInput
+    slug: StringQueryOperatorInput
     tableOfContents: StringQueryOperatorInput
     title: StringQueryOperatorInput
 }
 
 input SitePageContextNextFilterInput {
+    slug: StringQueryOperatorInput
     title: StringQueryOperatorInput
 }
 
 input SitePageContextPreviousFilterInput {
+    slug: StringQueryOperatorInput
     title: StringQueryOperatorInput
 }
 
@@ -2339,12 +2393,27 @@ input SitePluginPackageJsonPeerDependenciesFilterListInput {
     elemMatch: SitePluginPackageJsonPeerDependenciesFilterInput
 }
 
+input SitePluginPluginOptionsFeedsFilterInput {
+    match: StringQueryOperatorInput
+    output: StringQueryOperatorInput
+    query: StringQueryOperatorInput
+    title: StringQueryOperatorInput
+}
+
+input SitePluginPluginOptionsFeedsFilterListInput {
+    elemMatch: SitePluginPluginOptionsFeedsFilterInput
+}
+
 input SitePluginPluginOptionsFilterInput {
     backgroundColor: StringQueryOperatorInput
     background_color: StringQueryOperatorInput
+    component: StringQueryOperatorInput
     dest: StringQueryOperatorInput
+    disableBgImage: BooleanQueryOperatorInput
     disableBgImageOnAlpha: BooleanQueryOperatorInput
     display: StringQueryOperatorInput
+    exclude: StringQueryOperatorInput
+    feeds: SitePluginPluginOptionsFeedsFilterListInput
     google: SitePluginPluginOptionsGoogleFilterInput
     icon: StringQueryOperatorInput
     linkImagesToOriginal: BooleanQueryOperatorInput
@@ -2352,17 +2421,19 @@ input SitePluginPluginOptionsFilterInput {
     markdownCaptions: BooleanQueryOperatorInput
     maxWidth: IntQueryOperatorInput
     name: StringQueryOperatorInput
+    output: StringQueryOperatorInput
     path: StringQueryOperatorInput
     pathCheck: BooleanQueryOperatorInput
     pathPrefix: StringQueryOperatorInput
     plugins: SitePluginPluginOptionsPluginsFilterListInput
     quality: IntQueryOperatorInput
+    query: StringQueryOperatorInput
     short_name: StringQueryOperatorInput
     showCaptions: BooleanQueryOperatorInput
     start_url: StringQueryOperatorInput
-    tableOfContents: SitePluginPluginOptionsTableOfContentsFilterInput
     theme_color: StringQueryOperatorInput
     tracedSVG: BooleanQueryOperatorInput
+    trackingId: StringQueryOperatorInput
     withWebp: BooleanQueryOperatorInput
     wrapperStyle: StringQueryOperatorInput
 }
@@ -2388,6 +2459,7 @@ input SitePluginPluginOptionsPluginsFilterListInput {
 
 input SitePluginPluginOptionsPluginsPluginOptionsFilterInput {
     backgroundColor: StringQueryOperatorInput
+    disableBgImage: BooleanQueryOperatorInput
     disableBgImageOnAlpha: BooleanQueryOperatorInput
     linkImagesToOriginal: BooleanQueryOperatorInput
     loading: StringQueryOperatorInput
@@ -2401,10 +2473,6 @@ input SitePluginPluginOptionsPluginsPluginOptionsFilterInput {
     wrapperStyle: StringQueryOperatorInput
 }
 
-input SitePluginPluginOptionsTableOfContentsFilterInput {
-    maxDepth: IntQueryOperatorInput
-}
-
 input SitePluginSortInput {
     fields: [SitePluginFieldsEnum]
     order: [SortOrderEnum] = [ASC]
@@ -2413,6 +2481,7 @@ input SitePluginSortInput {
 input SiteSiteMetadataFilterInput {
     author: StringQueryOperatorInput
     description: StringQueryOperatorInput
+    siteUrl: StringQueryOperatorInput
     title: StringQueryOperatorInput
 }
 

@@ -2,6 +2,10 @@
 title: 모노레포로 리액트 프로젝트 만들기
 date: 2019-11-08T06:43:01.488Z
 slug: /posts/make-react-app-with-monorepo
+description: TBD
+category: development
+tags: ["TBD"]
+type: post
 ---
 
 회사에서 진행하는 프로젝트의 규모가 점점 커지고 있습니다. 규모가 커질 것을 고려해서 몇 번 폴더 구조를 (나름) 체계적으로 정리하는 등, 최선을 다했지만 단순하게 폴더를 정리하는 선을 넘고 있어서(ㅠㅠ)

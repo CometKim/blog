@@ -2,6 +2,10 @@
 title: Gatsby 로 블로그 만들기 (2)
 date: 2019-10-12T05:36:06.653Z
 slug: /posts/build-a-blog-with-gatsby-and-typescript-part-2
+description: TBD
+category: development
+tags: ["TBD"]
+type: post
 ---
 
 > 본 게시글은 벨로그에서 제가 작성한 게시글을 옮겨왔습니다.
@@ -20,7 +24,7 @@ slug: /posts/build-a-blog-with-gatsby-and-typescript-part-2
 
 ```js
 exports.createPages = () => {
-    console.log('I will create a page!');
+  console.log('I will create a page!');
 };
 ```
 
@@ -64,7 +68,7 @@ success onPreExtractQueries - 0.014 s
 require('ts-node').register();
 
 exports.createPages = () => {
-    console.log('I will create a page!');
+  console.log('I will create a page!');
 };
 ```
 
@@ -72,8 +76,8 @@ exports.createPages = () => {
 
 ```ts
 export async function createPages() {
-    console.log('I will create a page!');
-    console.log('Typescript!');
+  console.log('I will create a page!');
+  console.log('Typescript!');
 }
 ```
 
@@ -118,20 +122,20 @@ export async function createPages({ actions }: CreatePagesArgs) {}
 import { CreatePagesArgs } from 'gatsby';
 
 const pages = [
-    { id: 1, content: 'Gatsby 로 블로그 만들기' },
-    { id: 2, content: '거기에 타입스크립트 적용 해 보기' },
-    { id: 3, content: '확실히 어렵네요' },
+  { id: 1, content: 'Gatsby 로 블로그 만들기' },
+  { id: 2, content: '거기에 타입스크립트 적용 해 보기' },
+  { id: 3, content: '확실히 어렵네요' },
 ];
 
 export async function createPages({ actions }: CreatePagesArgs) {
-    const { createPage } = actions;
-    pages.forEach(page => {
-        createPage({
-            path: page.id.toString(),
-            context: page,
-            component: '', // ?,
-        });
+  const { createPage } = actions;
+  pages.forEach(page => {
+    createPage({
+      path: page.id.toString(),
+      context: page,
+      component: '', // ?,
     });
+  });
 }
 ```
 
@@ -158,13 +162,13 @@ import React from 'react';
 import Layout from '../components/layout';
 
 const PostTemplate: React.FC = React.memo(props => {
-    return (
-        <Layout>
-            <code>
-                <pre>{JSON.stringify(props, null, 4)}</pre>
-            </code>
-        </Layout>
-    );
+  return (
+    <Layout>
+      <code>
+        <pre>{JSON.stringify(props, null, 4)}</pre>
+      </code>
+    </Layout>
+  );
 });
 
 PostTemplate.displayName = 'PostTemplate';
@@ -179,20 +183,20 @@ import { CreatePagesArgs } from 'gatsby';
 import path from 'path';
 
 const pages = [
-    { id: 1, content: 'Gatsby 로 블로그 만들기' },
-    { id: 2, content: '거기에 타입스크립트 적용 해 보기' },
-    { id: 3, content: '확실히 어렵네요' },
+  { id: 1, content: 'Gatsby 로 블로그 만들기' },
+  { id: 2, content: '거기에 타입스크립트 적용 해 보기' },
+  { id: 3, content: '확실히 어렵네요' },
 ];
 
 export async function createPages({ actions }: CreatePagesArgs) {
-    const { createPage } = actions;
-    pages.forEach(page => {
-        createPage({
-            path: page.id.toString(),
-            context: page,
-            component: path.resolve(__dirname, '../templates/PostTemplate.tsx'),
-        });
+  const { createPage } = actions;
+  pages.forEach(page => {
+    createPage({
+      path: page.id.toString(),
+      context: page,
+      component: path.resolve(__dirname, '../templates/PostTemplate.tsx'),
     });
+  });
 }
 ```
 
@@ -249,37 +253,37 @@ title: 테스트
 
 ```ts
 export async function createPages({ actions, graphql }: CreatePagesArgs) {
-    const { createPage } = actions;
+  const { createPage } = actions;
 
-    const { data, errors } = await graphql(`
-        {
-            allMarkdownRemark {
-                edges {
-                    node {
-                        html
-                        frontmatter {
-                            title
-                        }
-                    }
-                }
+  const { data, errors } = await graphql(`
+    {
+      allMarkdownRemark {
+        edges {
+          node {
+            html
+            frontmatter {
+              title
             }
+          }
         }
-    `);
-
-    if (errors) {
-        throw errors;
+      }
     }
+  `);
 
-    data.allMarkdownRemark.edges.forEach(({ node }: any) => {
-        createPage({
-            path: node.frontmatter.title,
-            context: {
-                html: node.html,
-                title: node.frontmatter.title,
-            },
-            component: path.resolve(__dirname, '../templates/PostTemplate.tsx'),
-        });
+  if (errors) {
+    throw errors;
+  }
+
+  data.allMarkdownRemark.edges.forEach(({ node }: any) => {
+    createPage({
+      path: node.frontmatter.title,
+      context: {
+        html: node.html,
+        title: node.frontmatter.title,
+      },
+      component: path.resolve(__dirname, '../templates/PostTemplate.tsx'),
     });
+  });
 }
 ```
 

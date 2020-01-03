@@ -1,0 +1,46 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+a {
+  @apply text-purple-800;
+}
+
+a:hover {
+  @apply text-purple-500;
+}
+
+:not(pre) > code[class*='language-'] {
+  @apply text-purple-800 bg-gray-200 rounded px-1 text-sm;
+}
+
+.gatsby-highlight > pre {
+  @apply rounded;
+}
+
+.gatsby-highlight-code-line {
+  @apply block bg-gray-700;
+}
+
+.command-line-prompt {
+  @apply select-none pointer-events-none float-left block;
+}
+
+.command-line-prompt > span:first-child:before {
+  @apply block pr-3 text-gray-500;
+  content: '';
+}
+
+.command-line-prompt > span[data-user]:first-child:before {
+  content: '$';
+}
+
+.command-line-prompt > span[data-prompt]:before {
+  content: attr(data-prompt);
+}
+
+@screen lg {
+  .container {
+    @apply max-w-3xl;
+  }
+}

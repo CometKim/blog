@@ -1,20 +1,4 @@
 import React, { createRef, useLayoutEffect, useRef } from 'react';
-import styled from 'styled-components';
-import colors from '../lib/colors';
-import shadow from '../lib/shadow';
-import spacing from '../lib/spacing';
-
-const UtterancesBlock = styled.div`
-  margin-top: ${spacing[2]};
-  background-color: ${colors.white};
-  padding: ${spacing[2]};
-  border-radius: 2px;
-  ${shadow};
-
-  .utterances {
-    max-width: 100%;
-  }
-`;
 
 const src = 'https://utteranc.es/client.js';
 
@@ -52,7 +36,7 @@ const Utterances: React.FC<IUtterancesProps> = React.memo(({ repo }) => {
     initialized.current = true;
   }, [repo]);
 
-  return <UtterancesBlock ref={containerRef} />;
+  return <div ref={containerRef} />;
 });
 
 Utterances.displayName = 'Utterances';

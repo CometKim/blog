@@ -1,36 +1,32 @@
 module.exports = {
   siteMetadata: {
-    title: `imch.dev`,
-    description: `imch.dev`,
-    author: `iamchanii`,
+    title: 'imch.dev',
+    description: 'imch.dev',
+    author: 'iamchanii',
     siteUrl: 'https://imch.dev',
   },
   plugins: [
-    `gatsby-plugin-typescript`,
+    'gatsby-plugin-typescript',
+    'gatsby-plugin-react-helmet',
     {
-      resolve: `gatsby-plugin-styled-components`,
-      options: {},
-    },
-    `gatsby-plugin-react-helmet`,
-    {
-      resolve: `gatsby-source-filesystem`,
+      resolve: 'gatsby-source-filesystem',
       options: {
-        name: `images`,
+        name: 'images',
         path: `${__dirname}/src/images`,
       },
     },
-    `gatsby-transformer-sharp`,
-    `gatsby-plugin-sharp`,
+    'gatsby-transformer-sharp',
+    'gatsby-plugin-sharp',
     {
-      resolve: `gatsby-plugin-manifest`,
+      resolve: 'gatsby-plugin-manifest',
       options: {
-        name: `imch.dev`,
-        short_name: `imch.dev`,
-        start_url: `/`,
-        background_color: `#222`,
-        theme_color: `#222`,
-        display: `minimal-ui`,
-        icon: `src/images/favicon.png`, // This path is relative to the root of the site.
+        name: 'imch.dev',
+        short_name: 'imch.dev',
+        start_url: '/',
+        background_color: '#222',
+        theme_color: '#222',
+        display: 'minimal-ui',
+        icon: 'src/images/favicon.png',
       },
     },
     {
@@ -41,57 +37,52 @@ module.exports = {
       },
     },
     {
-      resolve: `gatsby-transformer-remark`,
+      resolve: 'gatsby-transformer-remark',
       options: {
-        tableOfContents: {
-          heading: null,
-          maxDepth: 6,
-        },
         plugins: [
           {
-            resolve: `gatsby-remark-images`,
+            resolve: 'gatsby-remark-images',
             options: {
-              maxWidth: 400,
+              maxWidth: 691,
               quality: 100,
               showCaptions: true,
-              // markdownCaptions: true,
+              withWebp: true,
             },
           },
           {
-            resolve: `gatsby-remark-copy-linked-files`,
+            resolve: 'gatsby-remark-copy-linked-files',
             options: {
               destinationDir: f => `${f.hash}`,
             },
           },
-          `gatsby-remark-embed-snippet`,
-          `gatsby-remark-autolink-headers`,
-          `gatsby-remark-prismjs`,
+          'gatsby-remark-embed-snippet',
+          'gatsby-remark-autolink-headers',
+          'gatsby-remark-prismjs',
         ],
       },
     },
     {
-      resolve: `gatsby-plugin-generate-typings`,
+      resolve: 'gatsby-plugin-generate-typings',
       options: {
-        dest: `./src/graphql-types.d.ts`,
+        dest: './src/graphql-types.d.ts',
       },
     },
     {
-      resolve: `gatsby-plugin-web-font-loader`,
+      resolve: 'gatsby-plugin-web-font-loader',
       options: {
         google: {
           families: ['Noto Sans KR:400,700'],
         },
       },
     },
-    `gatsby-plugin-sass`,
     {
-      resolve: `gatsby-plugin-google-analytics`,
+      resolve: 'gatsby-plugin-google-analytics',
       options: {
         trackingId: 'UA-149856137-1',
       },
     },
     {
-      resolve: `gatsby-plugin-feed`,
+      resolve: 'gatsby-plugin-feed',
       options: {
         query: `{
           site {
@@ -147,9 +138,9 @@ module.exports = {
       },
     },
     {
-      resolve: `gatsby-plugin-sitemap`,
+      resolve: 'gatsby-plugin-sitemap',
       options: {
-        output: `/sitemap.xml`,
+        output: '/sitemap.xml',
         exclude: ['/resume/', '/license/'],
         query: `{
           site {
@@ -178,5 +169,20 @@ module.exports = {
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,
+    'gatsby-plugin-postcss',
+    {
+      resolve: 'gatsby-plugin-layout',
+      options: {
+        component: require.resolve('./src/presentations/Layout.tsx'),
+      },
+    },
+    'gatsby-plugin-emotion',
+    {
+      resolve: 'gatsby-plugin-purgecss',
+      options: {
+        printRejected: true,
+        tailwind: true,
+      },
+    },
   ],
 };

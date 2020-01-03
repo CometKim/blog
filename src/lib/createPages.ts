@@ -1,6 +1,6 @@
 import { CreatePagesArgs } from 'gatsby';
 import path from 'path';
-import { Query, MarkdownRemark } from '../graphql-types';
+import { MarkdownRemark, Query } from '../graphql-types';
 import { IPostFrontmatter, IPostTemplateContext } from '../interface';
 
 const getNextOrPreviousData = (data: MarkdownRemark | null): IPostFrontmatter | null =>
@@ -11,7 +11,10 @@ export async function createPages({ actions, graphql }: CreatePagesArgs) {
 
   const { data, errors } = await graphql<Query>(`
     {
-      allMarkdownRemark(sort: { order: DESC, fields: frontmatter___date }) {
+      allMarkdownRemark(
+        sort: { order: DESC, fields: frontmatter___date }
+        filter: { frontmatter: { type: { eq: "post" } } }
+      ) {
         edges {
           node {
             html
@@ -20,6 +23,7 @@ export async function createPages({ actions, graphql }: CreatePagesArgs) {
               title
               slug
               date
+              type
             }
             tableOfContents(pathToSlugField: "frontmatter.slug", heading: null)
           }

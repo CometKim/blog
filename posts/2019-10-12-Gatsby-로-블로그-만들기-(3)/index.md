@@ -2,6 +2,10 @@
 title: Gatsby 로 블로그 만들기 (3)
 date: 2019-10-12T05:44:13.391Z
 slug: /posts/build-a-blog-with-gatsby-and-typescript-part-3
+description: TBD
+category: development
+tags: ["TBD"]
+type: post
 ---
 
 > 본 게시글은 벨로그에서 제가 작성한 게시글을 옮겨왔습니다.

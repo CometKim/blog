@@ -1,5 +1,5 @@
 import React, { AnchorHTMLAttributes } from 'react';
-import Layout from '../components/Layout';
+import Layout from '../presentations/Layout';
 import SEO from '../components/SEO';
 
 const A: React.FC<Pick<AnchorHTMLAttributes<HTMLAnchorElement>, 'href'>> = React.memo(({ href, children }) => {

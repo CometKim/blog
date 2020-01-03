@@ -2,6 +2,10 @@
 title: Gatsby와 Contentful 연동하기
 date: 2019-12-28T02:00:40.119Z
 slug: /posts/integration-gatsby-with-contentful
+description: TBD
+category: development
+tags: ["TBD"]
+type: post
 ---
 
 [이전 글](/posts/build-a-funnyhomepage-with-tina-cms)에서도 말 했었지만,

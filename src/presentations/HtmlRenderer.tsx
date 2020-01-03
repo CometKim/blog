@@ -35,7 +35,7 @@ const htmlRendererCss = css`
   }
 
   figcaption {
-    ${tw`text-center text-sm text-gray-600 mt-4`}
+    ${tw`text-center text-sm text-gray-700 mt-4`}
   }
 
   .gatsby-highlight {

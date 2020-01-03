@@ -7,12 +7,7 @@ const getNextOrPreviousData = (data: MarkdownRemark | null): IPostFrontmatter | 
   data ? { title: data.frontmatter.title, slug: data.frontmatter.slug } : null;
 
 export async function createPages({ actions, graphql }: CreatePagesArgs) {
-  const { createPage, createRedirect } = actions;
-
-  createRedirect({
-    fromPath: '/posts/',
-    toPath: '/',
-  });
+  const { createPage } = actions;
 
   const { data, errors } = await graphql<Query>(`
     {

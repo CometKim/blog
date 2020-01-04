@@ -43,7 +43,7 @@ const htmlRendererCss = css`
   }
 
   ul {
-    ${tw`px-4 mb-4`}
+    ${tw`mb-4`}
 
     li {
       ${tw`relative pl-4`}
@@ -55,7 +55,7 @@ const htmlRendererCss = css`
     }
   }
 
-  p {
+  :not(li) > p {
     ${tw`mb-4`}
   }
 `;

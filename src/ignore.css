@@ -11,3 +11,11 @@
   max-width: 633px;
   @apply block w-full mx-auto rounded;
 }
+
+a {
+  @apply text-purple-800 no-underline;
+}
+
+a:hover {
+  @apply text-purple-500;
+}

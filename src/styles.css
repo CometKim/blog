@@ -10,10 +10,6 @@ a:hover {
   @apply text-purple-500;
 }
 
-.gatsby-highlight > pre {
-  @apply rounded;
-}
-
 .gatsby-highlight-code-line {
   @apply block bg-gray-700;
 }
@@ -33,11 +29,6 @@ a:hover {
 
 .command-line-prompt > span[data-prompt]:before {
   content: attr(data-prompt);
-}
-
-:not(picture) > img {
-  max-width: 633px;
-  @apply block w-full mx-auto;
 }
 
 @screen lg {

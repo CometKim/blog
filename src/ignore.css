@@ -1,3 +1,13 @@
 :not(pre) > code[class*='language-'] {
-    @apply text-purple-800 bg-gray-200 rounded px-1 text-sm;
+  @apply text-purple-800 bg-gray-200 rounded px-1 text-sm;
+}
+
+:not(picture) > img {
+  max-width: 633px;
+  @apply block w-full mx-auto;
+}
+
+.gatsby-highlight > pre {
+  max-width: 633px;
+  @apply block w-full mx-auto rounded;
 }

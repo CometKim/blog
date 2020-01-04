@@ -1,6 +1,6 @@
 import { graphql, useStaticQuery } from 'gatsby';
 import React from 'react';
-import SEO from '../components/SEO';
+import SEO from '../presentations/SEO';
 import HtmlRenderer from '../presentations/HtmlRenderer';
 import Layout from '../presentations/Layout';
 
@@ -15,7 +15,7 @@ const ResumePage: React.FC = React.memo(() => {
 
   return (
     <Layout>
-      <SEO title="resume" />
+      <SEO title="About" url="/about" />
       <HtmlRenderer html={markdownRemark.html} />
     </Layout>
   );

@@ -1,7 +1,7 @@
 module.exports = {
   siteMetadata: {
     title: 'imch.dev',
-    description: 'imch.dev',
+    description: '이찬희 개발 블로그입니다. 지금 제가 가장 관심있는 주제를 다루고 있습니다.',
     author: 'iamchanii',
     siteUrl: 'https://imch.dev',
   },
@@ -183,7 +183,7 @@ module.exports = {
         printRejected: true,
         tailwind: true,
         ignore: ['prism-node.css', 'ignore.css'],
-        whitelist: [':not(pre) > code[class*=\'language-\']'],
+        whitelist: [":not(pre) > code[class*='language-']"],
       },
     },
   ],

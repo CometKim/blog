@@ -1,7 +1,7 @@
 import React from 'react';
 import PostHeader from '../components/PostHeader';
 import PreviousOrNextPostCard from '../components/PreviousOrNextPostCard';
-import SEO from '../components/SEO';
+import SEO from '../presentations/SEO';
 import Utterances from '../components/Utterances';
 import { IPostTemplateContext, ITemplateProps } from '../interface';
 import HtmlRenderer from '../presentations/HtmlRenderer';
@@ -9,11 +9,11 @@ import HtmlRenderer from '../presentations/HtmlRenderer';
 type IPostTemplateProps = ITemplateProps<IPostTemplateContext>;
 
 const PostTemplate: React.FC<IPostTemplateProps> = React.memo(props => {
-  const { title, date, html, excerpt, next, previous } = props.pageContext;
+  const { title, date, html, excerpt, next, previous, slug } = props.pageContext;
 
   return (
     <article className="p-4">
-      <SEO title={title} description={excerpt} />
+      <SEO title={title} description={excerpt} url={slug} isBlogPost />
 
       <header>
         <PostHeader title={title} date={date} />

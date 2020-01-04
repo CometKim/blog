@@ -42,11 +42,13 @@ const htmlRendererCss = css`
     ${tw`my-4`}
   }
 
-  ul {
+  :not(li) > ul {
     ${tw`mb-4`}
+  }
 
+  ul {
     li {
-      ${tw`relative pl-4`}
+      ${tw`relative pl-4 my-1`}
 
       :before {
         content: '•';

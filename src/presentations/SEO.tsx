@@ -21,7 +21,7 @@ export interface ISEOProps {
 const SEO: React.FC<ISEOProps> = React.memo(
   ({
     url = '',
-    imageUrl = 'https://imch.dev/static/images/default.png',
+    imageUrl = 'https://imch.dev/images/default.png',
     isBlogPost,
     description: _description,
     lang = 'ko',

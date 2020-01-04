@@ -48,6 +48,7 @@ const SEO: React.FC<ISEOProps> = React.memo(
       <Helmet titleTemplate={`%s | ${site.siteMetadata.title}`}>
         <html lang={lang} />
         <title lang={lang}>{title}</title>
+        <link rel="canonical" href={site.siteMetadata.siteUrl + url} />
 
         {/* 기본 */}
         <meta name="description" content={description} />

@@ -1,13 +1,20 @@
+import { css } from '@emotion/core';
 import { graphql, useStaticQuery } from 'gatsby';
 import React from 'react';
 import { JsonLd } from 'react-schemaorg';
 import { BlogPosting } from 'schema-dts';
-import PostHeader from '../components/PostHeader';
-import PreviousOrNextPostCard from '../components/PreviousOrNextPostCard';
+import PostHeader from '../presentations/PostHeader';
+import PreviousOrNextPostCard from '../presentations/PreviousOrNextPostCard';
 import Utterances from '../components/Utterances';
 import { IPostTemplateContext, ITemplateProps } from '../interface';
 import HtmlRenderer from '../presentations/HtmlRenderer';
+import ProfileCard from '../presentations/ProfileCard';
 import SEO from '../presentations/SEO';
+
+const previousOrNextBlockCss = css`
+  margin-left: -1rem;
+  margin-right: -1rem;
+`;
 
 type IPostTemplateProps = ITemplateProps<IPostTemplateContext>;
 
@@ -67,7 +74,9 @@ const PostTemplate: React.FC<IPostTemplateProps> = React.memo(props => {
 
       <HtmlRenderer html={html} />
 
-      <div className="mb-8 flex justify-between">
+      <ProfileCard />
+
+      <div css={previousOrNextBlockCss} className="mb-8 flex justify-between">
         <PreviousOrNextPostCard previous={previous} />
         <PreviousOrNextPostCard next={next} />
       </div>

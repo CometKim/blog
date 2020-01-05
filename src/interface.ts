@@ -15,6 +15,7 @@ export interface IPostTemplateContext {
   previous: IPostFrontmatter | null;
   next: IPostFrontmatter | null;
   tableOfContents: string;
+  wordCount: number;
 }
 
 export type IPostFrontmatter = Pick<IPostTemplateContext, 'title' | 'slug'>;

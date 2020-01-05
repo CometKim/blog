@@ -18,7 +18,7 @@ export async function createPages({ actions, graphql }: CreatePagesArgs) {
         edges {
           node {
             html
-            excerpt(truncate: true, pruneLength: 200)
+            excerpt
             frontmatter {
               title
               slug
@@ -26,6 +26,9 @@ export async function createPages({ actions, graphql }: CreatePagesArgs) {
               type
             }
             tableOfContents(pathToSlugField: "frontmatter.slug", heading: null)
+            wordCount {
+              words
+            }
           }
           next {
             frontmatter {
@@ -60,6 +63,7 @@ export async function createPages({ actions, graphql }: CreatePagesArgs) {
         next: getNextOrPreviousData(next),
         previous: getNextOrPreviousData(previous),
         tableOfContents: node.tableOfContents,
+        wordCount: node.wordCount.words,
       },
       component: path.resolve(__dirname, '../templates/PostTemplate.tsx'),
     });

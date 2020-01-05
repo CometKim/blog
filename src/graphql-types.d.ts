@@ -1935,8 +1935,6 @@ export type QuerySiteArgs = {
   children?: Maybe<NodeFilterListInput>,
   internal?: Maybe<InternalFilterInput>,
   siteMetadata?: Maybe<SiteSiteMetadataFilterInput>,
-  port?: Maybe<IntQueryOperatorInput>,
-  host?: Maybe<StringQueryOperatorInput>,
   polyfill?: Maybe<BooleanQueryOperatorInput>,
   pathPrefix?: Maybe<StringQueryOperatorInput>,
   buildTime?: Maybe<DateQueryOperatorInput>
@@ -2005,8 +2003,6 @@ export type Site = Node & {
   children: Array<Node>,
   internal: Internal,
   siteMetadata?: Maybe<SiteSiteMetadata>,
-  port?: Maybe<Scalars['Int']>,
-  host?: Maybe<Scalars['String']>,
   polyfill?: Maybe<Scalars['Boolean']>,
   pathPrefix?: Maybe<Scalars['String']>,
   buildTime?: Maybe<Scalars['Date']>,
@@ -2138,8 +2134,6 @@ export type SiteFieldsEnum =
   'siteMetadata___description' |
   'siteMetadata___author' |
   'siteMetadata___siteUrl' |
-  'port' |
-  'host' |
   'polyfill' |
   'pathPrefix' |
   'buildTime';
@@ -2150,8 +2144,6 @@ export type SiteFilterInput = {
   children?: Maybe<NodeFilterListInput>,
   internal?: Maybe<InternalFilterInput>,
   siteMetadata?: Maybe<SiteSiteMetadataFilterInput>,
-  port?: Maybe<IntQueryOperatorInput>,
-  host?: Maybe<StringQueryOperatorInput>,
   polyfill?: Maybe<BooleanQueryOperatorInput>,
   pathPrefix?: Maybe<StringQueryOperatorInput>,
   buildTime?: Maybe<DateQueryOperatorInput>,
@@ -2421,15 +2413,6 @@ export type SitePageFieldsEnum =
   'pluginCreator___pluginOptions___quality' |
   'pluginCreator___pluginOptions___showCaptions' |
   'pluginCreator___pluginOptions___withWebp' |
-  'pluginCreator___pluginOptions___pathPrefix' |
-  'pluginCreator___pluginOptions___wrapperStyle' |
-  'pluginCreator___pluginOptions___backgroundColor' |
-  'pluginCreator___pluginOptions___linkImagesToOriginal' |
-  'pluginCreator___pluginOptions___markdownCaptions' |
-  'pluginCreator___pluginOptions___tracedSVG' |
-  'pluginCreator___pluginOptions___loading' |
-  'pluginCreator___pluginOptions___disableBgImageOnAlpha' |
-  'pluginCreator___pluginOptions___disableBgImage' |
   'pluginCreator___pluginOptions___dest' |
   'pluginCreator___pluginOptions___google___families' |
   'pluginCreator___pluginOptions___trackingId' |
@@ -2438,9 +2421,11 @@ export type SitePageFieldsEnum =
   'pluginCreator___pluginOptions___feeds___query' |
   'pluginCreator___pluginOptions___feeds___output' |
   'pluginCreator___pluginOptions___feeds___title' |
-  'pluginCreator___pluginOptions___feeds___match' |
   'pluginCreator___pluginOptions___output' |
-  'pluginCreator___pluginOptions___exclude' |
+  'pluginCreator___pluginOptions___policy' |
+  'pluginCreator___pluginOptions___policy___userAgent' |
+  'pluginCreator___pluginOptions___policy___allow' |
+  'pluginCreator___pluginOptions___policy___disallow' |
   'pluginCreator___pluginOptions___component' |
   'pluginCreator___pluginOptions___printRejected' |
   'pluginCreator___pluginOptions___tailwind' |
@@ -2642,15 +2627,6 @@ export type SitePluginFieldsEnum =
   'pluginOptions___plugins___pluginOptions___quality' |
   'pluginOptions___plugins___pluginOptions___showCaptions' |
   'pluginOptions___plugins___pluginOptions___withWebp' |
-  'pluginOptions___plugins___pluginOptions___pathPrefix' |
-  'pluginOptions___plugins___pluginOptions___wrapperStyle' |
-  'pluginOptions___plugins___pluginOptions___backgroundColor' |
-  'pluginOptions___plugins___pluginOptions___linkImagesToOriginal' |
-  'pluginOptions___plugins___pluginOptions___markdownCaptions' |
-  'pluginOptions___plugins___pluginOptions___tracedSVG' |
-  'pluginOptions___plugins___pluginOptions___loading' |
-  'pluginOptions___plugins___pluginOptions___disableBgImageOnAlpha' |
-  'pluginOptions___plugins___pluginOptions___disableBgImage' |
   'pluginOptions___plugins___browserAPIs' |
   'pluginOptions___plugins___ssrAPIs' |
   'pluginOptions___plugins___pluginFilepath' |
@@ -2667,15 +2643,6 @@ export type SitePluginFieldsEnum =
   'pluginOptions___quality' |
   'pluginOptions___showCaptions' |
   'pluginOptions___withWebp' |
-  'pluginOptions___pathPrefix' |
-  'pluginOptions___wrapperStyle' |
-  'pluginOptions___backgroundColor' |
-  'pluginOptions___linkImagesToOriginal' |
-  'pluginOptions___markdownCaptions' |
-  'pluginOptions___tracedSVG' |
-  'pluginOptions___loading' |
-  'pluginOptions___disableBgImageOnAlpha' |
-  'pluginOptions___disableBgImage' |
   'pluginOptions___dest' |
   'pluginOptions___google___families' |
   'pluginOptions___trackingId' |
@@ -2684,9 +2651,11 @@ export type SitePluginFieldsEnum =
   'pluginOptions___feeds___query' |
   'pluginOptions___feeds___output' |
   'pluginOptions___feeds___title' |
-  'pluginOptions___feeds___match' |
   'pluginOptions___output' |
-  'pluginOptions___exclude' |
+  'pluginOptions___policy' |
+  'pluginOptions___policy___userAgent' |
+  'pluginOptions___policy___allow' |
+  'pluginOptions___policy___disallow' |
   'pluginOptions___component' |
   'pluginOptions___printRejected' |
   'pluginOptions___tailwind' |
@@ -2822,22 +2791,13 @@ export type SitePluginPluginOptions = {
   quality?: Maybe<Scalars['Int']>,
   showCaptions?: Maybe<Scalars['Boolean']>,
   withWebp?: Maybe<Scalars['Boolean']>,
-  pathPrefix?: Maybe<Scalars['String']>,
-  wrapperStyle?: Maybe<Scalars['String']>,
-  backgroundColor?: Maybe<Scalars['String']>,
-  linkImagesToOriginal?: Maybe<Scalars['Boolean']>,
-  markdownCaptions?: Maybe<Scalars['Boolean']>,
-  tracedSVG?: Maybe<Scalars['Boolean']>,
-  loading?: Maybe<Scalars['String']>,
-  disableBgImageOnAlpha?: Maybe<Scalars['Boolean']>,
-  disableBgImage?: Maybe<Scalars['Boolean']>,
   dest?: Maybe<Scalars['String']>,
   google?: Maybe<SitePluginPluginOptionsGoogle>,
   trackingId?: Maybe<Scalars['String']>,
   query?: Maybe<Scalars['String']>,
   feeds?: Maybe<Array<Maybe<SitePluginPluginOptionsFeeds>>>,
   output?: Maybe<Scalars['String']>,
-  exclude?: Maybe<Array<Maybe<Scalars['String']>>>,
+  policy?: Maybe<Array<Maybe<SitePluginPluginOptionsPolicy>>>,
   component?: Maybe<Scalars['String']>,
   printRejected?: Maybe<Scalars['Boolean']>,
   tailwind?: Maybe<Scalars['Boolean']>,
@@ -2850,14 +2810,12 @@ export type SitePluginPluginOptionsFeeds = {
   query?: Maybe<Scalars['String']>,
   output?: Maybe<Scalars['String']>,
   title?: Maybe<Scalars['String']>,
-  match?: Maybe<Scalars['String']>,
 };
 
 export type SitePluginPluginOptionsFeedsFilterInput = {
   query?: Maybe<StringQueryOperatorInput>,
   output?: Maybe<StringQueryOperatorInput>,
   title?: Maybe<StringQueryOperatorInput>,
-  match?: Maybe<StringQueryOperatorInput>,
 };
 
 export type SitePluginPluginOptionsFeedsFilterListInput = {
@@ -2879,22 +2837,13 @@ export type SitePluginPluginOptionsFilterInput = {
   quality?: Maybe<IntQueryOperatorInput>,
   showCaptions?: Maybe<BooleanQueryOperatorInput>,
   withWebp?: Maybe<BooleanQueryOperatorInput>,
-  pathPrefix?: Maybe<StringQueryOperatorInput>,
-  wrapperStyle?: Maybe<StringQueryOperatorInput>,
-  backgroundColor?: Maybe<StringQueryOperatorInput>,
-  linkImagesToOriginal?: Maybe<BooleanQueryOperatorInput>,
-  markdownCaptions?: Maybe<BooleanQueryOperatorInput>,
-  tracedSVG?: Maybe<BooleanQueryOperatorInput>,
-  loading?: Maybe<StringQueryOperatorInput>,
-  disableBgImageOnAlpha?: Maybe<BooleanQueryOperatorInput>,
-  disableBgImage?: Maybe<BooleanQueryOperatorInput>,
   dest?: Maybe<StringQueryOperatorInput>,
   google?: Maybe<SitePluginPluginOptionsGoogleFilterInput>,
   trackingId?: Maybe<StringQueryOperatorInput>,
   query?: Maybe<StringQueryOperatorInput>,
   feeds?: Maybe<SitePluginPluginOptionsFeedsFilterListInput>,
   output?: Maybe<StringQueryOperatorInput>,
-  exclude?: Maybe<StringQueryOperatorInput>,
+  policy?: Maybe<SitePluginPluginOptionsPolicyFilterListInput>,
   component?: Maybe<StringQueryOperatorInput>,
   printRejected?: Maybe<BooleanQueryOperatorInput>,
   tailwind?: Maybe<BooleanQueryOperatorInput>,
@@ -2942,15 +2891,6 @@ export type SitePluginPluginOptionsPluginsPluginOptions = {
   quality?: Maybe<Scalars['Int']>,
   showCaptions?: Maybe<Scalars['Boolean']>,
   withWebp?: Maybe<Scalars['Boolean']>,
-  pathPrefix?: Maybe<Scalars['String']>,
-  wrapperStyle?: Maybe<Scalars['String']>,
-  backgroundColor?: Maybe<Scalars['String']>,
-  linkImagesToOriginal?: Maybe<Scalars['Boolean']>,
-  markdownCaptions?: Maybe<Scalars['Boolean']>,
-  tracedSVG?: Maybe<Scalars['Boolean']>,
-  loading?: Maybe<Scalars['String']>,
-  disableBgImageOnAlpha?: Maybe<Scalars['Boolean']>,
-  disableBgImage?: Maybe<Scalars['Boolean']>,
 };
 
 export type SitePluginPluginOptionsPluginsPluginOptionsFilterInput = {
@@ -2958,15 +2898,22 @@ export type SitePluginPluginOptionsPluginsPluginOptionsFilterInput = {
   quality?: Maybe<IntQueryOperatorInput>,
   showCaptions?: Maybe<BooleanQueryOperatorInput>,
   withWebp?: Maybe<BooleanQueryOperatorInput>,
-  pathPrefix?: Maybe<StringQueryOperatorInput>,
-  wrapperStyle?: Maybe<StringQueryOperatorInput>,
-  backgroundColor?: Maybe<StringQueryOperatorInput>,
-  linkImagesToOriginal?: Maybe<BooleanQueryOperatorInput>,
-  markdownCaptions?: Maybe<BooleanQueryOperatorInput>,
-  tracedSVG?: Maybe<BooleanQueryOperatorInput>,
-  loading?: Maybe<StringQueryOperatorInput>,
-  disableBgImageOnAlpha?: Maybe<BooleanQueryOperatorInput>,
-  disableBgImage?: Maybe<BooleanQueryOperatorInput>,
+};
+
+export type SitePluginPluginOptionsPolicy = {
+  userAgent?: Maybe<Scalars['String']>,
+  allow?: Maybe<Scalars['String']>,
+  disallow?: Maybe<Scalars['String']>,
+};
+
+export type SitePluginPluginOptionsPolicyFilterInput = {
+  userAgent?: Maybe<StringQueryOperatorInput>,
+  allow?: Maybe<StringQueryOperatorInput>,
+  disallow?: Maybe<StringQueryOperatorInput>,
+};
+
+export type SitePluginPluginOptionsPolicyFilterListInput = {
+  elemMatch?: Maybe<SitePluginPluginOptionsPolicyFilterInput>,
 };
 
 export type SitePluginSortInput = {

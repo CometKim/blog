@@ -37,7 +37,7 @@ const PostTemplate: React.FC<IPostTemplateProps> = React.memo(props => {
 
   return (
     <article className="p-4">
-      <SEO title={title} description={excerpt} url={slug} isBlogPost />
+      <SEO title={title} description={excerpt} url={slug} isBlogPost imageUrl={siteUrl + thumbnailUrl} />
 
       {/* Article JSON-LD */}
       <JsonLd<BlogPosting>

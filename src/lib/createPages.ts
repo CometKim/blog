@@ -1,15 +1,14 @@
 import { CreatePagesArgs } from 'gatsby';
 import path from 'path';
-import { MarkdownRemark, Query } from '../graphql-types';
 import { IPostFrontmatter, IPostTemplateContext } from '../interface';
 
-const getNextOrPreviousData = (data: MarkdownRemark | null): IPostFrontmatter | null =>
+const getNextOrPreviousData = (data: any): IPostFrontmatter | null =>
   data ? { title: data.frontmatter.title, slug: data.frontmatter.slug } : null;
 
 export async function createPages({ actions, graphql }: CreatePagesArgs) {
   const { createPage } = actions;
 
-  const { data, errors } = await graphql<Query>(`
+  const { data, errors } = await graphql(`
     {
       allMarkdownRemark(
         sort: { order: DESC, fields: frontmatter___date }

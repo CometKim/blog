@@ -4,6 +4,7 @@ date: 2019-12-06T11:56:12.817Z
 slug: /posts/some-waste-of-times-for-design-token
 tags: ['design token', '디자인 토큰', '디자인 시스템']
 type: post
+thumbnail: 1.png
 ---
 
 요즘 디자인 토큰 작업을 하고 있다. 개발자가 웬 디자인 관련 작업인가 싶지만

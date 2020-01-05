@@ -4,6 +4,7 @@ date: 2019-10-12T05:44:13.391Z
 slug: /posts/build-a-blog-with-gatsby-and-typescript-part-3
 tags: ['gatsby', 'typescript', 'blog', '블로그']
 type: post
+thumbnail: use-typescript-but-any.png
 ---
 
 지난번에는 마크다운 파일을 사용하여 동적으로 페이지를 만드는 작업까지 진행 했습니다. 이번에는 타입스크립트를 사용하면서 발생하는 미묘한 불일치를 해결 해 보겠습니다.

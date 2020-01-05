@@ -4,6 +4,7 @@ date: 2019-10-12T05:36:06.653Z
 slug: /posts/build-a-blog-with-gatsby-and-typescript-part-2
 tags: ['gatsby', 'typescript', 'blog', '블로그']
 type: post
+thumbnail: display-template-props.png
 ---
 
 지난번에는 Gatsby 로 새로운 프로젝트를 생성하고, 타입스크립트와 Prettier 설정을 진행했습니다. 이번에는 Gatsby 의 기능을 이용해서 동적으로 페이지를 생성하는 기능을 구현 해 보겠습니다.

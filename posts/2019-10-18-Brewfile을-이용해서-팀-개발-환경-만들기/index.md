@@ -4,6 +4,7 @@ date: 2019-10-18T08:53:52.545Z
 slug: /posts/lets-setup-team-development-environment-using-brewfile
 tags: ['homebrew', 'brewfile', 'team', '팀', '개발환경']
 type: post
+thumbnail: thumbnail.png
 ---
 
 플러스티브이 개발팀은 도커를 이용해서 개발 환경을 맞춘 다음 로컬 환경에서 개발합니다.

@@ -4,6 +4,7 @@ date: 2019-12-15T11:23:32.158Z
 slug: /retrospective-of-2019
 tags: ['회고', 'retrospective']
 type: post
+thumbnail: thumbnail.png
 ---
 
 회고의 시즌이 왔다. 이 시기가 되면, 적어도 회고의 가치를 알고 있는 사람들은, 너 나 할 것 없이 회고를 하는 분위기다.

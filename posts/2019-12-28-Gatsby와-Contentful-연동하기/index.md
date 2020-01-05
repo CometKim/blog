@@ -4,6 +4,7 @@ date: 2019-12-28T02:00:40.119Z
 slug: /posts/integration-gatsby-with-contentful
 tags: ['gatsby', 'contentful']
 type: post
+thumbnail: 1.png
 ---
 
 [이전 글](/posts/build-a-funnyhomepage-with-tina-cms)에서도 말 했었지만,

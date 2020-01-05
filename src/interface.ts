@@ -16,6 +16,7 @@ export interface IPostTemplateContext {
   next: IPostFrontmatter | null;
   tableOfContents: string;
   wordCount: number;
+  thumbnailUrl: string;
 }
 
 export type IPostFrontmatter = Pick<IPostTemplateContext, 'title' | 'slug'>;

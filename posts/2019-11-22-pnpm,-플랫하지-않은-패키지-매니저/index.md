@@ -4,6 +4,7 @@ date: 2019-11-23T12:48:35.469Z
 slug: /posts/pnpm-a-manager-what-is-not-flat
 tags: ['pnpm', '패키지 매니저']
 type: post
+thumbnail: thumbnail.png
 ---
 
 `pnpm` 이라는 새로운 패키지 매니저가 있다. 새롭다고 표현하기엔 벌써 메이저 버전이 4지만,

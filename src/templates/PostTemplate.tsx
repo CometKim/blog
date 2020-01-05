@@ -4,15 +4,15 @@ import { JsonLd } from 'react-schemaorg';
 import { BlogPosting } from 'schema-dts';
 import PostHeader from '../components/PostHeader';
 import PreviousOrNextPostCard from '../components/PreviousOrNextPostCard';
-import SEO from '../presentations/SEO';
 import Utterances from '../components/Utterances';
 import { IPostTemplateContext, ITemplateProps } from '../interface';
 import HtmlRenderer from '../presentations/HtmlRenderer';
+import SEO from '../presentations/SEO';
 
 type IPostTemplateProps = ITemplateProps<IPostTemplateContext>;
 
 const PostTemplate: React.FC<IPostTemplateProps> = React.memo(props => {
-  const { title, date, html, excerpt, next, previous, slug, wordCount } = props.pageContext;
+  const { title, date, html, excerpt, next, previous, slug, wordCount, thumbnailUrl } = props.pageContext;
 
   const {
     site: {
@@ -48,6 +48,11 @@ const PostTemplate: React.FC<IPostTemplateProps> = React.memo(props => {
           },
           datePublished: date,
           wordCount,
+          image: siteUrl + thumbnailUrl,
+          publisher: {
+            '@type': 'Person',
+            name: 'iamchanii',
+          },
         }}
       />
 

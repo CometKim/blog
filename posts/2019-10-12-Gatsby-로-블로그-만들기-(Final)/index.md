@@ -4,6 +4,7 @@ date: 2019-10-12T06:20:39.367Z
 slug: /posts/build-a-blog-with-gatsby-and-typescript-part-4
 tags: ['gatsby', 'typescript', 'blog', '블로그']
 type: post
+thumbnail: 1.png
 ---
 
 이번에는 최상위 주소로 들어갔을 때, 최근에 작성한 게시글 목록을 표시하는 기능과 [utterances](https://utteranc.es) 위젯을 활용하여 덧글 기능을 구현 해 보겠습니다. 지금 `index.tsx` 파일에는 기본으로 작성 된 내용이 있으니 먼저 이 내용을 지우고 임시로 내용을 채웠습니다.

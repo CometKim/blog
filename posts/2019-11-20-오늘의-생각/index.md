@@ -4,6 +4,7 @@ date: 2019-11-20T12:08:17.300Z
 slug: /posts/2019-11-20-today-what-i-think
 tags: ['twit']
 type: post
+thumbnail: thumbnail.png
 ---
 
 비록 리드나 팀장급 직책을 맡지는 않았지만, 올해 12월이 지나면 스타트업으로 일을 시작한지 벌써 3년을 채운다.

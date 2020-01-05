@@ -4,6 +4,7 @@ date: 2019-12-21T07:14:48.240Z
 slug: /posts/build-a-funny-homepage-with-tina-cms
 tags: ['tinacms', 'gatsby', '블로그', '홈페이지']
 type: post
+thumbnail: 1.png
 ---
 
 최근에 회사에서 홈페이지를 만들어 달라는 업무가 할당됐다. 지금까지는 워드프레스 기반으로 만들고 있었는데,

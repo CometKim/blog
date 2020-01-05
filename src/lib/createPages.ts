@@ -24,6 +24,13 @@ export async function createPages({ actions, graphql }: CreatePagesArgs) {
               slug
               date
               type
+              thumbnail {
+                childImageSharp {
+                  fluid(maxWidth: 1280) {
+                    src
+                  }
+                }
+              }
             }
             tableOfContents(pathToSlugField: "frontmatter.slug", heading: null)
             wordCount {
@@ -64,6 +71,7 @@ export async function createPages({ actions, graphql }: CreatePagesArgs) {
         previous: getNextOrPreviousData(previous),
         tableOfContents: node.tableOfContents,
         wordCount: node.wordCount.words,
+        thumbnailUrl: node.frontmatter.thumbnail.childImageSharp.fluid.src,
       },
       component: path.resolve(__dirname, '../templates/PostTemplate.tsx'),
     });

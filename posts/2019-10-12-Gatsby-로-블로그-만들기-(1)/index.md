@@ -4,6 +4,7 @@ date: 2019-10-12T14:18:27.383+09:00
 slug: /posts/build-a-blog-with-gatsby-and-typescript-part-1
 tags: ['gatsby', 'typescript', 'blog', '블로그']
 type: post
+thumbnail: default-starter.png
 ---
 
 최근 들어 개인 블로그의 필요성을 느꼈습니다. Velog 는 제가 좋아하는 플랫폼이지만, 여전히 가슴 한 켠에 있는, 개인 블로그를 만들고 싶다는 욕망이 솟아난게 아닐까 싶습니다. 어떻게 만들어야 할 지 고민한 결과, 지금이 [GatsbyJS](https://www.gatsbyjs.org/) 를 사용하기 가장 적당하다고 생각했습니다.

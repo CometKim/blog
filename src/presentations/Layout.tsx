@@ -24,7 +24,7 @@ const Layout: React.FC = React.memo(({ children }) => {
           about
         </Link>
       </header>
-      <main className="container mt-16">{children}</main>
+      <main className="container mt-24">{children}</main>
     </>
   );
 });

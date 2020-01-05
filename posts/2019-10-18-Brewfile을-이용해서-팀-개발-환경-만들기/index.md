@@ -2,15 +2,15 @@
 title: Brewfile을 이용해서 팀 개발 환경 만들기
 date: 2019-10-18T08:53:52.545Z
 slug: /posts/lets-setup-team-development-environment-using-brewfile
-description: TBD
-category: development
-tags: ["TBD"]
+tags: ['homebrew', 'brewfile', 'team', '팀', '개발환경']
 type: post
 ---
 
 플러스티브이 개발팀은 도커를 이용해서 개발 환경을 맞춘 다음 로컬 환경에서 개발합니다.
 원할한 협업을 위해 개발 환경을 설정하는건 중요한 일이지만, 조금 번거롭고 시간이 소요되는 작업입니다.
 그러나 불가피하게 맥북을 초기화를 했거나(😱) 이번에 팀에 새로 합류하신 분(🙋‍♂️)은 필수로 진행해야 하죠.
+
+<!-- end -->
 
 그러던 중 [이 글](https://healingpaper.github.io/2019/08/18/brew_cask_mas.html)을 읽고
 개발 환경을 한 방에 설정할 수 있다면, 개발 환경 구성은 더 이상 번거로운 일이 아닐 수 있다는 생각이 들었습니다.
@@ -82,35 +82,35 @@ $ brew bundle
 
 Brewfile 파일에서 앞부분에 적혀있는 `tap`, `brew` 그리고 `cask`에 대해 알아보았습니다.
 
--   tap
-    -   먼저 탭에 대한 개념은 Homebrew 내의 기본 저장소(Formulae 라고도 함) 외의 서드 파티 저장소입니다.
-    -   `brew tap` 명령어를 입력하면 지금 내 맥북에 추가된 탭 목록을 확인할 수 있습니다.
-    -   `brew tap <user/repo>`를 입력하면 탭을 추가할 수 있고, `brew install`을 통해 설치할 때 해당 저장소를 사용할 수 있습니다.
-    -   입력할 때 `<user/repo>`는 기본적으로 GitHub 저장소를 가정하고 추가되며, `repo` 이름은 `homebrew-*`로 시작하는 저장소여야 하지만 실제로 추가할 때에는 `homebrew-*` 접두사를 생략해도 됩니다.
-        실제로 `homebrew/bundle`라는 탭은 https://github.com/homebrew/homebrew-bundle 에서 내용을 확인할 수 있습니다.
--   brew:
-    -   `brew "package_name"`은 해당 패키지를 설치합니다. 기본 저장소를 포함하여 추가된 탭을 참조합니다.
--   cask:
-    -   cask는 Homebrew로 설치하지 않는, 외부 애플리케이션을 설치할 수 있습니다.
--   mas:
-    -   추가적으로 mas를 사용할 수 있습니다. mas는 App Store에서 설치할 수 있는 애플리케이션을 명령어로 설치할 수 있습니다.
+- tap
+  - 먼저 탭에 대한 개념은 Homebrew 내의 기본 저장소(Formulae 라고도 함) 외의 서드 파티 저장소입니다.
+  - `brew tap` 명령어를 입력하면 지금 내 맥북에 추가된 탭 목록을 확인할 수 있습니다.
+  - `brew tap <user/repo>`를 입력하면 탭을 추가할 수 있고, `brew install`을 통해 설치할 때 해당 저장소를 사용할 수 있습니다.
+  - 입력할 때 `<user/repo>`는 기본적으로 GitHub 저장소를 가정하고 추가되며, `repo` 이름은 `homebrew-*`로 시작하는 저장소여야 하지만 실제로 추가할 때에는 `homebrew-*` 접두사를 생략해도 됩니다.
+    실제로 `homebrew/bundle`라는 탭은 https://github.com/homebrew/homebrew-bundle 에서 내용을 확인할 수 있습니다.
+- brew:
+  - `brew "package_name"`은 해당 패키지를 설치합니다. 기본 저장소를 포함하여 추가된 탭을 참조합니다.
+- cask:
+  - cask는 Homebrew로 설치하지 않는, 외부 애플리케이션을 설치할 수 있습니다.
+- mas:
+  - 추가적으로 mas를 사용할 수 있습니다. mas는 App Store에서 설치할 수 있는 애플리케이션을 명령어로 설치할 수 있습니다.
 
 ### 플러스티브이 개발팀은 어떤 패키지를 사용할까?
 
 간단하게 플러스티브이 개발팀에서 개발 환경을 구성할 때 설치하는 패키지 및 애플리케이션을 정리 해 보자면,
 
--   docker
-    -   플러스티브이 개발팀은 도커를 사용하여 로컬 개발 환경을 구성합니다.
--   python3
-    -   플러스티브이 디지털 사이니지 솔루션의 백엔드는 파이썬(플라스크)를 사용하여 개발하였습니다.
-        릴리즈 된 도커 이미지로 로컬에서 실행하지만, 일부 스크립트를 실행하려면 파이썬이 필요합니다.
--   node@10, yarn
--   awscli
-    -   현재 AWS 클라우드를 사용하고 있어서 배포하기 위해 awscli 를 설치합니다.
--   git-flow-avh
-    -   플러스티브이 개발팀은 Git-Flow 를 일부 채택한 버전 관리를 하고 있습니다.
--   mysql@8
--   iterm2, google-chrome, zeplin, slack
+- docker
+  - 플러스티브이 개발팀은 도커를 사용하여 로컬 개발 환경을 구성합니다.
+- python3
+  - 플러스티브이 디지털 사이니지 솔루션의 백엔드는 파이썬(플라스크)를 사용하여 개발하였습니다.
+    릴리즈 된 도커 이미지로 로컬에서 실행하지만, 일부 스크립트를 실행하려면 파이썬이 필요합니다.
+- node@10, yarn
+- awscli
+  - 현재 AWS 클라우드를 사용하고 있어서 배포하기 위해 awscli 를 설치합니다.
+- git-flow-avh
+  - 플러스티브이 개발팀은 Git-Flow 를 일부 채택한 버전 관리를 하고 있습니다.
+- mysql@8
+- iterm2, google-chrome, zeplin, slack
 
 그 외, 플러스티브이 개발팀은 InteliJ IDE를 공통적으로 사용하기 때문에 프론트엔드는 WebStorm을, 백엔드는 PyCharm을 설치합니다.
 
@@ -251,6 +251,7 @@ aws configure
 ```
 
 모든 작업이 성공적으로 되었다는 가정 하에 새로 오신 분들을 위한 축하 메세지를 출력 해 주고,
+
 ```bash
 printf '\n\n🎉 Congrat! Your mac has been set up successfully for working with PlusTV Team!\n'
 ```
@@ -264,10 +265,10 @@ $ chmod +x ./common.sh
 ## 테스트
 
 간단한 스크립트지만 실제로 실행하기 전까지는 예상한 대로 잘 작동할지는 모르는 법.
-프로비저닝 스크립트를 작성 한 뒤에는 꼭 실행 결과를 확인해봐야 합니다. 그렇지 않으면 *'저... 이 스크립트 중간에 멈춥니다.'*
+프로비저닝 스크립트를 작성 한 뒤에는 꼭 실행 결과를 확인해봐야 합니다. 그렇지 않으면 _'저... 이 스크립트 중간에 멈춥니다.'_
 ~~(앗, 아아...)~~ 같은 상황이 발생합니다. 작동하지 않는 스크립트는 의미가 없기 때문에 꼭꼭꼭 테스트를 해보세요.
 
-그렇다고 지금 잘 사용하고 있는 맥북에서 실행하는 건...(🤦) 
+그렇다고 지금 잘 사용하고 있는 맥북에서 실행하는 건...(🤦)
 안되기 때문에 [이 링크](https://engineering.rallyhealth.com/tools/mac/virtualization/2018/04/27/mac-on-mac-virtualization.html)를
 참고해서 Parallels에서 테스트를 진행하세요. 저는 이 과정을 통해 스크립트에서 잘못된 점을 많이 고칠 수 있었습니다.
 특히 스냅샷 기능을 활용하여 손쉽게 몇번이고 초기 상태로 돌아와 다시 스크립트를 실행해 볼 수 있어 편리했습니다. 👍
@@ -284,10 +285,10 @@ $ chmod +x ./common.sh
 
 ## References
 
--   [Homebrew 로 Mac 한 방에 셋업하기](https://healingpaper.github.io/2019/08/18/brew_cask_mas.html)
--   [A complete one-by-one guide to install Docker on your Mac OS using Homebrew](https://medium.com/@yutafujii_59175/a-complete-one-by-one-guide-to-install-docker-on-your-mac-os-using-homebrew-e818eb4cfc3)
--   [Adding a Cask](https://github.com/Homebrew/homebrew-cask/blob/master/doc/development/adding_a_cask.md)
--   https://support.apple.com/ko-kr/HT201940
--   https://stackoverflow.com/a/49580997
--   https://github.com/Homebrew/homebrew-bundle#install
--   [Mac on Mac Virtualization](https://engineering.rallyhealth.com/tools/mac/virtualization/2018/04/27/mac-on-mac-virtualization.html)
+- [Homebrew 로 Mac 한 방에 셋업하기](https://healingpaper.github.io/2019/08/18/brew_cask_mas.html)
+- [A complete one-by-one guide to install Docker on your Mac OS using Homebrew](https://medium.com/@yutafujii_59175/a-complete-one-by-one-guide-to-install-docker-on-your-mac-os-using-homebrew-e818eb4cfc3)
+- [Adding a Cask](https://github.com/Homebrew/homebrew-cask/blob/master/doc/development/adding_a_cask.md)
+- https://support.apple.com/ko-kr/HT201940
+- https://stackoverflow.com/a/49580997
+- https://github.com/Homebrew/homebrew-bundle#install
+- [Mac on Mac Virtualization](https://engineering.rallyhealth.com/tools/mac/virtualization/2018/04/27/mac-on-mac-virtualization.html)

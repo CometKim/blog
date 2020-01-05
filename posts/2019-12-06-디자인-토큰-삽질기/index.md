@@ -2,15 +2,15 @@
 title: 디자인 토큰 삽질기
 date: 2019-12-06T11:56:12.817Z
 slug: /posts/some-waste-of-times-for-design-token
-description: TBD
-category: development
-tags: ["TBD"]
+tags: ['design token', '디자인 토큰', '디자인 시스템']
 type: post
 ---
 
 요즘 디자인 토큰 작업을 하고 있다. 개발자가 웬 디자인 관련 작업인가 싶지만
 주요 기능을 개발해야 하는 일은 이제 대부분 마무리 지은 것 같고, 이제는 사용성 개선과 관련된 작업을 해야 하기에
 그보다 앞선 작업으로써 파편화된 UX/UI를 수습하고 싶었다.
+
+<!-- end -->
 
 회고를 따로 진행 하겠지만, 2019년 나를 요약하는 키워드는 **불만**이었다.
 
@@ -159,4 +159,4 @@ type: post
 
 # Reference
 
--   [Building a design system — where to start?](https://uxdesign.cc/building-a-design-system-where-to-start-part-1-first-things-first-57577153ae2d)
+- [Building a design system — where to start?](https://uxdesign.cc/building-a-design-system-where-to-start-part-1-first-things-first-57577153ae2d)

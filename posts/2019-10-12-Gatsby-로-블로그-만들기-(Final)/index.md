@@ -2,15 +2,13 @@
 title: Gatsby 로 블로그 만들기 (Final)
 date: 2019-10-12T06:20:39.367Z
 slug: /posts/build-a-blog-with-gatsby-and-typescript-part-4
-description: TBD
-category: development
-tags: ["TBD"]
+tags: ['gatsby', 'typescript', 'blog', '블로그']
 type: post
 ---
 
-> 본 게시글은 벨로그에서 제가 작성한 게시글을 옮겨왔습니다.
-
 이번에는 최상위 주소로 들어갔을 때, 최근에 작성한 게시글 목록을 표시하는 기능과 [utterances](https://utteranc.es) 위젯을 활용하여 덧글 기능을 구현 해 보겠습니다. 지금 `index.tsx` 파일에는 기본으로 작성 된 내용이 있으니 먼저 이 내용을 지우고 임시로 내용을 채웠습니다.
+
+<!-- end -->
 
 ![1.png](1.png)
 
@@ -36,21 +34,21 @@ Gatsby 내의 컴포넌트에서는 어떻게 GraphQL 쿼리를 사용할까요?
 
 ```ts
 const LatestPostListQuery = graphql`
-    query LatestPostListQuery {
-        allMarkdownRemark(sort: { order: DESC, fields: frontmatter___date }) {
-            edges {
-                node {
-                    excerpt(truncate: true, pruneLength: 200)
-                    frontmatter {
-                        title
-                        path
-                        date(formatString: "YYYY-MM-DD HH:mm:ss")
-                    }
-                    id
-                }
-            }
+  query LatestPostListQuery {
+    allMarkdownRemark(sort: { order: DESC, fields: frontmatter___date }) {
+      edges {
+        node {
+          excerpt(truncate: true, pruneLength: 200)
+          frontmatter {
+            title
+            path
+            date(formatString: "YYYY-MM-DD HH:mm:ss")
+          }
+          id
         }
+      }
     }
+  }
 `;
 ```
 
@@ -58,26 +56,26 @@ const LatestPostListQuery = graphql`
 
 ```tsx
 const IndexPage: React.FC = () => {
-    const data = useStaticQuery<Query>(LatestPostListQuery);
+  const data = useStaticQuery<Query>(LatestPostListQuery);
 
-    return (
-        <Layout>
-            <SEO title="Home" />
-            <h1>최근 작성한 게시글 목록</h1>
-            <ul>
-                {data.allMarkdownRemark.edges.map(({ node }) => (
-                    <li key={node.id}>
-                        <h2>
-                            <Link to={node.frontmatter.path}>{node.frontmatter.title}</Link>
-                        </h2>
-                        <h3>{node.frontmatter.date}</h3>
-                        <p>{node.excerpt}</p>
-                        <hr />
-                    </li>
-                ))}
-            </ul>
-        </Layout>
-    );
+  return (
+    <Layout>
+      <SEO title="Home" />
+      <h1>최근 작성한 게시글 목록</h1>
+      <ul>
+        {data.allMarkdownRemark.edges.map(({ node }) => (
+          <li key={node.id}>
+            <h2>
+              <Link to={node.frontmatter.path}>{node.frontmatter.title}</Link>
+            </h2>
+            <h3>{node.frontmatter.date}</h3>
+            <p>{node.excerpt}</p>
+            <hr />
+          </li>
+        ))}
+      </ul>
+    </Layout>
+  );
 };
 ```
 
@@ -87,15 +85,15 @@ const IndexPage: React.FC = () => {
 
 ```tsx
 const PostTemplate: React.FC<IPostTemplateProps> = React.memo(props => {
-    const { title, date, html } = props.pageContext;
-    return (
-        <Layout>
-            <h2>{title}</h2>
-            <h4>{date}</h4>
-            <hr />
-            <div dangerouslySetInnerHTML={{ __html: html }} />
-        </Layout>
-    );
+  const { title, date, html } = props.pageContext;
+  return (
+    <Layout>
+      <h2>{title}</h2>
+      <h4>{date}</h4>
+      <hr />
+      <div dangerouslySetInnerHTML={{ __html: html }} />
+    </Layout>
+  );
 });
 ```
 
@@ -135,33 +133,33 @@ import React, { createRef, useLayoutEffect } from 'react';
 const src = 'https://utteranc.es/client.js';
 
 export interface IUtterancesProps {
-    repo: string;
+  repo: string;
 }
 
 const Utterances: React.FC<IUtterancesProps> = React.memo(({ repo }) => {
-    const containerRef = createRef<HTMLDivElement>();
+  const containerRef = createRef<HTMLDivElement>();
 
-    useLayoutEffect(() => {
-        const utterances = document.createElement('script');
+  useLayoutEffect(() => {
+    const utterances = document.createElement('script');
 
-        const attributes = {
-            src,
-            repo,
-            'issue-term': 'pathname',
-            label: 'comment',
-            theme: 'github-light',
-            crossOrigin: 'anonymous',
-            async: 'true',
-        };
+    const attributes = {
+      src,
+      repo,
+      'issue-term': 'pathname',
+      label: 'comment',
+      theme: 'github-light',
+      crossOrigin: 'anonymous',
+      async: 'true',
+    };
 
-        Object.entries(attributes).forEach(([key, value]) => {
-            utterances.setAttribute(key, value);
-        });
+    Object.entries(attributes).forEach(([key, value]) => {
+      utterances.setAttribute(key, value);
+    });
 
-        containerRef.current.appendChild(utterances);
-    }, [repo]);
+    containerRef.current.appendChild(utterances);
+  }, [repo]);
 
-    return <div ref={containerRef} />;
+  return <div ref={containerRef} />;
 });
 
 Utterances.displayName = 'Utterances';
@@ -175,16 +173,16 @@ export default Utterances;
 
 ```tsx
 const PostTemplate: React.FC<IPostTemplateProps> = React.memo(props => {
-    const { title, date, html } = props.pageContext;
-    return (
-        <Layout>
-            <h2>{title}</h2>
-            <h4>{date}</h4>
-            <hr />
-            <div dangerouslySetInnerHTML={{ __html: html }} />
-            <Utterances repo="iamchanii/blog" />
-        </Layout>
-    );
+  const { title, date, html } = props.pageContext;
+  return (
+    <Layout>
+      <h2>{title}</h2>
+      <h4>{date}</h4>
+      <hr />
+      <div dangerouslySetInnerHTML={{ __html: html }} />
+      <Utterances repo="iamchanii/blog" />
+    </Layout>
+  );
 });
 ```
 

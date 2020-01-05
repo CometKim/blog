@@ -2,14 +2,14 @@
 title: 모노레포로 리액트 프로젝트 만들기
 date: 2019-11-08T06:43:01.488Z
 slug: /posts/make-react-app-with-monorepo
-description: TBD
-category: development
-tags: ["TBD"]
+tags: ['monorepo', '모노레포', '리액트', 'react', 'lerna']
 type: post
 ---
 
 회사에서 진행하는 프로젝트의 규모가 점점 커지고 있습니다. 규모가 커질 것을 고려해서 몇 번 폴더 구조를 (나름) 체계적으로 정리하는 등, 최선을 다했지만 단순하게 폴더를 정리하는 선을 넘고 있어서(ㅠㅠ)
 모노레포(Monorepo)에 관심이 생겼습니다. 리액트 프로젝트에 모노레포를 도입하는 방법에 대해 알아봅시다.
+
+<!-- end -->
 
 # 시작
 
@@ -27,12 +27,12 @@ $ yarn init -y
 
 ```json
 {
-    "name": "react-monorepo",
-    "version": "1.0.0",
-    "main": "index.js",
-    "license": "MIT",
-    "private": true,
-    "workspaces": ["packages/*"]
+  "name": "react-monorepo",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "private": true,
+  "workspaces": ["packages/*"]
 }
 ```
 
@@ -55,10 +55,10 @@ $ lerna init
 
 ```json
 {
-    "packages": ["packages/*"],
-    "version": "1.0.0",
-    "useWorkspaces": true,
-    "npmClient": "yarn"
+  "packages": ["packages/*"],
+  "version": "1.0.0",
+  "useWorkspaces": true,
+  "npmClient": "yarn"
 }
 ```
 
@@ -79,16 +79,16 @@ $ yarn create react-app packages/app --typescript
 
 ```json5
 {
-    name: '@foo/app',
-    version: '0.1.0',
-    private: true,
-    dependencies: {
-        '@types/jest': '24.0.23',
-        '@types/node': '12.12.7',
-        '@types/react': '16.9.11',
-        '@types/react-dom': '16.9.4',
-        // ...
-    },
+  name: '@foo/app',
+  version: '0.1.0',
+  private: true,
+  dependencies: {
+    '@types/jest': '24.0.23',
+    '@types/node': '12.12.7',
+    '@types/react': '16.9.11',
+    '@types/react-dom': '16.9.4',
+    // ...
+  },
 }
 ```
 
@@ -96,16 +96,16 @@ $ yarn create react-app packages/app --typescript
 
 1. yarn workspace 사용
 
-    ```
-    $ yarn workspace @foo/app start
-    ```
+   ```
+   $ yarn workspace @foo/app start
+   ```
 
 2. lerna 사용
 
-    ```
-    $ lerna run start --scope=@foo/app
-    ```
-   
+   ```
+   $ lerna run start --scope=@foo/app
+   ```
+
 단일 명령을 사용하고 확인 할 때는 `yarn workspace`가 나은 것 같고, 필터를 사용해서 여러 패키지에 대한 작업을 수행 할 때는 `lerna`가 좋은 것 같습니다.
 
 패키지 명령을 통해 리액트 앱이 실행되는 것을 확인할 수 있습니다.
@@ -168,9 +168,7 @@ package.json 파일을 열어서 `main`, `types`, `files` 를 수정하고 `scri
 ```tsx
 import React from 'react';
 
-const Foo: React.FC = () => (
-    <div>Foo!</div>
-);
+const Foo: React.FC = () => <div>Foo!</div>;
 
 export default Foo;
 ```
@@ -188,7 +186,7 @@ export { default as Foo } from './Foo';
 ```
 $ lerna add @foo/shared --scope=@foo/app
 ```
- 
+
 그 다음 `@foo/app` 내에서 추가된 `@foo/shared` 패키지의 `Foo` 컴포넌트를 가져오도록 한 다음 실행하면 오류가 납니다.
 빌드를 하지 않으면 정상적으로 사용할 수 없습니다. 실제로 실행시켜야 하는건 자바스크립트 파일인데 `@foo/shared` 에서 제공하는건 타입스크립트 파일만 제공하기 때문입니다.
 
@@ -258,4 +256,4 @@ $ lerna run start --parallel
 
 ### References
 
--   https://dev.to/stereobooster/typescript-monorepo-for-react-project-3cpa
+- https://dev.to/stereobooster/typescript-monorepo-for-react-project-3cpa

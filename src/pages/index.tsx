@@ -15,7 +15,6 @@ const LatestPostListQuery = graphql`
           title
           slug
           date
-          description
         }
         excerpt(truncate: true, pruneLength: 150)
         id

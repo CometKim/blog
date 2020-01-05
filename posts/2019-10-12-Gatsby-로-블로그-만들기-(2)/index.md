@@ -2,15 +2,13 @@
 title: Gatsby 로 블로그 만들기 (2)
 date: 2019-10-12T05:36:06.653Z
 slug: /posts/build-a-blog-with-gatsby-and-typescript-part-2
-description: TBD
-category: development
-tags: ["TBD"]
+tags: ['gatsby', 'typescript', 'blog', '블로그']
 type: post
 ---
 
-> 본 게시글은 벨로그에서 제가 작성한 게시글을 옮겨왔습니다.
-
 지난번에는 Gatsby 로 새로운 프로젝트를 생성하고, 타입스크립트와 Prettier 설정을 진행했습니다. 이번에는 Gatsby 의 기능을 이용해서 동적으로 페이지를 생성하는 기능을 구현 해 보겠습니다.
+
+<!-- end -->
 
 일반적으로는 pages 폴더에 컴포넌트를 추가하는 방식으로 페이지를 추가할 수 있지만, 블로그처럼 파일을 읽어서 각각 하나의 페이지로 만들기 위해서는 Gatsby 에서 제공하는 파일 시스템 플러그인을 기본으로 하고, 마크다운 해석과 관련된 플러그인도 필요합니다.
 

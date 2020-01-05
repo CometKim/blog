@@ -2,15 +2,15 @@
 title: Gatsby와 Contentful 연동하기
 date: 2019-12-28T02:00:40.119Z
 slug: /posts/integration-gatsby-with-contentful
-description: TBD
-category: development
-tags: ["TBD"]
+tags: ['gatsby', 'contentful']
 type: post
 ---
 
 [이전 글](/posts/build-a-funnyhomepage-with-tina-cms)에서도 말 했었지만,
 워드프레스 기반을 벗어나서, Gatsby로 새롭게 회사 홈페이지를 만들고 있다. 그러다 보니 회사에서 Gatsby에 대해 시간을 많이 쏟아붓고 있다.
 따로 정리하지 않으면 언젠가 까먹을 것 같기도 하고, 나처럼 Gatsby와 Contentful을 연동하려고 구글링 중인 사람에게 도움이 되었으면 좋겠다.
+
+<!-- end -->
 
 ---
 
@@ -224,4 +224,4 @@ Headless CMS는 개발자 외의 직군과 협업을 할 때 도움이 될 것 �
 개발자 블로그로는 Git-Backend가 더 나은 것 같다. 수동으로 마크다운을 작성하거나,
 [TinaCMS](https://tinacms.org/) 또는 [NetlifyCMS](https://www.netlifycms.org/)를 쓰는게 좋은 것 같다.
 Contentful같은 Headless CMS를 사이트 관리 도구로 활용하여, 어디서든 블로그를 작성한다면
-개발 환경이 필요한 Git-Backend 보다 오히려 Headless CMS를 붙이는 편이 좋다. 
+개발 환경이 필요한 Git-Backend 보다 오히려 Headless CMS를 붙이는 편이 좋다.

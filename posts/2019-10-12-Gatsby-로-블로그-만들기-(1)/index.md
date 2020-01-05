@@ -2,15 +2,13 @@
 title: Gatsby 로 블로그 만들기 (1)
 date: 2019-10-12T14:18:27.383+09:00
 slug: /posts/build-a-blog-with-gatsby-and-typescript-part-1
-description: TBD
-category: development
-tags: ["TBD"]
+tags: ['gatsby', 'typescript', 'blog', '블로그']
 type: post
 ---
 
-> 본 게시글은 벨로그에서 제가 작성한 게시글을 옮겨왔습니다.
-
 최근 들어 개인 블로그의 필요성을 느꼈습니다. Velog 는 제가 좋아하는 플랫폼이지만, 여전히 가슴 한 켠에 있는, 개인 블로그를 만들고 싶다는 욕망이 솟아난게 아닐까 싶습니다. 어떻게 만들어야 할 지 고민한 결과, 지금이 [GatsbyJS](https://www.gatsbyjs.org/) 를 사용하기 가장 적당하다고 생각했습니다.
+
+<!-- end -->
 
 GatsbyJS 는 유명한 정적 사이트 생성기 입니다. 자바스크립트와 리액트를 이용해 만들 수 있다는 특징이 GatsbyJS 의 많은 장점 중 가장 매력적인 부분입니다. 만드는 동안 GatsbyJS 에 올라온 다양한 스타터를 사용하지 않기로 했습니다. 내 코드 스타일이 아닌 코드가 미리 작성된 프로젝트는 영 마음에 들지 않기도 하고, 직접 삽질을 해보는게 GatsbyJS 을 이해하는 데 더욱 도움이 될 것 같습니다.
 

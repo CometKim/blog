@@ -2,14 +2,14 @@
 title: TinaCMS로 편집 가능한 홈페이지 만들기
 date: 2019-12-21T07:14:48.240Z
 slug: /posts/build-a-funny-homepage-with-tina-cms
-description: TBD
-category: development
-tags: ["TBD"]
+tags: ['tinacms', 'gatsby', '블로그', '홈페이지']
 type: post
 ---
 
 최근에 회사에서 홈페이지를 만들어 달라는 업무가 할당됐다. 지금까지는 워드프레스 기반으로 만들고 있었는데,
 워드프레스 특유의 (쉬운 사용과는 다른)복잡성과 플러그인끼리 교착 상태가 발생하면서 더 이상 워드프레스로는 유지하기 어렵다는 판단을 내린 것이다.
+
+<!-- end -->
 
 처음에 워드프레스를 택한 이유는 비개발자도 편집할 수 있다는 장점이 있었는데, [Elementor](https://elementor.com/) 플러그인이 있기 때문이다.
 나는 워드프레스로 홈페이지를 만들어본 적은 없지만, 이 플러그인을 보고 신기하다는 생각을 했다.

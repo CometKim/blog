@@ -2,15 +2,13 @@
 title: Gatsby 로 블로그 만들기 (3)
 date: 2019-10-12T05:44:13.391Z
 slug: /posts/build-a-blog-with-gatsby-and-typescript-part-3
-description: TBD
-category: development
-tags: ["TBD"]
+tags: ['gatsby', 'typescript', 'blog', '블로그']
 type: post
 ---
 
-> 본 게시글은 벨로그에서 제가 작성한 게시글을 옮겨왔습니다.
-
 지난번에는 마크다운 파일을 사용하여 동적으로 페이지를 만드는 작업까지 진행 했습니다. 이번에는 타입스크립트를 사용하면서 발생하는 미묘한 불일치를 해결 해 보겠습니다.
+
+<!-- end -->
 
 ## GraphQL 쿼리의 반환 타입 지정
 
@@ -56,11 +54,11 @@ type: post
 
 ```json
 {
-    /* ... */
-    "strict": true /* Enable all strict type-checking options. */,
-    "noImplicitAny": false /* Raise error on expressions and declarations with an implied 'any' type. */,
-    "strictNullChecks": false /* Enable strict null checks. */
-    /* ... */
+  /* ... */
+  "strict": true /* Enable all strict type-checking options. */,
+  "noImplicitAny": false /* Raise error on expressions and declarations with an implied 'any' type. */,
+  "strictNullChecks": false /* Enable strict null checks. */
+  /* ... */
 }
 ```
 
@@ -82,15 +80,15 @@ import path from 'path';
 import { Query } from '../graphql-types';
 
 export async function createPages({ actions, graphql }: CreatePagesArgs) {
-    const { createPage } = actions;
+  const { createPage } = actions;
 
-    const { data, errors } = await graphql<Query>(`
+  const { data, errors } = await graphql<Query>(`
         {
             allMarkdownRemark {
                     /* 생략 */
             }
         `);
-    /* 생략 */
+  /* 생략 */
 }
 ```
 
@@ -106,18 +104,18 @@ export async function createPages({ actions, graphql }: CreatePagesArgs) {
 
 ```ts
 export interface ReplaceComponentRendererArgs extends BrowserPluginArgs {
-    props: {
-        path: string;
-        '*': string;
-        uri: string;
-        location: object;
-        navigate: Function;
-        children: undefined;
-        pageResources: object;
-        data: object;
-        pageContext: object;
-    };
-    loader: object;
+  props: {
+    path: string;
+    '*': string;
+    uri: string;
+    location: object;
+    navigate: Function;
+    children: undefined;
+    pageResources: object;
+    data: object;
+    pageContext: object;
+  };
+  loader: object;
 }
 ```
 
@@ -135,9 +133,9 @@ src 폴더 내에 `interface.ts` 파일을 만들고 아래와 같이 작성했�
 import { ReplaceComponentRendererArgs } from 'gatsby';
 
 export type ITemplateProps<T> = ReplaceComponentRendererArgs['props'] & {
-    pageContext: {
-        isCreatedByStatefulCreatePages: boolean;
-    } & T;
+  pageContext: {
+    isCreatedByStatefulCreatePages: boolean;
+  } & T;
 };
 ```
 
@@ -153,18 +151,18 @@ import Layout from '../components/layout';
 import { ITemplateProps } from '../interface';
 
 type IPostTemplateProps = ITemplateProps<{
-    html: string;
-    title: string;
+  html: string;
+  title: string;
 }>;
 
 const PostTemplate: React.FC<IPostTemplateProps> = React.memo(props => {
-    return (
-        <Layout>
-            <code>
-                <pre>{JSON.stringify(props, null, 4)}</pre>
-            </code>
-        </Layout>
-    );
+  return (
+    <Layout>
+      <code>
+        <pre>{JSON.stringify(props, null, 4)}</pre>
+      </code>
+    </Layout>
+  );
 });
 
 PostTemplate.displayName = 'PostTemplate';

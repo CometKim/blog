@@ -42,7 +42,7 @@ const SEO: React.FC<ISEOProps> = React.memo(
       `,
     );
 
-    const description = _description || site.siteMetadata.description;
+    const description = (_description || site.siteMetadata.description).replace(/\n/g, ' ');
 
     return (
       <Helmet titleTemplate={`%s | ${site.siteMetadata.title}`}>

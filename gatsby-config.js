@@ -63,7 +63,12 @@ module.exports = {
           },
           'gatsby-remark-embed-snippet',
           'gatsby-remark-autolink-headers',
-          'gatsby-remark-prismjs',
+          {
+            resolve: 'gatsby-remark-prismjs',
+            options: {
+              inlineCodeMarker: '>',
+            },
+          },
         ],
       },
     },

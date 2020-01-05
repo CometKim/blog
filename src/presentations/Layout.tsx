@@ -1,12 +1,14 @@
 import { css } from '@emotion/core';
 import { Link } from 'gatsby';
 import React from 'react';
+import tw from 'tailwind.macro';
 
 const headerCss = css`
   background-color: rgba(255, 255, 255, 0.75);
 
   @supports (backdrop-filter: blur(4px)) {
     backdrop-filter: blur(4px);
+    ${tw`border-b border-gray-300`}
   }
 `;
 

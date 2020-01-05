@@ -69,6 +69,7 @@ module.exports = {
               inlineCodeMarker: '>',
             },
           },
+          'gatsby-remark-external-links',
         ],
       },
     },

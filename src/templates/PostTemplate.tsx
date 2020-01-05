@@ -47,11 +47,16 @@ const PostTemplate: React.FC<IPostTemplateProps> = React.memo(props => {
             name: 'iamchanii',
           },
           datePublished: date,
+          dateModified: date,
           wordCount,
           image: siteUrl + thumbnailUrl,
           publisher: {
             '@type': 'Organization',
             name: 'iamchanii',
+            logo: {
+              '@type': 'ImageObject',
+              url: 'https://imch.dev/images/default.png',
+            },
           },
         }}
       />

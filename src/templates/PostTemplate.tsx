@@ -50,7 +50,7 @@ const PostTemplate: React.FC<IPostTemplateProps> = React.memo(props => {
           wordCount,
           image: siteUrl + thumbnailUrl,
           publisher: {
-            '@type': 'Person',
+            '@type': 'Organization',
             name: 'iamchanii',
           },
         }}

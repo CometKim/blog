@@ -85,18 +85,33 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-feed',
       options: {
-        query: `{
-          site {
-            siteMetadata {
-              title
-              description
-              siteUrl
-              site_url: siteUrl
+        query: `
+          {
+            site {
+              siteMetadata {
+                title
+                description
+                siteUrl
+              }
             }
           }
-        }`,
+        `,
         feeds: [
           {
+            query: `{
+              allMarkdownRemark(filter: {frontmatter: {type: {eq: "post"}}}, sort: {order: DESC, fields: [frontmatter___date]}) {
+                edges {
+                  node {
+                    excerpt
+                    html
+                    frontmatter {
+                      title
+                      date
+                    }
+                  }
+                }
+              }
+            }`,
             serialize: ({ query: { site, allMarkdownRemark } }) => {
               return allMarkdownRemark.edges.map(edge => {
                 return Object.assign({}, edge.node.frontmatter, {
@@ -108,32 +123,8 @@ module.exports = {
                 });
               });
             },
-            query: `
-              {
-                allMarkdownRemark(
-                  sort: { order: DESC, fields: [frontmatter___date] },
-                ) {
-                  edges {
-                    node {
-                      excerpt
-                      html
-                      frontmatter {
-                        title
-                        date
-                        slug
-                      }
-                    }
-                  }
-                }
-              }
-            `,
-            output: '/rss.xml',
-            title: "imch.dev's RSS Feed",
-            // optional configuration to insert feed reference in pages:
-            // if `string` is used, it will be used to create RegExp and then test if pathname of
-            // current page satisfied this regular expression;
-            // if not provided or `undefined`, all pages will have feed reference inserted
-            match: '^/post/',
+            output: 'rss.xml',
+            title: 'imch.dev RSS Feed',
           },
         ],
       },
@@ -142,7 +133,6 @@ module.exports = {
       resolve: 'gatsby-plugin-sitemap',
       options: {
         output: '/sitemap.xml',
-        exclude: ['/resume/', '/license/'],
         query: `{
           site {
             siteMetadata {
@@ -160,7 +150,7 @@ module.exports = {
         serialize: ({ site, allSitePage }) =>
           allSitePage.edges.map(edge => {
             return {
-              url: site.siteMetadata.siteUrl + edge.node.path,
+              url: site.siteMetadata.siteUrl + edge.node.path.replace(/\/$/, ''),
               changefreq: `daily`,
               priority: 0.7,
             };

@@ -37,6 +37,7 @@ const ProfileCard: React.FC<IProfileCardProps> = React.memo(() => {
             rel="noopener noreferer"
             title="Github 프로필로 이동"
             className="inline-flex items-center"
+            target="_blank"
           >
             <DiGithubBadge className="mr-1" />
             GitHub

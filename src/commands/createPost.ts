@@ -14,10 +14,10 @@ slug: $SLUG$
 `;
 
 (async () => {
-  const { title, path: _path } = await inquirer.prompt([
+  const { title, slug } = await inquirer.prompt([
     { name: 'title', message: '포스트 제목을 입력하세요:', type: 'input' },
     {
-      name: 'path',
+      name: 'slug',
       message: '주소를 입력 해 주세요:',
       type: 'input',
       filter: (value: string) => (value.startsWith('/') ? value : '/' + value),
@@ -32,11 +32,18 @@ slug: $SLUG$
 
   await fs.mkdir(folderPath);
 
-  const data = template
-    .replace('$TITLE$', title)
-    .replace('$DATE$', now.toISOString())
-    .replace('$SLUG$', _path)
-    .trim();
+  const data = [
+    '---',
+    `title: ${title}`,
+    `date: ${now.toISOString()}`,
+    `slug: ${slug}`,
+    'tags: []',
+    'type: post',
+    'thumbnail: thumbnail.png',
+    '---',
+    '',
+    '내용'
+  ].join('\n');
 
   await fs.writeFile(filePath, data, {
     encoding: 'utf8',

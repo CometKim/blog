@@ -70,3 +70,5 @@ yarn-error.log
 
 .idea
 .linaria-cache
+schema.graphql
+graphql-types.d.ts

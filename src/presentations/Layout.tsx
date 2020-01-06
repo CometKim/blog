@@ -17,16 +17,16 @@ const Layout: React.FC = React.memo(({ children }) => {
     <>
       <header
         css={headerCss}
-        className="flex justify-between items-center px-8 py-4 fixed top-0 left-0 right-0 h-16 z-10"
+        className="flex justify-between items-center fixed top-0 left-0 right-0 z-10 md:px-8 md:py-4 md:h-16 px-8 h-12"
       >
-        <Link className="font-bold text-lg" to="/" title="게시글 목록으로 이동">
+        <Link className="font-bold text-base md:text-lg" to="/" title="게시글 목록으로 이동">
           imch.dev
         </Link>
-        <Link className="text-lg" to="/about" title="소개 페이지로 이동">
+        <Link className="text-base md:text-lg" to="/about" title="소개 페이지로 이동">
           about
         </Link>
       </header>
-      <main className="container mt-24">{children}</main>
+      <main className="container mt-16 md:mt-24">{children}</main>
     </>
   );
 });

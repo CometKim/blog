@@ -36,7 +36,7 @@ const isContainClass = (element: HTMLElement, className: string) => {
 
 const headerScrollUp = 'header-scroll-up';
 const headerScrollDown = 'header-scroll-down';
-const headerHideOffset = 128;
+const headerHideOffset = 32;
 
 const Layout: React.FC = React.memo(({ children }) => {
   const headerRef = useRef<HTMLElement>();

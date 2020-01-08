@@ -38,6 +38,13 @@ const headerScrollUp = 'header-scroll-up';
 const headerScrollDown = 'header-scroll-down';
 const headerHideOffset = 32;
 
+export const resetHeaderScrollClasses = (element: HTMLElement) => {
+  if (element) {
+    removeClass(element, headerScrollUp);
+    removeClass(element, headerScrollDown);
+  }
+};
+
 const Layout: React.FC = React.memo(({ children }) => {
   const headerRef = useRef<HTMLElement>();
 
@@ -82,6 +89,7 @@ const Layout: React.FC = React.memo(({ children }) => {
   return (
     <>
       <header
+        id="header"
         ref={headerRef}
         css={headerCss}
         className="flex justify-between items-center fixed top-0 left-0 right-0 z-10 md:px-8 md:py-4 md:h-16 px-8 h-12"

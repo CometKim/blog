@@ -42,8 +42,11 @@ const htmlRendererCss = css`
     ${tw`my-4`}
   }
 
-  :not(li) > ul {
-    ${tw`mb-4`}
+  :not(li) {
+    > ul,
+    > ol {
+      ${tw`mb-4`}
+    }
   }
 
   ul {
@@ -54,6 +57,15 @@ const htmlRendererCss = css`
         content: '•';
         ${tw`absolute left-0`}
       }
+    }
+  }
+
+  ol {
+    list-style: decimal;
+    ${tw`ml-4`}
+
+    li {
+      ${tw`pl-1 my-1`}
     }
   }
 

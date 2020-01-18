@@ -8,7 +8,7 @@
 
 :not(picture) > img {
   max-width: 633px;
-  @apply block w-full mx-auto;
+  @apply block w-full mx-auto rounded;
 }
 
 .gatsby-highlight > pre {

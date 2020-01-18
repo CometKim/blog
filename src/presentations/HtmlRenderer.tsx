@@ -76,6 +76,10 @@ const htmlRendererCss = css`
   p > img {
     ${tw`my-8`}
   }
+
+  .gatsby-resp-image-wrapper {
+    ${tw`rounded overflow-hidden`}
+  }
 `;
 
 export interface IHtmlRendererProps {

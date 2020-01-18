@@ -72,6 +72,10 @@ const htmlRendererCss = css`
   :not(li) > p {
     ${tw`mb-4`}
   }
+
+  p > img {
+    ${tw`my-8`}
+  }
 `;
 
 export interface IHtmlRendererProps {
@@ -79,7 +83,13 @@ export interface IHtmlRendererProps {
 }
 
 const HtmlRenderer: React.FC<IHtmlRendererProps> = React.memo(({ html }) => {
-  return <section css={htmlRendererCss} className="leading-relaxed mb-8" dangerouslySetInnerHTML={{ __html: html }} />;
+  return (
+    <section
+      css={htmlRendererCss}
+      className="leading-relaxed mb-8"
+      dangerouslySetInnerHTML={{ __html: html }}
+    />
+  );
 });
 
 HtmlRenderer.displayName = 'HtmlRenderer';

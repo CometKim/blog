@@ -20,7 +20,7 @@ const PreviousOrNextPostCard: React.FC<IPreviousOrNextPostCardProps> = React.mem
     <Link
       to={data.slug}
       className={clsx(
-        'rounded hover:bg-gray-100 p-4 cursor-pointer text-gray-900 hover:text-gray-900',
+        'rounded hover:bg-gray-100 focus:bg-gray-100 p-4 cursor-pointer text-gray-900 hover:text-gray-900 focus:text-gray-900',
         isPrevious ? 'text-left mr-auto' : 'text-right ml-auto',
       )}
     >

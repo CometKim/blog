@@ -10,11 +10,12 @@ const PostList: React.FC<IPostListProps> = memo(({ nodes }) => {
   return (
     <ul>
       {nodes.map(({ id, excerpt, frontmatter: { title, slug, date } }) => (
-        <li
-          key={id}
-          className="rounded hover:bg-gray-100 p-4 cursor-pointer mb-4"
-        >
-          <Link to={slug} title={title}>
+        <li key={id} className="mb-4">
+          <Link
+            className="block rounded p-4 cursor-pointer outline-none hover:bg-gray-100 focus:bg-gray-100 focus:shadow-outline active:shadow-outline"
+            to={slug}
+            title={title}
+          >
             <PostHeader title={title} date={date} />
             <p className="text-gray-800 leading-relaxed">{excerpt}</p>
           </Link>

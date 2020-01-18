@@ -1,6 +1,10 @@
 module.exports = {
   theme: {
-    extend: {},
+    extend: {
+      boxShadow: {
+        outline: '0 0 0 2px #E9D8FD',
+      },
+    },
     container: {
       center: true,
       padding: '1rem',

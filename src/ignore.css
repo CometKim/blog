@@ -17,7 +17,11 @@
 }
 
 a {
-  @apply text-purple-800 no-underline;
+  @apply text-purple-800 no-underline outline-none rounded;
+}
+
+a:focus {
+  @apply shadow-outline text-purple-500;
 }
 
 a:hover {

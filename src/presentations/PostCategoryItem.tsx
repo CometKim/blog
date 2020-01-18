@@ -13,8 +13,8 @@ const PostCategoryItem: React.FC<IPostCategoryItemProps> = memo(
     <li className="mr-2 last:mr-0">
       <Link
         to={link}
-        className="rounded px-2 py-1 text-sm"
-        activeClassName="bg-purple-800 text-white hover:text-white"
+        className="rounded px-2 py-1 text-sm outline-none focus:shadow-outline"
+        activeClassName="bg-purple-800 text-white focus:text-white hover:text-white"
       >
         {startCase(name)} ({count})
       </Link>

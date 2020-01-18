@@ -7,7 +7,7 @@ type: post
 thumbnail: thumbnail.png
 ---
 
-![](thumbnail.png)
+![리액트로 Trans 컴포넌트 만들기 (부제: 라이브러리에 의존하지 않고 직접 만들기)](thumbnail.png)
 
 회사 홈페이지의 다국어 기능을 외부 라이브러리 없이 구현하던 중 Trans 컴포넌트의 기능이 필요했다.
 이 기능 하나만을 위해 i18n 라이브러리를 도입해야 할까? 직접 구현할 수 있지 않을까?

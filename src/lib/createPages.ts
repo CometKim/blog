@@ -1,6 +1,11 @@
 import { CreatePagesArgs } from 'gatsby';
 import path from 'path';
-import { IPostFrontmatter, IPostTemplateContext } from '../interface';
+import {
+  IPostFrontmatter,
+  IPostTemplateContext,
+  IPostListTemplateContext,
+} from '../interface';
+import startCase from 'lodash.startcase';
 
 const getNextOrPreviousData = (data: any): IPostFrontmatter | null =>
   data ? { title: data.frontmatter.title, slug: data.frontmatter.slug } : null;
@@ -10,6 +15,26 @@ export async function createPages({ actions, graphql }: CreatePagesArgs) {
 
   const { data, errors } = await graphql(`
     {
+      allPostByCategory: allMarkdownRemark(
+        sort: { order: DESC, fields: frontmatter___date }
+        filter: { frontmatter: { type: { eq: "post" } } }
+      ) {
+        group(field: frontmatter___category) {
+          category: fieldValue
+          nodes {
+            id
+            frontmatter {
+              title
+              slug
+              date
+              type
+              category
+            }
+            excerpt(truncate: true, pruneLength: 150)
+          }
+        }
+      }
+
       allMarkdownRemark(
         sort: { order: DESC, fields: frontmatter___date }
         filter: { frontmatter: { type: { eq: "post" } } }
@@ -73,6 +98,22 @@ export async function createPages({ actions, graphql }: CreatePagesArgs) {
         thumbnailUrl: node.frontmatter.thumbnail.childImageSharp.fluid.src,
       },
       component: path.resolve(__dirname, '../templates/PostTemplate.tsx'),
+    });
+  });
+
+  data.allPostByCategory.group.forEach(({ category, nodes }) => {
+    const pagePath = `/category/${category}`;
+    const title = startCase(category);
+
+    createPage<IPostListTemplateContext>({
+      path: pagePath,
+      context: {
+        title,
+        pagePath,
+        category,
+        nodes,
+      },
+      component: path.resolve(__dirname, '../templates/PostListTemplate.tsx'),
     });
   });
 }

@@ -1,8 +1,9 @@
-import { graphql, Link, useStaticQuery } from 'gatsby';
+import { graphql, useStaticQuery } from 'gatsby';
 import React from 'react';
-import PostHeader from '../presentations/PostHeader';
-import SEO from '../presentations/SEO';
 import { Query } from '../graphql-types';
+import PostCategory from '../presentations/PostCategory';
+import PostList from '../presentations/PostList';
+import SEO from '../presentations/SEO';
 
 const LatestPostListQuery = graphql`
   query {
@@ -29,16 +30,8 @@ const IndexPage: React.FC = () => {
   return (
     <>
       <SEO title="Home" url="" />
-      <ul>
-        {allMarkdownRemark.nodes.map(({ id, excerpt, frontmatter: { title, slug, date } }) => (
-          <li key={id} className="rounded hover:bg-gray-100 p-4 cursor-pointer mb-4">
-            <Link to={slug} title={title}>
-              <PostHeader title={title} date={date} />
-              <p className="text-gray-800 leading-relaxed">{excerpt}</p>
-            </Link>
-          </li>
-        ))}
-      </ul>
+      <PostCategory />
+      <PostList nodes={allMarkdownRemark.nodes} />
     </>
   );
 };

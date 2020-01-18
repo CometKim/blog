@@ -1,6 +1,7 @@
 ---
 title: 리액트로 Trans 컴포넌트 만들기
 date: 2020-01-14T02:17:31.625Z
+category: development
 slug: /posts/how-to-build-trans-component-with-pure-react
 tags: ['리액트', 'React', 'Trans', '문자열', '텍스트', '포맷']
 type: post

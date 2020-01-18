@@ -1,6 +1,7 @@
 ---
 title: 블로그 새단장 후기
 date: 2020-01-05T09:06:34.769Z
+category: development
 slug: /posts/blog-renewal
 tags: []
 type: post

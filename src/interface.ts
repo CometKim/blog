@@ -1,3 +1,4 @@
+import { MarkdownRemarkFrontmatter, MarkdownRemark } from './graphql-types.d';
 import { ReplaceComponentRendererArgs } from 'gatsby';
 
 export type ITemplateProps<T> = ReplaceComponentRendererArgs['props'] & {
@@ -20,3 +21,10 @@ export interface IPostTemplateContext {
 }
 
 export type IPostFrontmatter = Pick<IPostTemplateContext, 'title' | 'slug'>;
+
+export interface IPostListTemplateContext {
+  title: string;
+  pagePath: string;
+  category: string;
+  nodes: Array<Pick<MarkdownRemark, 'frontmatter' | 'excerpt' | 'id'>>;
+}

@@ -6,6 +6,8 @@ module.exports = {
       padding: '1rem',
     },
   },
-  variants: {},
+  variants: {
+    margin: ['responsive', 'last'],
+  },
   plugins: [],
 };

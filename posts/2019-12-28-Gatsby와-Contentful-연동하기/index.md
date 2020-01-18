@@ -1,6 +1,7 @@
 ---
 title: Gatsby와 Contentful 연동하기
 date: 2019-12-28T02:00:40.119Z
+category: development
 slug: /posts/integration-gatsby-with-contentful
 tags: ['gatsby', 'contentful']
 type: post

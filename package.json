@@ -6,6 +6,7 @@
   "author": "iamchanii <iamchanii.0310@gmail.com>",
   "dependencies": {
     "@emotion/core": "^10.0.27",
+    "@types/lodash.startcase": "^4.4.6",
     "@types/typography": "^0.16.3",
     "clsx": "^1.0.4",
     "date-fns": "^2.4.1",
@@ -35,6 +36,7 @@
     "gatsby-source-filesystem": "^2.1.28",
     "gatsby-transformer-remark": "^2.6.27",
     "gatsby-transformer-sharp": "^2.2.19",
+    "lodash.startcase": "^4.4.0",
     "open-color": "^1.7.0",
     "prismjs": "^1.17.1",
     "react": "^16.10.1",

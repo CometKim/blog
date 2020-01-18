@@ -1,6 +1,7 @@
 ---
 title: 2019년 회고
 date: 2019-12-15T11:23:32.158Z
+category: development
 slug: /retrospective-of-2019
 tags: ['회고', 'retrospective']
 type: post

@@ -1,6 +1,7 @@
 ---
 title: 디자인 토큰 삽질기
 date: 2019-12-06T11:56:12.817Z
+category: development
 slug: /posts/some-waste-of-times-for-design-token
 tags: ['design token', '디자인 토큰', '디자인 시스템']
 type: post

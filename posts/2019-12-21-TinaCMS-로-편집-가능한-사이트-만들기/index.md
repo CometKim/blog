@@ -1,6 +1,7 @@
 ---
 title: TinaCMS로 편집 가능한 홈페이지 만들기
 date: 2019-12-21T07:14:48.240Z
+category: development
 slug: /posts/build-a-funny-homepage-with-tina-cms
 tags: ['tinacms', 'gatsby', '블로그', '홈페이지']
 type: post
@@ -277,7 +278,12 @@ if (node.content) {
 일단 따라서 나도 해 보기로 했다. `gatsby-node.js`에 `onCreateNode` API를 아래와 같이 작성했다.
 
 ```js
-exports.onCreateNode = ({ node, actions, createNodeId, createContentDigest }) => {
+exports.onCreateNode = ({
+  node,
+  actions,
+  createNodeId,
+  createContentDigest,
+}) => {
   const { createNode, createNodeField, createParentChildLink } = actions;
 
   if (node.internal.type === '?') {
@@ -294,7 +300,12 @@ exports.onCreateNode = ({ node, actions, createNodeId, createContentDigest }) =>
 그리고 아래와 같이 `onCreateNode` API를 완성했다. 완성이라기 보다 Tina Grande 의 내용을 가져왔다.
 
 ```js
-exports.onCreateNode = ({ node, actions, createNodeId, createContentDigest }) => {
+exports.onCreateNode = ({
+  node,
+  actions,
+  createNodeId,
+  createContentDigest,
+}) => {
   const { createNode, createNodeField } = actions;
 
   if (node.internal.type === 'PagesJson') {

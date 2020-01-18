@@ -1,6 +1,7 @@
 ---
 title: 모노레포로 리액트 프로젝트 만들기
 date: 2019-11-08T06:43:01.488Z
+category: development
 slug: /posts/make-react-app-with-monorepo
 tags: ['monorepo', '모노레포', '리액트', 'react', 'lerna']
 type: post

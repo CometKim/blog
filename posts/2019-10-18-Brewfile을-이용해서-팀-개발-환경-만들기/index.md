@@ -1,6 +1,7 @@
 ---
 title: Brewfile을 이용해서 팀 개발 환경 만들기
 date: 2019-10-18T08:53:52.545Z
+category: development
 slug: /posts/lets-setup-team-development-environment-using-brewfile
 tags: ['homebrew', 'brewfile', 'team', '팀', '개발환경']
 type: post

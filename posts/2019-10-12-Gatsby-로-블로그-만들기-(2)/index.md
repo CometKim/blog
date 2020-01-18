@@ -1,6 +1,7 @@
 ---
 title: Gatsby 로 블로그 만들기 (2)
 date: 2019-10-12T05:36:06.653Z
+category: development
 slug: /posts/build-a-blog-with-gatsby-and-typescript-part-2
 tags: ['gatsby', 'typescript', 'blog', '블로그']
 type: post

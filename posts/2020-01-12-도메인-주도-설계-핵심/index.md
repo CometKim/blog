@@ -1,6 +1,7 @@
 ---
 title: 도메인 주도 설계 핵심
 date: 2020-01-12T09:37:30.359Z
+category: book
 slug: /posts/domain-driven-design-distilled
 tags: ['DDD', '도메인', '도메인 주도 설계']
 type: post

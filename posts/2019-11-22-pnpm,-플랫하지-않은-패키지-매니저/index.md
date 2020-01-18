@@ -1,6 +1,7 @@
 ---
 title: pnpm, 플랫하지 않은 패키지 매니저
 date: 2019-11-23T12:48:35.469Z
+category: development
 slug: /posts/pnpm-a-manager-what-is-not-flat
 tags: ['pnpm', '패키지 매니저']
 type: post

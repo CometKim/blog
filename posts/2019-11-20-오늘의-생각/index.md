@@ -1,6 +1,7 @@
 ---
 title: 2019-11-20 오늘의 생각
 date: 2019-11-20T12:08:17.300Z
+category: development
 slug: /posts/2019-11-20-today-what-i-think
 tags: ['twit']
 type: post

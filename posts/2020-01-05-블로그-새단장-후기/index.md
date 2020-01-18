@@ -46,7 +46,7 @@ Tailwind CSS는 저수준의 유틸리티 클래스만을 제공하고, 이를 �
 
 ## backdrop-filter CSS 적용
 
-상단 `header` 배경에 흰색을 적용한 뒤, `css>position: fixed`를 적용했다.
+상단 `header` 배경에 흰색을 적용한 뒤, `position: fixed`를 적용했다.
 화면 상단에 걸리는건 좋은데, 사진이나 본문이 뚝 잘려 보이는 점이 언제나 거슬렸다.
 
 그러던 중, 얼마전에 [Apple Music](https://www.apple.com/apple-music/) 사이트에 들어가 봤는데,

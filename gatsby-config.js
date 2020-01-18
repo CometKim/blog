@@ -1,12 +1,14 @@
 module.exports = {
   siteMetadata: {
     title: 'imch.dev',
-    description: '이찬희 개발 블로그입니다. 지금 제가 가장 관심있는 주제를 다루고 있습니다.',
+    description:
+      '이찬희 개발 블로그입니다. 지금 제가 가장 관심있는 주제를 다루고 있습니다.',
     author: 'iamchanii',
     siteUrl: 'https://imch.dev',
     profileCard: {
       name: '이찬희',
-      description: '리액트와 타입스크립트를 사용하여 즐겁게 개발하고 있고, UX/UI에 관심이 많습니다.',
+      description:
+        '리액트와 타입스크립트를 사용하여 즐겁게 개발하고 있고, UX/UI에 관심이 많습니다.',
       github: 'https://github.com/iamchanii',
     },
   },
@@ -65,9 +67,7 @@ module.exports = {
           'gatsby-remark-autolink-headers',
           {
             resolve: 'gatsby-remark-prismjs',
-            options: {
-              inlineCodeMarker: '>',
-            },
+            options: {},
           },
           'gatsby-remark-external-links',
         ],
@@ -162,7 +162,8 @@ module.exports = {
         serialize: ({ site, allSitePage }) =>
           allSitePage.edges.map(edge => {
             return {
-              url: site.siteMetadata.siteUrl + edge.node.path.replace(/\/$/, ''),
+              url:
+                site.siteMetadata.siteUrl + edge.node.path.replace(/\/$/, ''),
               changefreq: `daily`,
               priority: 0.7,
             };
@@ -172,7 +173,10 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-robots-txt',
       options: {
-        policy: [{ userAgent: '*', allow: '/' }, { userAgent: '*', disallow: '/about' }],
+        policy: [
+          { userAgent: '*', allow: '/' },
+          { userAgent: '*', disallow: '/about' },
+        ],
       },
     },
     // this (optional) plugin enables Progressive Web App + Offline functionality

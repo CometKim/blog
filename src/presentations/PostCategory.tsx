@@ -35,7 +35,7 @@ const PostCategory: React.FC = memo(() => {
     allMarkdownRemark: { totalCount, categories },
   } = useStaticQuery(graphql`
     {
-      allMarkdownRemark {
+      allMarkdownRemark(filter: { frontmatter: { type: { eq: "post" } } }) {
         totalCount
         categories: group(field: frontmatter___category) {
           category: fieldValue

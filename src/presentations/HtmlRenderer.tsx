@@ -11,19 +11,19 @@ const htmlRendererCss = css`
   h4,
   h5,
   h6 {
-    ${tw`font-bold text-gray-900 my-4`}
+    ${tw`font-bold text-gray-900 my-4 leading-tight`}
   }
 
   h1 {
-    ${tw`text-3xl mt-8`}
+    ${tw`text-2xl md:text-3xl mt-8`}
   }
 
   h2 {
-    ${tw`text-2xl`}
+    ${tw`text-lg md:text-2xl`}
   }
 
   h3 {
-    ${tw`text-lg`}
+    ${tw`text-normal md:text-lg`}
   }
 
   hr {

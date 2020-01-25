@@ -39,7 +39,7 @@ const htmlRendererCss = css`
   }
 
   .gatsby-highlight {
-    ${tw`my-4`}
+    ${tw`my-8`}
   }
 
   :not(li) {

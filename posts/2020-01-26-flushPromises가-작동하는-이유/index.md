@@ -8,6 +8,8 @@ type: post
 thumbnail: thumbnail.png
 ---
 
+![flushPromises가 작동하는 이유](thumbnail.png)
+
 테스트 코드를 작성하다 보면, 비동기 처리를 기다리기 위해 flushPromises를 쓰는 경우가 종종 있다. 공식 Node API도 아닌 이 헬퍼 함수가 어떻게 작동하는지 궁금해서 검색하다가, 누군가 남긴 이슈의 답변이 괜찮아서 번역 해 봤다.
 
 <!-- end -->
@@ -18,9 +20,7 @@ thumbnail: thumbnail.png
 _(역주: 트위터 타임라인에서 먼저 물어봤었음.)_
 
 ```js
-const scheduler = typeof setImmedate === 'function'
-  ? setImmediate
-  : setTimeout;
+const scheduler = typeof setImmedate === 'function' ? setImmediate : setTimeout;
 
 export function flushPromises() {
   return new Promise(res => scheduler(res));

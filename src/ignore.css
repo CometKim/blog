@@ -15,7 +15,8 @@
   max-width: 633px;
   margin-left: -2rem;
   margin-right: -2rem;
-  @apply text-sm px-8;
+  font-size: 12px;
+  @apply px-8;
 }
 
 .gatsby-highlight .gatsby-highlight-code-line {
@@ -26,7 +27,13 @@
 
 @screen sm {
   .gatsby-highlight > pre {
-    @apply block mx-auto w-full rounded px-4;
+    @apply block mx-auto w-full rounded px-4 text-sm;
+  }
+
+  .gatsby-highlight .gatsby-highlight-code-line {
+    margin-left: -1rem;
+    margin-right: -1rem;
+    @apply px-4;
   }
 }
 

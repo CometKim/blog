@@ -18,6 +18,12 @@
   @apply text-sm px-8;
 }
 
+.gatsby-highlight .gatsby-highlight-code-line {
+  margin-left: -2rem;
+  margin-right: -2rem;
+  @apply px-8;
+}
+
 @screen sm {
   .gatsby-highlight > pre {
     @apply block mx-auto w-full rounded px-4;

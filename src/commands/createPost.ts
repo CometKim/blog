@@ -3,24 +3,21 @@ import fs from 'mz/fs';
 import path from 'path';
 import { format } from 'date-fns';
 
-const template = `
----
-title: $TITLE$
-date: $DATE$
-slug: $SLUG$
----
-
-내용을 입력하세요.
-`;
-
 (async () => {
-  const { title, slug } = await inquirer.prompt([
+  const { title, slug, category } = await inquirer.prompt([
     { name: 'title', message: '포스트 제목을 입력하세요:', type: 'input' },
     {
       name: 'slug',
       message: '주소를 입력 해 주세요:',
       type: 'input',
       filter: (value: string) => (value.startsWith('/') ? value : '/' + value),
+    },
+    {
+      name: 'category',
+      message: '카테고리를 선택하세요:',
+      type: 'list',
+      choices: ['development', 'book'],
+      default: 'development',
     },
   ]);
 
@@ -36,13 +33,17 @@ slug: $SLUG$
     '---',
     `title: ${title}`,
     `date: ${now.toISOString()}`,
+    `category: ${category}`,
     `slug: ${slug}`,
     'tags: []',
     'type: post',
     'thumbnail: thumbnail.png',
     '---',
     '',
-    '내용'
+    '요약',
+    '',
+    '<!-- end -->',
+    '',
   ].join('\n');
 
   await fs.writeFile(filePath, data, {

@@ -29,6 +29,11 @@ import { format } from 'date-fns';
 
   await fs.mkdir(folderPath);
 
+  fs.copyFileSync(
+    path.join(path.dirname(__filename), 'sampleThumbnail.png'),
+    path.join(folderPath, 'thumbnail.png'),
+  );
+
   const data = [
     '---',
     `title: ${title}`,
@@ -39,6 +44,8 @@ import { format } from 'date-fns';
     'type: post',
     'thumbnail: thumbnail.png',
     '---',
+    '',
+    `![${title}](thumbnail.png)`,
     '',
     '요약',
     '',

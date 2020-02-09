@@ -11,8 +11,7 @@ import HtmlRenderer from '../presentations/HtmlRenderer';
 import ProfileCard from '../presentations/ProfileCard';
 import SEO from '../presentations/SEO';
 
-const previousOrNextBlockCss = css`
-`;
+const previousOrNextBlockCss = css``;
 
 type IPostTemplateProps = ITemplateProps<IPostTemplateContext>;
 
@@ -95,7 +94,7 @@ const PostTemplate: React.FC<IPostTemplateProps> = React.memo(props => {
         <PreviousOrNextPostCard next={next} />
       </div>
 
-      <Utterances repo="iamchanii/blog" />
+      <Utterances repo="iamchanii/blog" url={siteUrl + slug} />
     </article>
   );
 });

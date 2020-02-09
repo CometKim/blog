@@ -1,26 +1,22 @@
-import React, { createRef, useLayoutEffect, useRef } from 'react';
+import React, { createRef, useEffect } from 'react';
 
 const src = 'https://utteranc.es/client.js';
 
 export interface IUtterancesProps {
   repo: string;
+  url: string;
 }
 
-const Utterances: React.FC<IUtterancesProps> = React.memo(({ repo }) => {
+const Utterances: React.FC<IUtterancesProps> = React.memo(({ repo, url }) => {
   const containerRef = createRef<HTMLDivElement>();
-  const initialized = useRef(false);
 
-  useLayoutEffect(() => {
-    if (initialized.current) {
-      return;
-    }
-
+  useEffect(() => {
     const utterances = document.createElement('script');
 
     const attributes = {
       src,
       repo,
-      'issue-term': 'url',
+      'issue-term': url,
       label: 'comments 🙌',
       theme: 'github-light',
       crossOrigin: 'anonymous',
@@ -32,8 +28,6 @@ const Utterances: React.FC<IUtterancesProps> = React.memo(({ repo }) => {
     });
 
     containerRef.current.appendChild(utterances);
-
-    initialized.current = true;
   }, [repo]);
 
   return <div ref={containerRef} />;

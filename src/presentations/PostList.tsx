@@ -4,11 +4,16 @@ import PostHeader from './PostHeader';
 import { IPostListTemplateContext } from '../interface';
 import css from '@emotion/css';
 
+const postListCss = css`
+  margin-left: -1rem;
+  margin-right: -1rem;
+`;
+
 type IPostListProps = Pick<IPostListTemplateContext, 'nodes'>;
 
 const PostList: React.FC<IPostListProps> = memo(({ nodes }) => {
   return (
-    <ul>
+    <ul css={postListCss}>
       {nodes.map(({ id, excerpt, frontmatter: { title, slug, date } }) => (
         <li key={id} className="mb-4">
           <Link

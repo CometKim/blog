@@ -67,7 +67,13 @@ module.exports = {
           'gatsby-remark-autolink-headers',
           {
             resolve: 'gatsby-remark-prismjs',
-            options: {},
+            options: {
+              prompt: {
+                user: 'root',
+                host: 'localhost',
+                global: true,
+              },
+            },
           },
           'gatsby-remark-external-links',
         ],

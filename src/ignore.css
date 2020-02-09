@@ -13,8 +13,8 @@
 
 .gatsby-highlight > pre {
   max-width: 633px;
-  margin-left: -2rem;
-  margin-right: -2rem;
+  margin-left: -1rem;
+  margin-right: -1rem;
   font-size: 12px;
   @apply px-8;
 }
@@ -58,12 +58,12 @@ a:hover {
 }
 
 .command-line-prompt > span:first-child:before {
-  @apply block pr-3 text-gray-500;
+  @apply block text-gray-500;
   content: '';
 }
 
 .command-line-prompt > span[data-user]:first-child:before {
-  content: '$';
+  content: '$ ';
 }
 
 .command-line-prompt > span[data-prompt]:before {

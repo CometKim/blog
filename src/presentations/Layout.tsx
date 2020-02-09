@@ -92,7 +92,7 @@ const Layout: React.FC = React.memo(({ children }) => {
         id="header"
         ref={headerRef}
         css={headerCss}
-        className="flex justify-between items-center fixed top-0 left-0 right-0 z-10 md:px-8 md:py-4 md:h-16 px-8 h-12"
+        className="flex justify-between items-center fixed top-0 left-0 right-0 z-10 md:px-8 md:py-4 md:h-16 px-4 h-12"
       >
         <Link className="font-bold text-base md:text-lg" to="/" title="게시글 목록으로 이동">
           imch.dev

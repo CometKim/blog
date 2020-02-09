@@ -12,14 +12,22 @@ import ProfileCard from '../presentations/ProfileCard';
 import SEO from '../presentations/SEO';
 
 const previousOrNextBlockCss = css`
-  margin-left: -1rem;
-  margin-right: -1rem;
 `;
 
 type IPostTemplateProps = ITemplateProps<IPostTemplateContext>;
 
 const PostTemplate: React.FC<IPostTemplateProps> = React.memo(props => {
-  const { title, date, html, excerpt, next, previous, slug, wordCount, thumbnailUrl } = props.pageContext;
+  const {
+    title,
+    date,
+    html,
+    excerpt,
+    next,
+    previous,
+    slug,
+    wordCount,
+    thumbnailUrl,
+  } = props.pageContext;
 
   const {
     site: {
@@ -36,8 +44,14 @@ const PostTemplate: React.FC<IPostTemplateProps> = React.memo(props => {
   `);
 
   return (
-    <article className="p-4">
-      <SEO title={title} description={excerpt} url={slug} isBlogPost imageUrl={siteUrl + thumbnailUrl} />
+    <article className="py-4">
+      <SEO
+        title={title}
+        description={excerpt}
+        url={slug}
+        isBlogPost
+        imageUrl={siteUrl + thumbnailUrl}
+      />
 
       {/* Article JSON-LD */}
       <JsonLd<BlogPosting>

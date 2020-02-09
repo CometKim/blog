@@ -49,6 +49,10 @@ const htmlRendererCss = css`
     }
   }
 
+  li {
+    ${tw`whitespace-pre-line`}
+  }
+
   ul {
     li {
       ${tw`relative pl-4 my-1`}

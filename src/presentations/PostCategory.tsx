@@ -46,7 +46,7 @@ const PostCategory: React.FC = memo(() => {
   `);
 
   return (
-    <nav className="p-4">
+    <nav className="py-4">
       <ul className="flex mb-2">
         <PostCategoryItem name="All" count={totalCount} link="/" />
         {renderCategoryItem(categories)}

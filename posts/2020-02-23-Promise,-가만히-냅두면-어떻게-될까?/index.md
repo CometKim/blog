@@ -185,3 +185,9 @@ it('콘텐츠 목록을 불러와서 표시할 수 있다.', async () => {
 다만 리액트 내에서 사용할 때 가비지 콜렉팅이 어떻게 이뤄지는지 알지 않으면 메모리 누수를 유발하게 될 것이다.
 
 다음에는 가비지 콜렉팅에 대해 정리를 해야겠다. 많이 어려울 것 같다.
+
+---
+
+### Reference
+
+- https://stackoverflow.com/questions/36734900/what-happens-if-you-dont-resolve-or-reject-a-promise

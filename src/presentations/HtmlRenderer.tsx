@@ -34,6 +34,10 @@ const htmlRendererCss = css`
     ${tw`my-8`}
   }
 
+  blockquote {
+    ${tw`my-8 text-gray-600 pl-4 border-gray-200 border-l-2`}
+  }
+
   figcaption {
     ${tw`text-center text-sm text-gray-700 mt-4`}
   }
@@ -73,7 +77,8 @@ const htmlRendererCss = css`
     }
   }
 
-  :not(li) > p {
+  :not(li) > p,
+  blockquote > p {
     ${tw`mb-4`}
   }
 

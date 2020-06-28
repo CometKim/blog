@@ -19,7 +19,7 @@ API 호출은 클라이언트에서 빼먹을 수 없는 부분이다. 일반적
 https://www.youtube.com/watch?v=v77fjkKQTH0
 
 Don't Mock Fetch(or Axios). Fetch나 Axios를 모킹하지 말란다. 썸네일을 보고 든 생각은 "그럼 어떻게 테스트 코드를 작성하라는 것인가?"였다.
-영상의 요지는 [jest-fetch-mock](https://github.com/jefflau/jest-fetch-mock)이나 [axios-mock-adapter](https://github.com/ctimmerm/axios-mock-adapter)처럼 테스트 환경을 확장하거나, [json-server](https://github.com/typicode/json-server) 등으로 서버를 실행하는 방법 대신, [Mock Service Worker](https://mswjs.io/)*(이하 MSW)*를 사용하여 실제 사용자처럼 테스트를 작성하라고 한다.
+영상의 요지는 [jest-fetch-mock](https://github.com/jefflau/jest-fetch-mock)이나 [axios-mock-adapter](https://github.com/ctimmerm/axios-mock-adapter)처럼 모킹하는 방법 대신, [Mock Service Worker](https://mswjs.io/)*(이하 MSW)*를 사용하여 실제 사용자처럼 테스트를 작성하라고 한다.
 
 실제 사용자처럼 테스트를 한다는 것은 어떤 의미일까? MSW 공식 문서의 [서비스 워커를 사용하는 이유](https://mswjs.io/docs/#why-service-workers)에 따르면,
 

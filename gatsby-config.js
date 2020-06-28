@@ -48,6 +48,7 @@ module.exports = {
       options: {
         excerpt_separator: '<!-- end -->',
         plugins: [
+          'gatsby-remark-embedder',
           {
             resolve: 'gatsby-remark-images',
             options: {

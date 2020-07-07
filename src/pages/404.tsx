@@ -3,7 +3,7 @@ import React from 'react';
 import SEO from '../presentations/SEO';
 
 const handleClickBack = () => {
-  navigate('/posts');
+  navigate('/');
 };
 
 const NotFound: React.FC = React.memo(() => {

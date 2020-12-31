@@ -1,26 +1,37 @@
-import { graphql, useStaticQuery } from 'gatsby';
-import React from 'react';
-import SEO from '../presentations/SEO';
-import HtmlRenderer from '../presentations/HtmlRenderer';
-import Layout from '../presentations/Layout';
+import { graphql, PageProps } from 'gatsby';
+import React, { FC } from 'react';
+import { AboutCareers } from '../features/about/AboutCareers';
+import { AboutProfileCard } from '../features/about/AboutProfileCard';
+import { AboutProfileImage } from '../features/about/AboutProfileImage';
+import { Layout } from '../features/layout/Layout';
+import { SEO } from '../features/seo/SEO';
 
-const ResumePage: React.FC = React.memo(() => {
-  const { markdownRemark } = useStaticQuery(graphql`
-    {
-      markdownRemark(frontmatter: { type: { eq: "about" } }) {
-        html
+const AboutPage: FC<PageProps<any>> = ({ data }) => (
+  <Layout>
+    <SEO title="About" url="about" />
+    <AboutProfileImage />
+    <AboutProfileCard />
+    <AboutCareers />
+  </Layout>
+);
+
+AboutPage.displayName = 'AboutPage';
+
+export default AboutPage;
+
+export const query = graphql`
+  query About {
+    prismicAbout {
+      data {
+        careers {
+          company_name
+          description {
+            html
+          }
+          end_date
+          from_date
+        }
       }
     }
-  `);
-
-  return (
-    <Layout>
-      <SEO title="About" url="/about" />
-      <HtmlRenderer html={markdownRemark.html} />
-    </Layout>
-  );
-});
-
-ResumePage.displayName = 'ResumePage';
-
-export default ResumePage;
+  }
+`;

@@ -1,24 +1,21 @@
-import { navigate } from 'gatsby';
-import React from 'react';
-import SEO from '../presentations/SEO';
+import { withUnpublishedPreview } from 'gatsby-source-prismic';
+import React, { FC } from 'react';
+import { Layout } from '../features/layout/Layout';
+import PostTemplate from '../features/post/PostTemplate';
+import AboutPage from './about';
 
-const handleClickBack = () => {
-  navigate('/');
-};
+const NotFoundPage: FC = () => (
+  <Layout>
+    <h1>404: Not Found</h1>
+    <p>You just hit a route that doesn&#39;t exist... the sadness.</p>
+  </Layout>
+);
 
-const NotFound: React.FC = React.memo(() => {
-  return (
-    <>
-      <SEO title="404: Not found" url="/404" />
-      <div>
-        <h2>404</h2>
-        <p>음, 잘못 입력 하신거 같은데요?</p>
-        <button onClick={handleClickBack}>돌아가기</button>
-      </div>
-    </>
-  );
+NotFoundPage.displayName = 'NotFoundPage';
+
+export default withUnpublishedPreview(NotFoundPage, {
+  templateMap: {
+    post: PostTemplate,
+    about: AboutPage,
+  },
 });
-
-NotFound.displayName = 'NotFound';
-
-export default NotFound;

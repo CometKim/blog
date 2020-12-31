@@ -1,0 +1,134 @@
+{
+  "Main": {
+    "category": {
+      "type": "Select",
+      "config": {
+        "options": [
+          "development",
+          "book"
+        ],
+        "default_value": "development",
+        "label": "category",
+        "placeholder": "카테고리를 선택하세요"
+      }
+    },
+    "uid": {
+      "type": "UID",
+      "config": {
+        "label": "slug",
+        "placeholder": "slug"
+      }
+    },
+    "title": {
+      "type": "StructuredText",
+      "config": {
+        "single": "heading1",
+        "label": "title",
+        "placeholder": "제목을 입력하세요"
+      }
+    },
+    "migrated_date": {
+      "type": "Date",
+      "config": {
+        "label": "migrated_date",
+        "placeholder": "예전에 작성한 글을 옮기는 경우 여기에 작성 일자를 입력해주세요."
+      }
+    },
+    "cover_image": {
+      "type": "Image",
+      "config": {
+        "constraint": {
+          "width": 640
+        },
+        "thumbnails": [],
+        "label": "커버 이미지"
+      }
+    },
+    "body": {
+      "type": "Slices",
+      "fieldset": "Slice zone",
+      "config": {
+        "labels": {
+          "text": [
+            {
+              "name": "...",
+              "display": ""
+            }
+          ],
+          "image": [],
+          "hr": [
+            {
+              "name": "separator",
+              "display": "separator"
+            }
+          ]
+        },
+        "choices": {
+          "text": {
+            "type": "Slice",
+            "fieldset": "텍스트",
+            "description": "Rich Text Section",
+            "icon": "text_fields",
+            "non-repeat": {
+              "content": {
+                "type": "StructuredText",
+                "config": {
+                  "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, rtl",
+                  "label": "content"
+                }
+              }
+            },
+            "repeat": {},
+            "display": "list"
+          },
+          "image": {
+            "type": "Slice",
+            "fieldset": "이미지",
+            "description": "이미지",
+            "icon": "image",
+            "display": "list",
+            "non-repeat": {
+              "image": {
+                "type": "Image",
+                "config": {
+                  "constraint": {
+                    "width": 640
+                  },
+                  "thumbnails": [],
+                  "label": "이미지"
+                }
+              }
+            },
+            "repeat": {}
+          },
+          "quote": {
+            "type": "Slice",
+            "fieldset": "Quote",
+            "description": "A short quote with author's portrait",
+            "icon": "add_alert",
+            "non-repeat": {
+              "quote": {
+                "type": "StructuredText",
+                "config": {
+                  "single": "em",
+                  "label": "Quote",
+                  "placeholder": "Your quote"
+                }
+              }
+            },
+            "repeat": {}
+          },
+          "hr": {
+            "type": "Slice",
+            "fieldset": "구분선",
+            "description": "구분선",
+            "icon": "face",
+            "display": "list",
+            "non-repeat": {},
+            "repeat": {}
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,75 @@
+{
+  "Main": {
+    "profile": {
+      "type": "Image",
+      "config": {
+        "constraint": {
+          "width": 200,
+          "height": 200
+        },
+        "thumbnails": [],
+        "label": "profile"
+      }
+    },
+    "name": {
+      "type": "StructuredText",
+      "config": {
+        "single": "heading6",
+        "label": "name",
+        "placeholder": "이름을 입력하세요"
+      }
+    },
+    "description": {
+      "type": "StructuredText",
+      "config": {
+        "single": "paragraph",
+        "label": "description",
+        "placeholder": "간단한 소개를 입력하세요"
+      }
+    },
+    "github_link": {
+      "type": "Link",
+      "config": {
+        "label": "github_link",
+        "placeholder": "GitHub 주소를 입력하세요"
+      }
+    },
+    "careers": {
+      "type": "Group",
+      "config": {
+        "fields": {
+          "company_name": {
+            "type": "Text",
+            "config": {
+              "label": "회사명",
+              "placeholder": "회사명을 입력하세요"
+            }
+          },
+          "from_date": {
+            "type": "Date",
+            "config": {
+              "label": "시작일",
+              "placeholder": "재직 시작일을 입력하세요"
+            }
+          },
+          "end_date": {
+            "type": "Date",
+            "config": {
+              "label": "종료일",
+              "placeholder": "재직 종료일을 입력하세요"
+            }
+          },
+          "description": {
+            "type": "StructuredText",
+            "config": {
+              "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, rtl",
+              "label": "설명",
+              "placeholder": "경력에 대한 설명을 입력하세요"
+            }
+          }
+        },
+        "label": "경력"
+      }
+    }
+  }
+}

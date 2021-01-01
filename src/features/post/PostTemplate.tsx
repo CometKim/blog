@@ -63,13 +63,15 @@ const PostTemplate: FC<PageProps<PostTemplateQuery>> = ({ data }) => {
         item={{
           '@context': 'https://schema.org',
           '@type': 'BlogPosting',
-          mainEntityOfPage: {
-            '@type': 'WebPage',
-            '@id': new URL(
-              `/posts/${data.prismicPost?.uid}`,
-              data.site?.siteMetadata?.siteUrl!
-            ).href,
-          },
+          ...(data.site?.siteMetadata?.siteUrl && {
+            mainEntityOfPage: {
+              '@type': 'WebPage',
+              '@id': new URL(
+                `/posts/${data.prismicPost?.uid}`,
+                data.site?.siteMetadata?.siteUrl
+              ).href,
+            },
+          }),
           headline: data.prismicPost?.data?.title?.text!,
           author: {
             '@type': 'Person',
